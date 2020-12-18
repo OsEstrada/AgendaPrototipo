@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -173,11 +174,20 @@ namespace Calendario
             panel_month.BringToFront();
         }
 
+        private void panelScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+
+            
+        }
+
+
         private void iconButton1_Click(object sender, EventArgs e)
         {
             this.Controls.Remove(Days);
             this.Controls.Remove(DaysOfWeek);
 
         }
+
+
     }
 }

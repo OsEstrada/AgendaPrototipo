@@ -96,7 +96,7 @@
             this.panel_month.Location = new System.Drawing.Point(0, 0);
             this.panel_month.Margin = new System.Windows.Forms.Padding(0);
             this.panel_month.Name = "panel_month";
-            this.panel_month.Size = new System.Drawing.Size(1355, 835);
+            this.panel_month.Size = new System.Drawing.Size(1355, 832);
             this.panel_month.TabIndex = 0;
             // 
             // tlDays
@@ -120,7 +120,7 @@
             this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
             this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
             this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
-            this.tlDays.Size = new System.Drawing.Size(1355, 732);
+            this.tlDays.Size = new System.Drawing.Size(1355, 729);
             this.tlDays.TabIndex = 6;
             // 
             // tlDaysOfWeek
@@ -347,7 +347,7 @@
             this.panel_day.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_day.Location = new System.Drawing.Point(0, 0);
             this.panel_day.Name = "panel_day";
-            this.panel_day.Size = new System.Drawing.Size(1355, 835);
+            this.panel_day.Size = new System.Drawing.Size(1355, 832);
             this.panel_day.TabIndex = 1;
             // 
             // panelScroll
@@ -359,8 +359,9 @@
             this.panelScroll.Location = new System.Drawing.Point(372, 0);
             this.panelScroll.Margin = new System.Windows.Forms.Padding(0);
             this.panelScroll.Name = "panelScroll";
-            this.panelScroll.Size = new System.Drawing.Size(983, 835);
+            this.panelScroll.Size = new System.Drawing.Size(983, 832);
             this.panelScroll.TabIndex = 6;
+            this.panelScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelScroll_Scroll);
             // 
             // tlHours
             // 
@@ -807,7 +808,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 835);
+            this.panel1.Size = new System.Drawing.Size(372, 832);
             this.panel1.TabIndex = 5;
             // 
             // btnReturn
@@ -857,10 +858,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1355, 835);
-            this.Controls.Add(this.panel_day);
             this.Controls.Add(this.panel_month);
+            this.Controls.Add(this.panel_day);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.Text = "Calendario";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_month.ResumeLayout(false);
