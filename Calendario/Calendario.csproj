@@ -157,6 +157,9 @@
     <Compile Include="Paises.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>
+    <Compile Include="PanelBuffered.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PersonaContactos.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>

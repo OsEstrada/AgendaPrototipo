@@ -110,7 +110,7 @@ namespace Calendario
                 var label = new Label();
                 label.AutoSize = false;
                 label.Text = $"{i - start + 1}";
-                label.Width = listDays[i].Width;
+                label.BackColor = Color.Aqua;
                 label.TextAlign = ContentAlignment.MiddleLeft;
                 label.Dock = DockStyle.Top;
                 listDays[i].Controls.Add(label);

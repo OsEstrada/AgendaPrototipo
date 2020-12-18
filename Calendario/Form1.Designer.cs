@@ -30,6 +30,8 @@
         {
             this.panel_month = new System.Windows.Forms.Panel();
             this.tlDays = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label33 = new System.Windows.Forms.Label();
             this.tlDaysOfWeek = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -46,7 +48,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.panel_day = new System.Windows.Forms.Panel();
-            this.panelScroll = new System.Windows.Forms.Panel();
+            this.panelScroll = new Calendario.PanelBuffered();
             this.tlHours = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label32 = new System.Windows.Forms.Label();
@@ -78,6 +80,8 @@
             this.MCal1 = new System.Windows.Forms.MonthCalendar();
             this.lblFechaCompleta = new System.Windows.Forms.Label();
             this.panel_month.SuspendLayout();
+            this.tlDays.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.tlDaysOfWeek.SuspendLayout();
             this.barra_titulo.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -109,6 +113,7 @@
             this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
             this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
             this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.Controls.Add(this.flowLayoutPanel1, 0, 0);
             this.tlDays.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlDays.Location = new System.Drawing.Point(0, 103);
             this.tlDays.Margin = new System.Windows.Forms.Padding(1);
@@ -122,6 +127,25 @@
             this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
             this.tlDays.Size = new System.Drawing.Size(1355, 729);
             this.tlDays.TabIndex = 6;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Controls.Add(this.label33);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(189, 117);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // label33
+            // 
+            this.label33.Location = new System.Drawing.Point(3, 0);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(185, 23);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "label33";
             // 
             // tlDaysOfWeek
             // 
@@ -356,12 +380,11 @@
             this.panelScroll.Controls.Add(this.tlHours);
             this.panelScroll.Controls.Add(this.tableLayoutPanel1);
             this.panelScroll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelScroll.DoubleBuffered = true;
             this.panelScroll.Location = new System.Drawing.Point(372, 0);
-            this.panelScroll.Margin = new System.Windows.Forms.Padding(0);
             this.panelScroll.Name = "panelScroll";
             this.panelScroll.Size = new System.Drawing.Size(983, 832);
             this.panelScroll.TabIndex = 6;
-            this.panelScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panelScroll_Scroll);
             // 
             // tlHours
             // 
@@ -371,7 +394,7 @@
             this.tlHours.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tlHours.ColumnCount = 1;
             this.tlHours.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlHours.Location = new System.Drawing.Point(134, 0);
+            this.tlHours.Location = new System.Drawing.Point(135, 1);
             this.tlHours.Margin = new System.Windows.Forms.Padding(0);
             this.tlHours.Name = "tlHours";
             this.tlHours.RowCount = 48;
@@ -423,8 +446,8 @@
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlHours.Size = new System.Drawing.Size(828, 1580);
-            this.tlHours.TabIndex = 9;
+            this.tlHours.Size = new System.Drawing.Size(807, 1580);
+            this.tlHours.TabIndex = 11;
             // 
             // tableLayoutPanel1
             // 
@@ -456,7 +479,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label10, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(1, 1);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 24;
@@ -485,7 +508,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(134, 1580);
-            this.tableLayoutPanel1.TabIndex = 8;
+            this.tableLayoutPanel1.TabIndex = 10;
             // 
             // label32
             // 
@@ -867,6 +890,8 @@
             this.Text = "Calendario";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_month.ResumeLayout(false);
+            this.tlDays.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.tlDaysOfWeek.ResumeLayout(false);
             this.barra_titulo.ResumeLayout(false);
             this.barra_titulo.PerformLayout();
@@ -902,8 +927,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblFechaCompleta;
         private System.Windows.Forms.MonthCalendar MCal1;
-        private System.Windows.Forms.Panel panelScroll;
+        private FontAwesome.Sharp.IconButton btnReturn;
+        private PanelBuffered panelScroll;
         private System.Windows.Forms.TableLayoutPanel tlHours;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
@@ -928,8 +955,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private FontAwesome.Sharp.IconButton btnReturn;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label33;
     }
 }
 
