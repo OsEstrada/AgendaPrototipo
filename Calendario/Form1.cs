@@ -157,9 +157,9 @@ namespace Calendario
 
         private void bringFrontDayView(DateTime date)
         {
-            panel_day.BringToFront();
-            lblFechaCompleta.Text = date.ToString("dd, MMMM, yyyy");
             MCal1.SetDate(today);
+            lblFechaCompleta.Text = date.ToString("dd, MMMM, yyyy");
+            panel_day.BringToFront();
             dateTemp = today;
         }
 

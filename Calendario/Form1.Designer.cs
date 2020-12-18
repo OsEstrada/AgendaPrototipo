@@ -46,9 +46,6 @@
             this.label21 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.panel_day = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblFechaCompleta = new System.Windows.Forms.Label();
-            this.MCal1 = new System.Windows.Forms.MonthCalendar();
             this.panelScroll = new System.Windows.Forms.Panel();
             this.tlHours = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -76,15 +73,18 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnReturn = new FontAwesome.Sharp.IconButton();
+            this.MCal1 = new System.Windows.Forms.MonthCalendar();
+            this.lblFechaCompleta = new System.Windows.Forms.Label();
             this.panel_month.SuspendLayout();
             this.tlDaysOfWeek.SuspendLayout();
             this.barra_titulo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_day.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panelScroll.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_month
@@ -350,41 +350,6 @@
             this.panel_day.Size = new System.Drawing.Size(1355, 835);
             this.panel_day.TabIndex = 1;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnReturn);
-            this.panel1.Controls.Add(this.MCal1);
-            this.panel1.Controls.Add(this.lblFechaCompleta);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 835);
-            this.panel1.TabIndex = 5;
-            // 
-            // lblFechaCompleta
-            // 
-            this.lblFechaCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFechaCompleta.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaCompleta.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFechaCompleta.Location = new System.Drawing.Point(0, 225);
-            this.lblFechaCompleta.Name = "lblFechaCompleta";
-            this.lblFechaCompleta.Size = new System.Drawing.Size(370, 32);
-            this.lblFechaCompleta.TabIndex = 0;
-            this.lblFechaCompleta.Text = "Dia,Mes, Año";
-            this.lblFechaCompleta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // MCal1
-            // 
-            this.MCal1.Location = new System.Drawing.Point(46, 303);
-            this.MCal1.Name = "MCal1";
-            this.MCal1.ShowToday = false;
-            this.MCal1.ShowTodayCircle = false;
-            this.MCal1.TabIndex = 1;
-            this.MCal1.TitleBackColor = System.Drawing.SystemColors.Highlight;
-            this.MCal1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.MCal1_DateSelected);
-            // 
             // panelScroll
             // 
             this.panelScroll.AutoScroll = true;
@@ -392,6 +357,7 @@
             this.panelScroll.Controls.Add(this.tableLayoutPanel1);
             this.panelScroll.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelScroll.Location = new System.Drawing.Point(372, 0);
+            this.panelScroll.Margin = new System.Windows.Forms.Padding(0);
             this.panelScroll.Name = "panelScroll";
             this.panelScroll.Size = new System.Drawing.Size(983, 835);
             this.panelScroll.TabIndex = 6;
@@ -405,57 +371,58 @@
             this.tlHours.ColumnCount = 1;
             this.tlHours.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlHours.Location = new System.Drawing.Point(134, 0);
+            this.tlHours.Margin = new System.Windows.Forms.Padding(0);
             this.tlHours.Name = "tlHours";
             this.tlHours.RowCount = 48;
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.083332F));
-            this.tlHours.Size = new System.Drawing.Size(828, 1500);
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tlHours.Size = new System.Drawing.Size(828, 1580);
             this.tlHours.TabIndex = 9;
             // 
             // tableLayoutPanel1
@@ -489,33 +456,34 @@
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 24;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.157007F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.159819F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.159819F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.159819F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.159819F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.159819F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.159819F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.2645F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.2645F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(134, 1500);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(134, 1580);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // label32
@@ -523,10 +491,10 @@
             this.label32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Location = new System.Drawing.Point(1, 1428);
+            this.label32.Location = new System.Drawing.Point(1, 1519);
             this.label32.Margin = new System.Windows.Forms.Padding(0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(132, 71);
+            this.label32.Size = new System.Drawing.Size(132, 65);
             this.label32.TabIndex = 23;
             this.label32.Text = "23:00-24:00";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -536,10 +504,10 @@
             this.label31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(1, 1365);
+            this.label31.Location = new System.Drawing.Point(1, 1453);
             this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(132, 62);
+            this.label31.Size = new System.Drawing.Size(132, 65);
             this.label31.TabIndex = 22;
             this.label31.Text = "22:00-23:00";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -549,10 +517,10 @@
             this.label30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(1, 1303);
+            this.label30.Location = new System.Drawing.Point(1, 1387);
             this.label30.Margin = new System.Windows.Forms.Padding(0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(132, 61);
+            this.label30.Size = new System.Drawing.Size(132, 65);
             this.label30.TabIndex = 21;
             this.label30.Text = "21:00-22:00";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -562,10 +530,10 @@
             this.label29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label29.ForeColor = System.Drawing.Color.White;
-            this.label29.Location = new System.Drawing.Point(1, 1241);
+            this.label29.Location = new System.Drawing.Point(1, 1321);
             this.label29.Margin = new System.Windows.Forms.Padding(0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(132, 61);
+            this.label29.Size = new System.Drawing.Size(132, 65);
             this.label29.TabIndex = 20;
             this.label29.Text = "20:00-21:00";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -575,10 +543,10 @@
             this.label28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(1, 1179);
+            this.label28.Location = new System.Drawing.Point(1, 1255);
             this.label28.Margin = new System.Windows.Forms.Padding(0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(132, 61);
+            this.label28.Size = new System.Drawing.Size(132, 65);
             this.label28.TabIndex = 19;
             this.label28.Text = "19:00-20:00";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -588,10 +556,10 @@
             this.label27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label27.ForeColor = System.Drawing.Color.White;
-            this.label27.Location = new System.Drawing.Point(1, 1117);
+            this.label27.Location = new System.Drawing.Point(1, 1189);
             this.label27.Margin = new System.Windows.Forms.Padding(0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(132, 61);
+            this.label27.Size = new System.Drawing.Size(132, 65);
             this.label27.TabIndex = 18;
             this.label27.Text = "18:00-19:00";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -601,10 +569,10 @@
             this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(1, 1055);
+            this.label26.Location = new System.Drawing.Point(1, 1123);
             this.label26.Margin = new System.Windows.Forms.Padding(0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(132, 61);
+            this.label26.Size = new System.Drawing.Size(132, 65);
             this.label26.TabIndex = 17;
             this.label26.Text = "17:00-18:00";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -614,10 +582,10 @@
             this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(1, 993);
+            this.label25.Location = new System.Drawing.Point(1, 1057);
             this.label25.Margin = new System.Windows.Forms.Padding(0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(132, 61);
+            this.label25.Size = new System.Drawing.Size(132, 65);
             this.label25.TabIndex = 16;
             this.label25.Text = "16:00-17:00";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -627,10 +595,10 @@
             this.label24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(1, 931);
+            this.label24.Location = new System.Drawing.Point(1, 991);
             this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(132, 61);
+            this.label24.Size = new System.Drawing.Size(132, 65);
             this.label24.TabIndex = 15;
             this.label24.Text = "15:00-16:00";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -640,10 +608,10 @@
             this.label23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(1, 869);
+            this.label23.Location = new System.Drawing.Point(1, 925);
             this.label23.Margin = new System.Windows.Forms.Padding(0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(132, 61);
+            this.label23.Size = new System.Drawing.Size(132, 65);
             this.label23.TabIndex = 14;
             this.label23.Text = "14:00-15:00";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -653,10 +621,10 @@
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label22.ForeColor = System.Drawing.Color.White;
-            this.label22.Location = new System.Drawing.Point(1, 807);
+            this.label22.Location = new System.Drawing.Point(1, 859);
             this.label22.Margin = new System.Windows.Forms.Padding(0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(132, 61);
+            this.label22.Size = new System.Drawing.Size(132, 65);
             this.label22.TabIndex = 13;
             this.label22.Text = "13:00-14:00";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -666,10 +634,10 @@
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(1, 745);
+            this.label20.Location = new System.Drawing.Point(1, 793);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(132, 61);
+            this.label20.Size = new System.Drawing.Size(132, 65);
             this.label20.TabIndex = 12;
             this.label20.Text = "12:00-13:00";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -679,10 +647,10 @@
             this.label19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(1, 683);
+            this.label19.Location = new System.Drawing.Point(1, 727);
             this.label19.Margin = new System.Windows.Forms.Padding(0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(132, 61);
+            this.label19.Size = new System.Drawing.Size(132, 65);
             this.label19.TabIndex = 11;
             this.label19.Text = "11:00-12:00";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -692,10 +660,10 @@
             this.label18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(1, 621);
+            this.label18.Location = new System.Drawing.Point(1, 661);
             this.label18.Margin = new System.Windows.Forms.Padding(0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(132, 61);
+            this.label18.Size = new System.Drawing.Size(132, 65);
             this.label18.TabIndex = 10;
             this.label18.Text = "10:00-11:00";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -705,10 +673,10 @@
             this.label17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(1, 559);
+            this.label17.Location = new System.Drawing.Point(1, 595);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(132, 61);
+            this.label17.Size = new System.Drawing.Size(132, 65);
             this.label17.TabIndex = 9;
             this.label17.Text = "9:00-10:00";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -718,10 +686,10 @@
             this.label16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(1, 497);
+            this.label16.Location = new System.Drawing.Point(1, 529);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(132, 61);
+            this.label16.Size = new System.Drawing.Size(132, 65);
             this.label16.TabIndex = 8;
             this.label16.Text = "8:00-9:00";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -731,10 +699,10 @@
             this.label15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(1, 435);
+            this.label15.Location = new System.Drawing.Point(1, 463);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(132, 61);
+            this.label15.Size = new System.Drawing.Size(132, 65);
             this.label15.TabIndex = 7;
             this.label15.Text = "7:00-8:00";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -744,10 +712,10 @@
             this.label14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(1, 373);
+            this.label14.Location = new System.Drawing.Point(1, 397);
             this.label14.Margin = new System.Windows.Forms.Padding(0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(132, 61);
+            this.label14.Size = new System.Drawing.Size(132, 65);
             this.label14.TabIndex = 6;
             this.label14.Text = "6:00-7:00";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -757,10 +725,10 @@
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(1, 311);
+            this.label13.Location = new System.Drawing.Point(1, 331);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(132, 61);
+            this.label13.Size = new System.Drawing.Size(132, 65);
             this.label13.TabIndex = 5;
             this.label13.Text = "5:00-6:00";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -770,10 +738,10 @@
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(1, 249);
+            this.label12.Location = new System.Drawing.Point(1, 265);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(132, 61);
+            this.label12.Size = new System.Drawing.Size(132, 65);
             this.label12.TabIndex = 4;
             this.label12.Text = "4:00-5:00";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -783,10 +751,10 @@
             this.label11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(1, 187);
+            this.label11.Location = new System.Drawing.Point(1, 199);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(132, 61);
+            this.label11.Size = new System.Drawing.Size(132, 65);
             this.label11.TabIndex = 3;
             this.label11.Text = "3:00-4:00";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -796,10 +764,10 @@
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(1, 125);
+            this.label10.Location = new System.Drawing.Point(1, 133);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 61);
+            this.label10.Size = new System.Drawing.Size(132, 65);
             this.label10.TabIndex = 2;
             this.label10.Text = "2:00-3:00";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -809,10 +777,10 @@
             this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(1, 63);
+            this.label9.Location = new System.Drawing.Point(1, 67);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 61);
+            this.label9.Size = new System.Drawing.Size(132, 65);
             this.label9.TabIndex = 1;
             this.label9.Text = "1:00-2:00";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -825,10 +793,22 @@
             this.label8.Location = new System.Drawing.Point(1, 1);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(132, 61);
+            this.label8.Size = new System.Drawing.Size(132, 65);
             this.label8.TabIndex = 0;
             this.label8.Text = "0:00-1:00";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnReturn);
+            this.panel1.Controls.Add(this.MCal1);
+            this.panel1.Controls.Add(this.lblFechaCompleta);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(372, 835);
+            this.panel1.TabIndex = 5;
             // 
             // btnReturn
             // 
@@ -848,14 +828,37 @@
             this.btnReturn.UseVisualStyleBackColor = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // MCal1
+            // 
+            this.MCal1.Location = new System.Drawing.Point(46, 303);
+            this.MCal1.Name = "MCal1";
+            this.MCal1.ShowToday = false;
+            this.MCal1.ShowTodayCircle = false;
+            this.MCal1.TabIndex = 1;
+            this.MCal1.TitleBackColor = System.Drawing.SystemColors.Highlight;
+            this.MCal1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.MCal1_DateSelected);
+            // 
+            // lblFechaCompleta
+            // 
+            this.lblFechaCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFechaCompleta.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaCompleta.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblFechaCompleta.Location = new System.Drawing.Point(0, 225);
+            this.lblFechaCompleta.Name = "lblFechaCompleta";
+            this.lblFechaCompleta.Size = new System.Drawing.Size(370, 32);
+            this.lblFechaCompleta.TabIndex = 0;
+            this.lblFechaCompleta.Text = "Dia,Mes, Año";
+            this.lblFechaCompleta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1355, 835);
-            this.Controls.Add(this.panel_month);
             this.Controls.Add(this.panel_day);
+            this.Controls.Add(this.panel_month);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Calendario";
@@ -866,9 +869,9 @@
             this.barra_titulo.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel_day.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.panelScroll.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
