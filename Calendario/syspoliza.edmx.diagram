@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9372770fc8354ce583836c7a6e68d989" Name="Diagram1">
+        <EntityTypeShape EntityType="syspolizaModel.Agenda" Width="1.5" PointX="30.75" PointY="39.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Aseguradoras" Width="1.5" PointX="9" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.AutomotorClase" Width="1.5" PointX="1.5" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Automotores" Width="1.5" PointX="0.75" PointY="44" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.AutomotoresCoberturas" Width="1.5" PointX="11.25" PointY="40.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.AutomotoresMarcas" Width="1.5" PointX="1.5" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.AutomotoresModelos" Width="1.5" PointX="1.5" PointY="54.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Bancos" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.BienesAsegurados" Width="1.5" PointX="16.5" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.CertificadoAutomotor" Width="1.5" PointX="3" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.CertificadoPersona" Width="1.5" PointX="6" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.CertificadoPersonaBeneficiario" Width="1.5" PointX="14.25" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Certificados" Width="1.5" PointX="17.25" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.CertificadoTransporte" Width="1.5" PointX="9" PointY="36.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Cuotas" Width="1.5" PointX="19.5" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Deducibles" Width="1.5" PointX="11.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Documentos" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Empresas" Width="1.5" PointX="3.75" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Exclusiones" Width="1.5" PointX="16.5" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.FormaDePago" Width="1.5" PointX="9" PointY="29.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.GastoFraccionado" Width="1.5" PointX="25.5" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.GastoInicial" Width="1.5" PointX="17.25" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.GrupoClientes" Width="1.5" PointX="6.75" PointY="46.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.HistorialUsuario" Width="1.5" PointX="27.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.HistoricoCuotas" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.HistoricoPagos" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.HistoricoPoliza" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.HistoricoPrima" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Inmuebles" Width="1.5" PointX="19.5" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Pagos" Width="1.5" PointX="24.75" PointY="31.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Paises" Width="1.5" PointX="6.75" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PersonaContactos" Width="1.5" PointX="11.25" PointY="50.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PersonaDirecciones" Width="1.5" PointX="11.25" PointY="53.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Personas" Width="1.5" PointX="9" PointY="43.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PolizaAutomotorCoberturas" Width="1.5" PointX="13.5" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PolizaCancelaciones" Width="1.5" PointX="13.5" PointY="54.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PolizaComentarios" Width="1.5" PointX="13.5" PointY="57.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PolizaDeducibles" Width="1.5" PointX="13.5" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PolizaGastosFraccionados" Width="1.5" PointX="27.75" PointY="33.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PolizaGastosIniciales" Width="1.5" PointX="19.5" PointY="38.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Polizas" Width="1.5" PointX="11.25" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PolizaTransporteCoberturas" Width="1.5" PointX="16.5" PointY="35" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.PolizaTransporteDocumento" Width="1.5" PointX="13.5" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Primas" Width="1.5" PointX="22.5" PointY="30.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Ramos" Width="1.5" PointX="6" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.ReclamoDocumento" Width="1.5" PointX="24.75" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Reclamos" Width="1.5" PointX="22.5" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.ReclamoSeguimiento" Width="1.5" PointX="27.75" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoBeneficiario" Width="1.5" PointX="12" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoBien" Width="1.5" PointX="14.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoCategoria" Width="1.5" PointX="3.75" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoCertificado" Width="1.5" PointX="0.75" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoContribuyentes" Width="1.5" PointX="1.5" PointY="31.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoDireccion" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoDocumentoLegal" Width="1.5" PointX="11.25" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoDocumentoReclamo" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoEndoso" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoEstatus" Width="1.5" PointX="9" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoGasto" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoPersona" Width="1.5" PointX="6.75" PointY="48.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoPlaca" Width="1.5" PointX="1.5" PointY="57.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoPoliza" Width="1.5" PointX="3.75" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TipoPrima" Width="1.5" PointX="20.25" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TransporteCoberturas" Width="1.5" PointX="14.25" PointY="45.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.TransporteDetalleFacturas" Width="1.5" PointX="11.25" PointY="44.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.UsuarioDepartamento" Width="1.5" PointX="23.25" PointY="47.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.UsuarioPuestoFuncional" Width="1.5" PointX="23.25" PointY="50" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.Usuarios" Width="1.5" PointX="25.5" PointY="47.375" IsExpanded="true" />
+        <AssociationConnector Association="syspolizaModel.FK_agendaempresa" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_agendausuario" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_aseguradora_pais" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZAASEGURADORAID_ASEGURADORAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_AUTOMOTORCLASEID_CLASEID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_AUTOMOTORMARCAID_MARCAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_AUTOMOTORMODELOID_MODELOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_polizaAutomotorCoberturas_AUTOMOTOR" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_polizaAutomotorCoberturas_COBERTURAS" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_BIENESASEGURADOS_CERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_BIENESASEGURADOSPRIMAID_PRIMAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOAUTO_CERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOAUTOIDPERSONA_PERSONAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOAUTOIDPRIMA_PRIMAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONA_CERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONA_PRIMA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMO_DEPENDIENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOTRANS_CERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_EXCLUSIONES_CERT" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_INMUEBLECERTIFICADO_CERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMO_CERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOTRANSIDPERSONA_PERSONAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_polizaTransporteCoberturas_transporte" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_TRANSPORTEDOCUMENTO_TRANSPORTEID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CUOTAESTATUSID_ESTATUSID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CUOTAPOLIZANUMERO_POLIZANUMERO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CUOTAPRIMA_PRIMAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZADEDUCIBLES_DEDUCIBLES" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_GRUPOCLIENTESEMPRESAID_EMPRESAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_PERSONASEMPRESAID_EMPRESAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZAEMPRESAID_EMPRESAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_RAMOEMPRESAID_EMPRESAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMO_IDEMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMODOCUMENTO_IDEMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMOSEGUIMIENTO_IDEMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_USUARIOSEMPRESAID_EMPRESAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_EXCLUSIONES_POLIZA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_EXCLUSIONES_PRIMA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZAFORMADEPAGOID_FORMADEPAGOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZAGASTOINICIALID_GASTOINICIALID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_HISTORIALUSUARIOID_USUARIOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_pagos_cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_pagos_pagador" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_pagos_prima" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_PERSONASCONTACTOPERSONAID_PERSONAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_PERSONASDIRPERSONAID_PERSONAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_PERSONAS_PERSONAEMPRESA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_PERSONASTIPOPERSONAID_TIPOPERSONAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZACLIENTECOBROID_CLIENTECOBROID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZACLIENTEID_CLIENTEID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMO_IDPERSONA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_polizaAutomotorCoberturas_POLIZA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZADEDUCIBLES_POLIZA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZADEDUCIBLES_PRIMA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZAGASTOSFRACCIONADOS_PRIMA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZAGASTOSINICIALES_PRIMA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZAESTATUSID_ESTATUSID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZARAMOID_RAMOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_polizaTransporteCoberturas_poliza" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_PRIMANUMERO_NUMEROPOLIZA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMO_NUMPOLIZA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_TRANSPORTEDOCUMENTO_NUMPOLIZA" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_polizaTransporteCoberturas_coberturas" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_PRIMATIPOID_TIPOPRIMAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMODOCUMENTO_RECLAMO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMOSEGUIMIENTO_RECLAMO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.fk_RECLAMOSEGUIMIENTO_IDEMPLEADO" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_USUARIOSESTATUSID_ESTATUSID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

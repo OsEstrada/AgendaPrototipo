@@ -1,0 +1,2785 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="syspolizaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="idRegistro" />
+    </Key>
+    <Property Name="idRegistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="horaInicio" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="horaFinal" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="duracion" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="titulo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="detalles" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioId" Type="Int32" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="empresaId" Type="Int32" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_agendaempresa" FromRole="Agenda" ToRole="Empresas" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_agendausuario" FromRole="Agenda" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Aseguradoras">
+    <Key>
+      <PropertyRef Name="aseguradoraId" />
+    </Key>
+    <Property Name="aseguradoraId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paisId" Type="Int32" />
+    <Property Name="aseguradoraNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="aseguradoraDireccion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="aseguradoraWeb" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="aseguradoraCheque" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="aseguradoraTelefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="aseguradoraAbreviatura" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="aseguradoraNIT" Type="String" MaxLength="18" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Paises" Relationship="Self.fk_aseguradora_pais" FromRole="Aseguradoras" ToRole="Paises" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZAASEGURADORAID_ASEGURADORAID" FromRole="Aseguradoras" ToRole="Polizas" />
+  </EntityType>
+  <EntityType Name="AutomotorClase">
+    <Key>
+      <PropertyRef Name="automotorClaseId" />
+    </Key>
+    <Property Name="automotorClaseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="automotorClase1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Automotores" Relationship="Self.FK_AUTOMOTORCLASEID_CLASEID" FromRole="AutomotorClase" ToRole="Automotores" />
+  </EntityType>
+  <EntityType Name="Automotores">
+    <Key>
+      <PropertyRef Name="automotorPlaca" />
+    </Key>
+    <Property Name="automotorPlaca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoPlacaId" Type="Int32" />
+    <Property Name="automotorCapacidad" Type="Int32" />
+    <Property Name="automotorAnio" Type="Int32" />
+    <Property Name="marcaId" Type="Int32" />
+    <Property Name="modeloId" Type="Int32" />
+    <Property Name="automotorColor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="automotorNumeroMotor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="automotorChasisGrabado" Type="String" MaxLength="17" FixedLength="true" Unicode="false" />
+    <Property Name="automotorChasisVin" Type="String" MaxLength="17" FixedLength="true" Unicode="false" />
+    <Property Name="automotoresTipoPropiedad" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="automotorClaseId" Type="Int32" />
+    <Property Name="automotorObservaciones" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="AutomotorClase" Relationship="Self.FK_AUTOMOTORCLASEID_CLASEID" FromRole="Automotores" ToRole="AutomotorClase" />
+    <NavigationProperty Name="AutomotoresMarcas" Relationship="Self.FK_AUTOMOTORMARCAID_MARCAID" FromRole="Automotores" ToRole="AutomotoresMarcas" />
+    <NavigationProperty Name="AutomotoresModelos" Relationship="Self.FK_AUTOMOTORMODELOID_MODELOID" FromRole="Automotores" ToRole="AutomotoresModelos" />
+    <NavigationProperty Name="TipoPlaca" Relationship="Self.FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID" FromRole="Automotores" ToRole="TipoPlaca" />
+    <NavigationProperty Name="CertificadoAutomotor" Relationship="Self.FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA" FromRole="Automotores" ToRole="CertificadoAutomotor" />
+    <NavigationProperty Name="PolizaAutomotorCoberturas" Relationship="Self.FK_polizaAutomotorCoberturas_AUTOMOTOR" FromRole="Automotores" ToRole="PolizaAutomotorCoberturas" />
+  </EntityType>
+  <EntityType Name="AutomotoresCoberturas">
+    <Key>
+      <PropertyRef Name="coberturasId" />
+    </Key>
+    <Property Name="coberturasId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PolizaAutomotorCoberturas" Relationship="Self.FK_polizaAutomotorCoberturas_COBERTURAS" FromRole="AutomotoresCoberturas" ToRole="PolizaAutomotorCoberturas" />
+  </EntityType>
+  <EntityType Name="AutomotoresMarcas">
+    <Key>
+      <PropertyRef Name="marcaId" />
+    </Key>
+    <Property Name="marcaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="marcaDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Automotores" Relationship="Self.FK_AUTOMOTORMARCAID_MARCAID" FromRole="AutomotoresMarcas" ToRole="Automotores" />
+  </EntityType>
+  <EntityType Name="AutomotoresModelos">
+    <Key>
+      <PropertyRef Name="modeloId" />
+    </Key>
+    <Property Name="modeloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="modeloDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Automotores" Relationship="Self.FK_AUTOMOTORMODELOID_MODELOID" FromRole="AutomotoresModelos" ToRole="Automotores" />
+  </EntityType>
+  <EntityType Name="Bancos">
+    <Key>
+      <PropertyRef Name="bancoId" />
+    </Key>
+    <Property Name="bancoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bancoDescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BienesAsegurados">
+    <Key>
+      <PropertyRef Name="bienId" />
+    </Key>
+    <Property Name="bienId" Type="Int32" Nullable="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="tipoBienId" Type="Int32" />
+    <Property Name="bienNoSerie" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="bienDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="bienModelo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="bienMarca" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="bienValor" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="bienObservaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="bienPrima" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaId" Type="Int32" />
+    <Property Name="bienUbicacion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="bienEstado" Type="Boolean" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Certificados" Relationship="Self.FK_BIENESASEGURADOS_CERTIFICADO" FromRole="BienesAsegurados" ToRole="Certificados" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO" FromRole="BienesAsegurados" ToRole="Polizas" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_BIENESASEGURADOSPRIMAID_PRIMAID" FromRole="BienesAsegurados" ToRole="Primas" />
+    <NavigationProperty Name="TipoBien" Relationship="Self.FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID" FromRole="BienesAsegurados" ToRole="TipoBien" />
+  </EntityType>
+  <EntityType Name="CertificadoAutomotor">
+    <Key>
+      <PropertyRef Name="certAutoId" />
+    </Key>
+    <Property Name="certAutoId" Type="Int32" Nullable="false" />
+    <Property Name="certAuto" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="automotorPlaca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="personaId" Type="Int32" />
+    <Property Name="clienteCobro" Type="Int32" />
+    <Property Name="primaId" Type="Int32" />
+    <Property Name="tipoCertificadoId" Type="Int32" />
+    <Property Name="certAutoFechaIncorporado" Type="DateTime" Precision="0" />
+    <Property Name="certAutoPropietario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="certAutoDeducible" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="certAutoSumAsegurada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="certAutoPrima" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="certAutoClase" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="certAutoPorcentaje" Type="Int32" />
+    <Property Name="certAutoDescuento" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="certAutoEstado" Type="Boolean" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Automotores" Relationship="Self.FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA" FromRole="CertificadoAutomotor" ToRole="Automotores" />
+    <NavigationProperty Name="Certificados" Relationship="Self.FK_CERTIFICADOAUTO_CERTIFICADO" FromRole="CertificadoAutomotor" ToRole="Certificados" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID" FromRole="CertificadoAutomotor" ToRole="Personas" />
+    <NavigationProperty Name="Personas1" Relationship="Self.FK_CERTIFICADOAUTOIDPERSONA_PERSONAID" FromRole="CertificadoAutomotor" ToRole="Personas" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_CERTIFICADOAUTOIDPRIMA_PRIMAID" FromRole="CertificadoAutomotor" ToRole="Primas" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO" FromRole="CertificadoAutomotor" ToRole="Polizas" />
+    <NavigationProperty Name="TipoCertificado" Relationship="Self.FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO" FromRole="CertificadoAutomotor" ToRole="TipoCertificado" />
+    <NavigationProperty Name="PolizaAutomotorCoberturas" Relationship="Self.FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID" FromRole="CertificadoAutomotor" ToRole="PolizaAutomotorCoberturas" />
+  </EntityType>
+  <EntityType Name="CertificadoPersona">
+    <Key>
+      <PropertyRef Name="certPersonaId" />
+    </Key>
+    <Property Name="certPersonaId" Type="Int32" Nullable="false" />
+    <Property Name="certPersona" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="personaId" Type="Int32" />
+    <Property Name="tipoCertificadoId" Type="Int32" />
+    <Property Name="tipoCategoriaId" Type="Int32" />
+    <Property Name="certPersonaFechaIncorporado" Type="DateTime" Precision="0" />
+    <Property Name="certPersonaDeducible" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="certPersonaPrima" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="certPersonaSumaAsegurada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="certPersonaObservaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="certPersonaEstado" Type="Boolean" />
+    <Property Name="primaId" Type="Int32" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Certificados" Relationship="Self.FK_CERTIFICADOPERSONA_CERTIFICADO" FromRole="CertificadoPersona" ToRole="Certificados" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_CERTIFICADOPERSONA_PRIMA" FromRole="CertificadoPersona" ToRole="Primas" />
+    <NavigationProperty Name="CertificadoPersonaBeneficiario" Relationship="Self.FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID" FromRole="CertificadoPersona" ToRole="CertificadoPersonaBeneficiario" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID" FromRole="CertificadoPersona" ToRole="Personas" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO" FromRole="CertificadoPersona" ToRole="Polizas" />
+    <NavigationProperty Name="TipoCategoria" Relationship="Self.FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA" FromRole="CertificadoPersona" ToRole="TipoCategoria" />
+    <NavigationProperty Name="TipoCertificado" Relationship="Self.FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO" FromRole="CertificadoPersona" ToRole="TipoCertificado" />
+  </EntityType>
+  <EntityType Name="CertificadoPersonaBeneficiario">
+    <Key>
+      <PropertyRef Name="certPBeneficiarioId" />
+    </Key>
+    <Property Name="certPBeneficiarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="certPersonaId" Type="Int32" />
+    <Property Name="certPBeneficiarioNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="certPBeneficiarioFechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="certPBeneficiarioSexo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="certPBeneficiarioPorcentaje" Type="Int32" />
+    <Property Name="certPBeneficiarioEstado" Type="Boolean" />
+    <Property Name="certPBeneficiarioFechaInactividad" Type="DateTime" Precision="0" />
+    <Property Name="personaId" Type="Int32" />
+    <Property Name="tipoBeneficiarioId" Type="Int32" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CertificadoPersona" Relationship="Self.FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID" FromRole="CertificadoPersonaBeneficiario" ToRole="CertificadoPersona" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID" FromRole="CertificadoPersonaBeneficiario" ToRole="Personas" />
+    <NavigationProperty Name="TipoBeneficiario" Relationship="Self.FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID" FromRole="CertificadoPersonaBeneficiario" ToRole="TipoBeneficiario" />
+    <NavigationProperty Name="Reclamos" Relationship="Self.fk_RECLAMO_DEPENDIENTE" FromRole="CertificadoPersonaBeneficiario" ToRole="Reclamos" />
+  </EntityType>
+  <EntityType Name="Certificados">
+    <Key>
+      <PropertyRef Name="certificadosId" />
+    </Key>
+    <Property Name="certificadosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="certificadosTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="certificado" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <Property Name="certificadoExcluido" Type="Boolean" />
+    <Property Name="numPoliza" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BienesAsegurados" Relationship="Self.FK_BIENESASEGURADOS_CERTIFICADO" FromRole="Certificados" ToRole="BienesAsegurados" />
+    <NavigationProperty Name="CertificadoAutomotor" Relationship="Self.FK_CERTIFICADOAUTO_CERTIFICADO" FromRole="Certificados" ToRole="CertificadoAutomotor" />
+    <NavigationProperty Name="CertificadoPersona" Relationship="Self.FK_CERTIFICADOPERSONA_CERTIFICADO" FromRole="Certificados" ToRole="CertificadoPersona" />
+    <NavigationProperty Name="CertificadoTransporte" Relationship="Self.FK_CERTIFICADOTRANS_CERTIFICADO" FromRole="Certificados" ToRole="CertificadoTransporte" />
+    <NavigationProperty Name="Exclusiones" Relationship="Self.FK_EXCLUSIONES_CERT" FromRole="Certificados" ToRole="Exclusiones" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_INMUEBLECERTIFICADO_CERTIFICADO" FromRole="Certificados" ToRole="Inmuebles" />
+    <NavigationProperty Name="Reclamos" Relationship="Self.fk_RECLAMO_CERTIFICADO" FromRole="Certificados" ToRole="Reclamos" />
+  </EntityType>
+  <EntityType Name="CertificadoTransporte">
+    <Key>
+      <PropertyRef Name="transporteId" />
+    </Key>
+    <Property Name="transporteId" Type="Int32" Nullable="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="tipoCertificadoId" Type="Int32" />
+    <Property Name="personaId" Type="Int32" />
+    <Property Name="transporteNoDocumento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="transporteOrigen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="transporteDestino" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipoTransporte" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="transTransportador" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="transConsignador" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="transDespachador" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="transDocumentosLegales" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="transMercaderia" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="transValor" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="transGastos" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="transDeducible" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="transPorcentaje" Type="Int32" />
+    <Property Name="transTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Certificados" Relationship="Self.FK_CERTIFICADOTRANS_CERTIFICADO" FromRole="CertificadoTransporte" ToRole="Certificados" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_CERTIFICADOTRANSIDPERSONA_PERSONAID" FromRole="CertificadoTransporte" ToRole="Personas" />
+    <NavigationProperty Name="TipoCertificado" Relationship="Self.FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO" FromRole="CertificadoTransporte" ToRole="TipoCertificado" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO" FromRole="CertificadoTransporte" ToRole="Polizas" />
+    <NavigationProperty Name="PolizaTransporteCoberturas" Relationship="Self.FK_polizaTransporteCoberturas_transporte" FromRole="CertificadoTransporte" ToRole="PolizaTransporteCoberturas" />
+    <NavigationProperty Name="TransporteDetalleFacturas" Relationship="Self.FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID" FromRole="CertificadoTransporte" ToRole="TransporteDetalleFacturas" />
+    <NavigationProperty Name="PolizaTransporteDocumento" Relationship="Self.FK_TRANSPORTEDOCUMENTO_TRANSPORTEID" FromRole="CertificadoTransporte" ToRole="PolizaTransporteDocumento" />
+  </EntityType>
+  <EntityType Name="Cuotas">
+    <Key>
+      <PropertyRef Name="cuotaId" />
+    </Key>
+    <Property Name="cuotaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="primaId" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="cuotaNumero" Type="Int32" />
+    <Property Name="cuotaPrimaExenta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaPrimaGravada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaPrimaNeta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaGastos" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaIva" Type="Double" />
+    <Property Name="cuotaTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaPagado" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaDevolucion" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaFechaPago" Type="DateTime" Precision="0" />
+    <Property Name="cuotaObservaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="tipoEstatusId" Type="Int32" />
+    <Property Name="cuotaPlan" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cuotaEstado" Type="Boolean" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <Property Name="cuotaAviso" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TipoEstatus" Relationship="Self.FK_CUOTAESTATUSID_ESTATUSID" FromRole="Cuotas" ToRole="TipoEstatus" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_CUOTAPOLIZANUMERO_POLIZANUMERO" FromRole="Cuotas" ToRole="Polizas" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_CUOTAPRIMA_PRIMAID" FromRole="Cuotas" ToRole="Primas" />
+  </EntityType>
+  <EntityType Name="Deducibles">
+    <Key>
+      <PropertyRef Name="deduciblesId" />
+    </Key>
+    <Property Name="deduciblesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="deduciblesDescripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PolizaDeducibles" Relationship="Self.FK_POLIZADEDUCIBLES_DEDUCIBLES" FromRole="Deducibles" ToRole="PolizaDeducibles" />
+  </EntityType>
+  <EntityType Name="Documentos">
+    <Key>
+      <PropertyRef Name="documentosId" />
+    </Key>
+    <Property Name="documentosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="documentosCodigo" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="documentosNombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="documentosDescripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Empresas">
+    <Key>
+      <PropertyRef Name="empresaId" />
+    </Key>
+    <Property Name="empresaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empresaNombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="empresaAbreviatura" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="empresaFechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="empresaNit" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="empresaNrc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="empresaRepresentanteLegal" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="empresaDUIRepresentante" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="empresaActividadEconomica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="tipoContribuyenteId" Type="Int32" />
+    <NavigationProperty Name="Agenda" Relationship="Self.FK_agendaempresa" FromRole="Empresas" ToRole="Agenda" />
+    <NavigationProperty Name="TipoContribuyentes" Relationship="Self.FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" FromRole="Empresas" ToRole="TipoContribuyentes" />
+    <NavigationProperty Name="GrupoClientes" Relationship="Self.FK_GRUPOCLIENTESEMPRESAID_EMPRESAID" FromRole="Empresas" ToRole="GrupoClientes" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_PERSONASEMPRESAID_EMPRESAID" FromRole="Empresas" ToRole="Personas" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZAEMPRESAID_EMPRESAID" FromRole="Empresas" ToRole="Polizas" />
+    <NavigationProperty Name="Ramos" Relationship="Self.FK_RAMOEMPRESAID_EMPRESAID" FromRole="Empresas" ToRole="Ramos" />
+    <NavigationProperty Name="Reclamos" Relationship="Self.fk_RECLAMO_IDEMPRESA" FromRole="Empresas" ToRole="Reclamos" />
+    <NavigationProperty Name="ReclamoDocumento" Relationship="Self.fk_RECLAMODOCUMENTO_IDEMPRESA" FromRole="Empresas" ToRole="ReclamoDocumento" />
+    <NavigationProperty Name="ReclamoSeguimiento" Relationship="Self.fk_RECLAMOSEGUIMIENTO_IDEMPRESA" FromRole="Empresas" ToRole="ReclamoSeguimiento" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_USUARIOSEMPRESAID_EMPRESAID" FromRole="Empresas" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Exclusiones">
+    <Key>
+      <PropertyRef Name="exclusionesId" />
+    </Key>
+    <Property Name="exclusionesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="exclusionesTipo" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="primaId" Type="Int32" />
+    <Property Name="certificadoId" Type="Int32" />
+    <Property Name="certificado" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="iva" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="comentario" Type="String" MaxLength="240" FixedLength="false" Unicode="false" />
+    <Property Name="fechagrabado" Type="DateTime" Precision="0" />
+    <Property Name="sumario" Type="String" MaxLength="240" FixedLength="false" Unicode="false" />
+    <Property Name="pagado" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Certificados" Relationship="Self.FK_EXCLUSIONES_CERT" FromRole="Exclusiones" ToRole="Certificados" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_EXCLUSIONES_POLIZA" FromRole="Exclusiones" ToRole="Polizas" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_EXCLUSIONES_PRIMA" FromRole="Exclusiones" ToRole="Primas" />
+  </EntityType>
+  <EntityType Name="FormaDePago">
+    <Key>
+      <PropertyRef Name="formaDePagoId" />
+    </Key>
+    <Property Name="formaDePagoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="formaDePagoDescripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZAFORMADEPAGOID_FORMADEPAGOID" FromRole="FormaDePago" ToRole="Polizas" />
+  </EntityType>
+  <EntityType Name="GastoFraccionado">
+    <Key>
+      <PropertyRef Name="gastoFraccionadoId" />
+    </Key>
+    <Property Name="gastoFraccionadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gastoFraccionadoDescripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PolizaGastosFraccionados" Relationship="Self.FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID" FromRole="GastoFraccionado" ToRole="PolizaGastosFraccionados" />
+  </EntityType>
+  <EntityType Name="GastoInicial">
+    <Key>
+      <PropertyRef Name="gastoInicialId" />
+    </Key>
+    <Property Name="gastoInicialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gastoInicialDescripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PolizaGastosIniciales" Relationship="Self.FK_POLIZAGASTOINICIALID_GASTOINICIALID" FromRole="GastoInicial" ToRole="PolizaGastosIniciales" />
+  </EntityType>
+  <EntityType Name="GrupoClientes">
+    <Key>
+      <PropertyRef Name="grupoClienteId" />
+    </Key>
+    <Property Name="grupoClienteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grupoClienteNombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="empresaId" Type="Int32" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_GRUPOCLIENTESEMPRESAID_EMPRESAID" FromRole="GrupoClientes" ToRole="Empresas" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID" FromRole="GrupoClientes" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="HistorialUsuario">
+    <Key>
+      <PropertyRef Name="historialId" />
+    </Key>
+    <Property Name="historialId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuarioID" Type="Int32" />
+    <Property Name="historialFechaHora" Type="DateTime" Precision="3" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_HISTORIALUSUARIOID_USUARIOID" FromRole="HistorialUsuario" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="HistoricoCuotas">
+    <Key>
+      <PropertyRef Name="idHistoricoCuota" />
+    </Key>
+    <Property Name="idHistoricoCuota" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cuotaId" Type="Int32" />
+    <Property Name="primaId" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="cuotaNumero" Type="Int32" />
+    <Property Name="cuotaPrimaExenta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaPrimaGravada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaPrimaNeta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaGastos" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaIva" Type="Double" />
+    <Property Name="cuotaTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaPagado" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaDevolucion" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="cuotaFechaPago" Type="DateTime" Precision="0" />
+    <Property Name="cuotaObservaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cuotaPlan" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="cuotaEstado" Type="Boolean" />
+    <Property Name="historicoCuotaAccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="historicoCuotaUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGuardado" Type="DateTime" Precision="3" />
+    <Property Name="empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HistoricoPagos">
+    <Key>
+      <PropertyRef Name="historicoPagosId" />
+    </Key>
+    <Property Name="historicoPagosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pagoId" Type="Int32" />
+    <Property Name="comentarios" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="historicoUsuario" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="historicoEmpresa" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="historicoFechaGrabado" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HistoricoPoliza">
+    <Key>
+      <PropertyRef Name="idHistoricoPoliza" />
+    </Key>
+    <Property Name="idHistoricoPoliza" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoPolizaId" Type="Int32" />
+    <Property Name="empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ramo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="aseguradora" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="clienteCobro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="formaDePago" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="polizaNumeroPagos" Type="Int32" />
+    <Property Name="polizaFechaDesde" Type="DateTime" Precision="0" />
+    <Property Name="polizaFechaHasta" Type="DateTime" Precision="0" />
+    <Property Name="polizaSumAsegurada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="polizaDeducible" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="polizaObservaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="polizaPrimaTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="historicoPolizaAccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="historicoPolizaUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGuardado" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="HistoricoPrima">
+    <Key>
+      <PropertyRef Name="idHistoricoPrima" />
+    </Key>
+    <Property Name="idHistoricoPrima" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="primaId" Type="Int32" Nullable="false" />
+    <Property Name="primaTipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="empresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cliente" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="pagador" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="primaVigencia" Type="DateTime" Precision="0" />
+    <Property Name="primaVencimiento" Type="DateTime" Precision="0" />
+    <Property Name="primaRegistrada" Type="DateTime" Precision="0" />
+    <Property Name="primaAsegurada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaDeducible" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaPrimaExenta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaPrimaGravada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaPrimaNeta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaGastos" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaFraccionados" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaIva" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaNumPagos" Type="Int32" />
+    <Property Name="primaObservaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="primaPagado" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaPeriodicidad" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="primaTasa" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="historicoPrimaAccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="historicoPrimaUsuario" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaModificacion" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Inmuebles">
+    <Key>
+      <PropertyRef Name="inmuebleId" />
+    </Key>
+    <Property Name="inmuebleId" Type="Int32" Nullable="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="inmuebleDireccion1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="inmuebleDireccion2" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="inmuebleDireccion3" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="inmuebleTipo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="inmuebleContenido" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inmuebleConstruccion" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inmuebleValuo" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="inmueblePrima" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaId" Type="Int32" />
+    <Property Name="inmuebleEstado" Type="Boolean" />
+    <Property Name="inmuebleObservaciones" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Certificados" Relationship="Self.FK_INMUEBLECERTIFICADO_CERTIFICADO" FromRole="Inmuebles" ToRole="Certificados" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO" FromRole="Inmuebles" ToRole="Polizas" />
+  </EntityType>
+  <EntityType Name="Pagos">
+    <Key>
+      <PropertyRef Name="pagosId" />
+    </Key>
+    <Property Name="pagosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="primaId" Type="Int32" />
+    <Property Name="pagosCuotaId" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="clienteId" Type="Int32" />
+    <Property Name="pagadorId" Type="Int32" />
+    <Property Name="pagosFecha" Type="DateTime" Precision="3" />
+    <Property Name="pagosPrima" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="pagosGastos" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="pagosIva" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="pagosTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="pagosTipo" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="pagosObservaciones" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+    <Property Name="pagosFechaDocu" Type="DateTime" Precision="3" />
+    <Property Name="pagosNumDoc" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="pagosBanco" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="pagosValorDoc" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="pagosValorEfectivo" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="pagosTipoFiscal" Type="Boolean" />
+    <Property Name="pagosComprobante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <Property Name="pagosEstado" Type="Boolean" />
+    <NavigationProperty Name="Personas" Relationship="Self.fk_pagos_cliente" FromRole="Pagos" ToRole="Personas" />
+    <NavigationProperty Name="Personas1" Relationship="Self.fk_pagos_pagador" FromRole="Pagos" ToRole="Personas" />
+    <NavigationProperty Name="Primas" Relationship="Self.fk_pagos_prima" FromRole="Pagos" ToRole="Primas" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="paisId" />
+    </Key>
+    <Property Name="paisId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paisNombre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="paisName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="paisNom" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="paisIso2" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="paisIso3" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="paisPhoneCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Aseguradoras" Relationship="Self.fk_aseguradora_pais" FromRole="Paises" ToRole="Aseguradoras" />
+  </EntityType>
+  <EntityType Name="PersonaContactos">
+    <Key>
+      <PropertyRef Name="contactoId" />
+    </Key>
+    <Property Name="contactoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personaId" Type="Int32" />
+    <Property Name="contactoNombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="contactoEmail" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="contactoCargo" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="contactoTelefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="contactoMovil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_PERSONASCONTACTOPERSONAID_PERSONAID" FromRole="PersonaContactos" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="PersonaDirecciones">
+    <Key>
+      <PropertyRef Name="personaDirId" />
+    </Key>
+    <Property Name="personaDirId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personaId" Type="Int32" />
+    <Property Name="personatipoDireccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="personaDireccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="personaMunicipio" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="personaDepartamento" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_PERSONASDIRPERSONAID_PERSONAID" FromRole="PersonaDirecciones" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="personaId" />
+    </Key>
+    <Property Name="personaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empresaId" Type="Int32" />
+    <Property Name="tipoPersonaId" Type="Int32" />
+    <Property Name="personaNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="personaFechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="personaEstadoCivil" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="personaCorreoElectronico" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="personaSexo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="personaProfesion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="personaTelefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="personaCliente" Type="Boolean" />
+    <Property Name="personaCliDui" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="personaCliNit" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="personaCliActividadEconomica" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="grupoClienteId" Type="Int32" />
+    <Property Name="tipoContribuyenteId" Type="Int32" />
+    <Property Name="personaEstado" Type="Boolean" />
+    <Property Name="personaEmpresa" Type="Int32" />
+    <Property Name="personaTelefono2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="personaTelefono3" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="personaDireccion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CertificadoAutomotor" Relationship="Self.FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID" FromRole="Personas" ToRole="CertificadoAutomotor" />
+    <NavigationProperty Name="CertificadoAutomotor1" Relationship="Self.FK_CERTIFICADOAUTOIDPERSONA_PERSONAID" FromRole="Personas" ToRole="CertificadoAutomotor" />
+    <NavigationProperty Name="CertificadoPersona" Relationship="Self.FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID" FromRole="Personas" ToRole="CertificadoPersona" />
+    <NavigationProperty Name="CertificadoPersonaBeneficiario" Relationship="Self.FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID" FromRole="Personas" ToRole="CertificadoPersonaBeneficiario" />
+    <NavigationProperty Name="CertificadoTransporte" Relationship="Self.FK_CERTIFICADOTRANSIDPERSONA_PERSONAID" FromRole="Personas" ToRole="CertificadoTransporte" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_PERSONASEMPRESAID_EMPRESAID" FromRole="Personas" ToRole="Empresas" />
+    <NavigationProperty Name="GrupoClientes" Relationship="Self.FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID" FromRole="Personas" ToRole="GrupoClientes" />
+    <NavigationProperty Name="Pagos" Relationship="Self.fk_pagos_cliente" FromRole="Personas" ToRole="Pagos" />
+    <NavigationProperty Name="Pagos1" Relationship="Self.fk_pagos_pagador" FromRole="Personas" ToRole="Pagos" />
+    <NavigationProperty Name="PersonaContactos" Relationship="Self.FK_PERSONASCONTACTOPERSONAID_PERSONAID" FromRole="Personas" ToRole="PersonaContactos" />
+    <NavigationProperty Name="PersonaDirecciones" Relationship="Self.FK_PERSONASDIRPERSONAID_PERSONAID" FromRole="Personas" ToRole="PersonaDirecciones" />
+    <NavigationProperty Name="TipoContribuyentes" Relationship="Self.FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" FromRole="Personas" ToRole="TipoContribuyentes" />
+    <NavigationProperty Name="Personas1" Relationship="Self.FK_PERSONAS_PERSONAEMPRESA" FromRole="Personas" ToRole="Personas1" />
+    <NavigationProperty Name="Personas2" Relationship="Self.FK_PERSONAS_PERSONAEMPRESA" FromRole="Personas1" ToRole="Personas" />
+    <NavigationProperty Name="TipoPersona" Relationship="Self.FK_PERSONASTIPOPERSONAID_TIPOPERSONAID" FromRole="Personas" ToRole="TipoPersona" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZACLIENTECOBROID_CLIENTECOBROID" FromRole="Personas" ToRole="Polizas" />
+    <NavigationProperty Name="Polizas1" Relationship="Self.FK_POLIZACLIENTEID_CLIENTEID" FromRole="Personas" ToRole="Polizas" />
+    <NavigationProperty Name="Reclamos" Relationship="Self.fk_RECLAMO_IDPERSONA" FromRole="Personas" ToRole="Reclamos" />
+  </EntityType>
+  <EntityType Name="PolizaAutomotorCoberturas">
+    <Key>
+      <PropertyRef Name="polizaAutomotorCoberturasId" />
+    </Key>
+    <Property Name="polizaAutomotorCoberturasId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="automotorPlaca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="coberturasId" Type="Int32" />
+    <Property Name="certAutoId" Type="Int32" />
+    <Property Name="prima" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="suma" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Automotores" Relationship="Self.FK_polizaAutomotorCoberturas_AUTOMOTOR" FromRole="PolizaAutomotorCoberturas" ToRole="Automotores" />
+    <NavigationProperty Name="AutomotoresCoberturas" Relationship="Self.FK_polizaAutomotorCoberturas_COBERTURAS" FromRole="PolizaAutomotorCoberturas" ToRole="AutomotoresCoberturas" />
+    <NavigationProperty Name="CertificadoAutomotor" Relationship="Self.FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID" FromRole="PolizaAutomotorCoberturas" ToRole="CertificadoAutomotor" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_polizaAutomotorCoberturas_POLIZA" FromRole="PolizaAutomotorCoberturas" ToRole="Polizas" />
+  </EntityType>
+  <EntityType Name="PolizaCancelaciones">
+    <Key>
+      <PropertyRef Name="cancelacionesId" />
+    </Key>
+    <Property Name="cancelacionesId" Type="Int32" Nullable="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="cancelacionesFecha" Type="DateTime" Precision="0" />
+    <Property Name="cancelacionesObservaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO" FromRole="PolizaCancelaciones" ToRole="Polizas" />
+  </EntityType>
+  <EntityType Name="PolizaComentarios">
+    <Key>
+      <PropertyRef Name="comentariosId" />
+    </Key>
+    <Property Name="comentariosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="comentarioTipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="comentarioFecha" Type="DateTime" Precision="0" />
+    <Property Name="comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="grabado" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA" FromRole="PolizaComentarios" ToRole="Polizas" />
+  </EntityType>
+  <EntityType Name="PolizaDeducibles">
+    <Key>
+      <PropertyRef Name="polizaDeduciblesId" />
+    </Key>
+    <Property Name="polizaDeduciblesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="deduciblesId" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaId" Type="Int32" />
+    <NavigationProperty Name="Deducibles" Relationship="Self.FK_POLIZADEDUCIBLES_DEDUCIBLES" FromRole="PolizaDeducibles" ToRole="Deducibles" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZADEDUCIBLES_POLIZA" FromRole="PolizaDeducibles" ToRole="Polizas" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_POLIZADEDUCIBLES_PRIMA" FromRole="PolizaDeducibles" ToRole="Primas" />
+  </EntityType>
+  <EntityType Name="PolizaGastosFraccionados">
+    <Key>
+      <PropertyRef Name="polizaGastosFraccionadosId" />
+    </Key>
+    <Property Name="polizaGastosFraccionadosId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gastoFraccionadoId" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaId" Type="Int32" />
+    <NavigationProperty Name="GastoFraccionado" Relationship="Self.FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID" FromRole="PolizaGastosFraccionados" ToRole="GastoFraccionado" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_POLIZAGASTOSFRACCIONADOS_PRIMA" FromRole="PolizaGastosFraccionados" ToRole="Primas" />
+  </EntityType>
+  <EntityType Name="PolizaGastosIniciales">
+    <Key>
+      <PropertyRef Name="polizaGastosInicialesId" />
+    </Key>
+    <Property Name="polizaGastosInicialesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gastoInicialId" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="valor" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaId" Type="Int32" />
+    <NavigationProperty Name="GastoInicial" Relationship="Self.FK_POLIZAGASTOINICIALID_GASTOINICIALID" FromRole="PolizaGastosIniciales" ToRole="GastoInicial" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_POLIZAGASTOSINICIALES_PRIMA" FromRole="PolizaGastosIniciales" ToRole="Primas" />
+    <NavigationProperty Name="Polizas" Relationship="Self.K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO" FromRole="PolizaGastosIniciales" ToRole="Polizas" />
+  </EntityType>
+  <EntityType Name="Polizas">
+    <Key>
+      <PropertyRef Name="polizaNumero" />
+    </Key>
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoPolizaId" Type="Int32" />
+    <Property Name="empresaId" Type="Int32" />
+    <Property Name="clienteId" Type="Int32" />
+    <Property Name="ramoId" Type="Int32" />
+    <Property Name="aseguradoraId" Type="Int32" />
+    <Property Name="clienteCobroId" Type="Int32" />
+    <Property Name="formaDePagoId" Type="Int32" />
+    <Property Name="tipoEstatusId" Type="Int32" />
+    <Property Name="polizaNumeroPagos" Type="Int32" />
+    <Property Name="polizaFechaDesde" Type="DateTime" Precision="0" />
+    <Property Name="polizaFechaHasta" Type="DateTime" Precision="0" />
+    <Property Name="polizaSumAsegurada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="polizaDeducible" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="polizaObservaciones" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="polizaSumaActual" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="polizaPrimaTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="polizaRenovaciones" Type="Int32" />
+    <Property Name="tipoEstatus" Type="Boolean" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Aseguradoras" Relationship="Self.FK_POLIZAASEGURADORAID_ASEGURADORAID" FromRole="Polizas" ToRole="Aseguradoras" />
+    <NavigationProperty Name="BienesAsegurados" Relationship="Self.FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO" FromRole="Polizas" ToRole="BienesAsegurados" />
+    <NavigationProperty Name="CertificadoAutomotor" Relationship="Self.FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO" FromRole="Polizas" ToRole="CertificadoAutomotor" />
+    <NavigationProperty Name="CertificadoPersona" Relationship="Self.FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO" FromRole="Polizas" ToRole="CertificadoPersona" />
+    <NavigationProperty Name="CertificadoTransporte" Relationship="Self.FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO" FromRole="Polizas" ToRole="CertificadoTransporte" />
+    <NavigationProperty Name="Cuotas" Relationship="Self.FK_CUOTAPOLIZANUMERO_POLIZANUMERO" FromRole="Polizas" ToRole="Cuotas" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_POLIZAEMPRESAID_EMPRESAID" FromRole="Polizas" ToRole="Empresas" />
+    <NavigationProperty Name="Exclusiones" Relationship="Self.FK_EXCLUSIONES_POLIZA" FromRole="Polizas" ToRole="Exclusiones" />
+    <NavigationProperty Name="FormaDePago" Relationship="Self.FK_POLIZAFORMADEPAGOID_FORMADEPAGOID" FromRole="Polizas" ToRole="FormaDePago" />
+    <NavigationProperty Name="Inmuebles" Relationship="Self.FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO" FromRole="Polizas" ToRole="Inmuebles" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_POLIZACLIENTECOBROID_CLIENTECOBROID" FromRole="Polizas" ToRole="Personas" />
+    <NavigationProperty Name="Personas1" Relationship="Self.FK_POLIZACLIENTEID_CLIENTEID" FromRole="Polizas" ToRole="Personas" />
+    <NavigationProperty Name="PolizaAutomotorCoberturas" Relationship="Self.FK_polizaAutomotorCoberturas_POLIZA" FromRole="Polizas" ToRole="PolizaAutomotorCoberturas" />
+    <NavigationProperty Name="PolizaCancelaciones" Relationship="Self.FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO" FromRole="Polizas" ToRole="PolizaCancelaciones" />
+    <NavigationProperty Name="PolizaComentarios" Relationship="Self.FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA" FromRole="Polizas" ToRole="PolizaComentarios" />
+    <NavigationProperty Name="PolizaDeducibles" Relationship="Self.FK_POLIZADEDUCIBLES_POLIZA" FromRole="Polizas" ToRole="PolizaDeducibles" />
+    <NavigationProperty Name="PolizaGastosIniciales" Relationship="Self.K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO" FromRole="Polizas" ToRole="PolizaGastosIniciales" />
+    <NavigationProperty Name="TipoEstatus1" Relationship="Self.FK_POLIZAESTATUSID_ESTATUSID" FromRole="Polizas" ToRole="TipoEstatus" />
+    <NavigationProperty Name="Ramos" Relationship="Self.FK_POLIZARAMOID_RAMOID" FromRole="Polizas" ToRole="Ramos" />
+    <NavigationProperty Name="TipoPoliza" Relationship="Self.FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID" FromRole="Polizas" ToRole="TipoPoliza" />
+    <NavigationProperty Name="PolizaTransporteCoberturas" Relationship="Self.FK_polizaTransporteCoberturas_poliza" FromRole="Polizas" ToRole="PolizaTransporteCoberturas" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_PRIMANUMERO_NUMEROPOLIZA" FromRole="Polizas" ToRole="Primas" />
+    <NavigationProperty Name="Reclamos" Relationship="Self.fk_RECLAMO_NUMPOLIZA" FromRole="Polizas" ToRole="Reclamos" />
+    <NavigationProperty Name="PolizaTransporteDocumento" Relationship="Self.FK_TRANSPORTEDOCUMENTO_NUMPOLIZA" FromRole="Polizas" ToRole="PolizaTransporteDocumento" />
+  </EntityType>
+  <EntityType Name="PolizaTransporteCoberturas">
+    <Key>
+      <PropertyRef Name="polizaTransporteCoberturasId" />
+    </Key>
+    <Property Name="polizaTransporteCoberturasId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transporteId" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="transporteCoberturasId" Type="Int32" />
+    <NavigationProperty Name="CertificadoTransporte" Relationship="Self.FK_polizaTransporteCoberturas_transporte" FromRole="PolizaTransporteCoberturas" ToRole="CertificadoTransporte" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_polizaTransporteCoberturas_poliza" FromRole="PolizaTransporteCoberturas" ToRole="Polizas" />
+    <NavigationProperty Name="TransporteCoberturas" Relationship="Self.FK_polizaTransporteCoberturas_coberturas" FromRole="PolizaTransporteCoberturas" ToRole="TransporteCoberturas" />
+  </EntityType>
+  <EntityType Name="PolizaTransporteDocumento">
+    <Key>
+      <PropertyRef Name="polizaTransporteDocumentoId" />
+    </Key>
+    <Property Name="polizaTransporteDocumentoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transporteId" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="tipoDocumentoId" Type="Int32" />
+    <NavigationProperty Name="CertificadoTransporte" Relationship="Self.FK_TRANSPORTEDOCUMENTO_TRANSPORTEID" FromRole="PolizaTransporteDocumento" ToRole="CertificadoTransporte" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_TRANSPORTEDOCUMENTO_NUMPOLIZA" FromRole="PolizaTransporteDocumento" ToRole="Polizas" />
+    <NavigationProperty Name="TipoDocumentoLegal" Relationship="Self.FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO" FromRole="PolizaTransporteDocumento" ToRole="TipoDocumentoLegal" />
+  </EntityType>
+  <EntityType Name="Primas">
+    <Key>
+      <PropertyRef Name="primaId" />
+    </Key>
+    <Property Name="primaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="primaTipo" Type="Int32" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="clienteId" Type="Int32" />
+    <Property Name="primaPagador" Type="Int32" />
+    <Property Name="primaVigencia" Type="DateTime" Precision="0" />
+    <Property Name="primaVencimiento" Type="DateTime" Precision="0" />
+    <Property Name="primaRegistrada" Type="DateTime" Precision="0" />
+    <Property Name="primaAsegurada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaDeducible" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaPrimaExenta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaPrimaGravada" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaPrimaNeta" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaGastos" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaFraccionados" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaIva" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaTotal" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaNumPagos" Type="Int32" />
+    <Property Name="primaObservaciones" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="primaPagado" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaStatus" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="primaPeriodicidad" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="primaTasa" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="primaClienteCobro" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioEmpresa" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BienesAsegurados" Relationship="Self.FK_BIENESASEGURADOSPRIMAID_PRIMAID" FromRole="Primas" ToRole="BienesAsegurados" />
+    <NavigationProperty Name="CertificadoAutomotor" Relationship="Self.FK_CERTIFICADOAUTOIDPRIMA_PRIMAID" FromRole="Primas" ToRole="CertificadoAutomotor" />
+    <NavigationProperty Name="CertificadoPersona" Relationship="Self.FK_CERTIFICADOPERSONA_PRIMA" FromRole="Primas" ToRole="CertificadoPersona" />
+    <NavigationProperty Name="Cuotas" Relationship="Self.FK_CUOTAPRIMA_PRIMAID" FromRole="Primas" ToRole="Cuotas" />
+    <NavigationProperty Name="Exclusiones" Relationship="Self.FK_EXCLUSIONES_PRIMA" FromRole="Primas" ToRole="Exclusiones" />
+    <NavigationProperty Name="Pagos" Relationship="Self.fk_pagos_prima" FromRole="Primas" ToRole="Pagos" />
+    <NavigationProperty Name="PolizaDeducibles" Relationship="Self.FK_POLIZADEDUCIBLES_PRIMA" FromRole="Primas" ToRole="PolizaDeducibles" />
+    <NavigationProperty Name="PolizaGastosFraccionados" Relationship="Self.FK_POLIZAGASTOSFRACCIONADOS_PRIMA" FromRole="Primas" ToRole="PolizaGastosFraccionados" />
+    <NavigationProperty Name="PolizaGastosIniciales" Relationship="Self.FK_POLIZAGASTOSINICIALES_PRIMA" FromRole="Primas" ToRole="PolizaGastosIniciales" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_PRIMANUMERO_NUMEROPOLIZA" FromRole="Primas" ToRole="Polizas" />
+    <NavigationProperty Name="TipoPrima" Relationship="Self.FK_PRIMATIPOID_TIPOPRIMAID" FromRole="Primas" ToRole="TipoPrima" />
+  </EntityType>
+  <EntityType Name="Ramos">
+    <Key>
+      <PropertyRef Name="ramoId" />
+    </Key>
+    <Property Name="ramoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ramoDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ramoSiglas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tipoPolizaId" Type="Int32" />
+    <Property Name="empresaId" Type="Int32" />
+    <Property Name="tipoCertificadoId" Type="Int32" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_RAMOEMPRESAID_EMPRESAID" FromRole="Ramos" ToRole="Empresas" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZARAMOID_RAMOID" FromRole="Ramos" ToRole="Polizas" />
+    <NavigationProperty Name="TipoCertificado" Relationship="Self.FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID" FromRole="Ramos" ToRole="TipoCertificado" />
+    <NavigationProperty Name="TipoPoliza" Relationship="Self.FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID" FromRole="Ramos" ToRole="TipoPoliza" />
+  </EntityType>
+  <EntityType Name="ReclamoDocumento">
+    <Key>
+      <PropertyRef Name="idReclamoDocumento" />
+    </Key>
+    <Property Name="idReclamoDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reclamoId" Type="Int32" />
+    <Property Name="reclamoNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="reclamoRutaDocumento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="empresaId" Type="Int32" />
+    <Property Name="usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Empresas" Relationship="Self.fk_RECLAMODOCUMENTO_IDEMPRESA" FromRole="ReclamoDocumento" ToRole="Empresas" />
+    <NavigationProperty Name="Reclamos" Relationship="Self.fk_RECLAMODOCUMENTO_RECLAMO" FromRole="ReclamoDocumento" ToRole="Reclamos" />
+  </EntityType>
+  <EntityType Name="Reclamos">
+    <Key>
+      <PropertyRef Name="reclamoId" />
+    </Key>
+    <Property Name="reclamoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reclamoNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="polizaNumero" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="empresaId" Type="Int32" />
+    <Property Name="personaId" Type="Int32" />
+    <Property Name="dependiente" Type="Int32" />
+    <Property Name="certificadosId" Type="Int32" />
+    <Property Name="reclamoDependienteNombre" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="reclamoFechaEvento" Type="DateTime" Precision="0" />
+    <Property Name="reclamoFechaPago" Type="DateTime" Precision="0" />
+    <Property Name="reclamoFechaEnvio" Type="DateTime" Precision="0" />
+    <Property Name="reclamoFechaLiquidacionA" Type="DateTime" Precision="0" />
+    <Property Name="reclamoFechaLiquidacion" Type="DateTime" Precision="0" />
+    <Property Name="reclamoDeducible" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="reclamoMontoAbsorbido" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="reclamoMontoPagado" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="reclamoDiagnostico" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="0" />
+    <Property Name="reclamoTerminado" Type="Boolean" />
+    <Property Name="reclamosAnulado" Type="Boolean" />
+    <NavigationProperty Name="CertificadoPersonaBeneficiario" Relationship="Self.fk_RECLAMO_DEPENDIENTE" FromRole="Reclamos" ToRole="CertificadoPersonaBeneficiario" />
+    <NavigationProperty Name="Certificados" Relationship="Self.fk_RECLAMO_CERTIFICADO" FromRole="Reclamos" ToRole="Certificados" />
+    <NavigationProperty Name="Empresas" Relationship="Self.fk_RECLAMO_IDEMPRESA" FromRole="Reclamos" ToRole="Empresas" />
+    <NavigationProperty Name="Personas" Relationship="Self.fk_RECLAMO_IDPERSONA" FromRole="Reclamos" ToRole="Personas" />
+    <NavigationProperty Name="Polizas" Relationship="Self.fk_RECLAMO_NUMPOLIZA" FromRole="Reclamos" ToRole="Polizas" />
+    <NavigationProperty Name="ReclamoDocumento" Relationship="Self.fk_RECLAMODOCUMENTO_RECLAMO" FromRole="Reclamos" ToRole="ReclamoDocumento" />
+    <NavigationProperty Name="ReclamoSeguimiento" Relationship="Self.fk_RECLAMOSEGUIMIENTO_RECLAMO" FromRole="Reclamos" ToRole="ReclamoSeguimiento" />
+  </EntityType>
+  <EntityType Name="ReclamoSeguimiento">
+    <Key>
+      <PropertyRef Name="idReclamoSeguimiento" />
+    </Key>
+    <Property Name="idReclamoSeguimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reclamoId" Type="Int32" />
+    <Property Name="reclamoNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="reclamoSFechaContacto" Type="DateTime" Precision="0" />
+    <Property Name="reclamoSEmpleadoId" Type="Int32" />
+    <Property Name="reclamoSEmpleado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="reclamoSContactoA" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="reclamoSDescripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="reclamoSMedioUtilizado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="reclamoSObservaciones" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="empresaId" Type="Int32" />
+    <Property Name="usuario" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="fechaGrabado" Type="DateTime" Precision="0" />
+    <Property Name="reclamoSAnulado" Type="Boolean" />
+    <NavigationProperty Name="Empresas" Relationship="Self.fk_RECLAMOSEGUIMIENTO_IDEMPRESA" FromRole="ReclamoSeguimiento" ToRole="Empresas" />
+    <NavigationProperty Name="Reclamos" Relationship="Self.fk_RECLAMOSEGUIMIENTO_RECLAMO" FromRole="ReclamoSeguimiento" ToRole="Reclamos" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.fk_RECLAMOSEGUIMIENTO_IDEMPLEADO" FromRole="ReclamoSeguimiento" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="TipoBeneficiario">
+    <Key>
+      <PropertyRef Name="tipoBeneficiarioId" />
+    </Key>
+    <Property Name="tipoBeneficiarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoBeneficiarioDescripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CertificadoPersonaBeneficiario" Relationship="Self.FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID" FromRole="TipoBeneficiario" ToRole="CertificadoPersonaBeneficiario" />
+  </EntityType>
+  <EntityType Name="TipoBien">
+    <Key>
+      <PropertyRef Name="tipoBienId" />
+    </Key>
+    <Property Name="tipoBienId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoBienDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="BienesAsegurados" Relationship="Self.FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID" FromRole="TipoBien" ToRole="BienesAsegurados" />
+  </EntityType>
+  <EntityType Name="TipoCategoria">
+    <Key>
+      <PropertyRef Name="tipoCategoriaId" />
+    </Key>
+    <Property Name="tipoCategoriaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoCategoriaDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CertificadoPersona" Relationship="Self.FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA" FromRole="TipoCategoria" ToRole="CertificadoPersona" />
+  </EntityType>
+  <EntityType Name="TipoCertificado">
+    <Key>
+      <PropertyRef Name="tipoCertificadoId" />
+    </Key>
+    <Property Name="tipoCertificadoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoCertificadoDescripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CertificadoAutomotor" Relationship="Self.FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO" FromRole="TipoCertificado" ToRole="CertificadoAutomotor" />
+    <NavigationProperty Name="CertificadoPersona" Relationship="Self.FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO" FromRole="TipoCertificado" ToRole="CertificadoPersona" />
+    <NavigationProperty Name="CertificadoTransporte" Relationship="Self.FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO" FromRole="TipoCertificado" ToRole="CertificadoTransporte" />
+    <NavigationProperty Name="Ramos" Relationship="Self.FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID" FromRole="TipoCertificado" ToRole="Ramos" />
+  </EntityType>
+  <EntityType Name="TipoContribuyentes">
+    <Key>
+      <PropertyRef Name="tipoContribuyenteId" />
+    </Key>
+    <Property Name="tipoContribuyenteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoContribuyenteDescripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" FromRole="TipoContribuyentes" ToRole="Empresas" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" FromRole="TipoContribuyentes" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="TipoDireccion">
+    <Key>
+      <PropertyRef Name="tipoDireccionId" />
+    </Key>
+    <Property Name="tipoDireccionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoDireccionDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TipoDocumentoLegal">
+    <Key>
+      <PropertyRef Name="tipoDocumentoId" />
+    </Key>
+    <Property Name="tipoDocumentoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoDocumentoDescripcion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PolizaTransporteDocumento" Relationship="Self.FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO" FromRole="TipoDocumentoLegal" ToRole="PolizaTransporteDocumento" />
+  </EntityType>
+  <EntityType Name="TipoDocumentoReclamo">
+    <Key>
+      <PropertyRef Name="idReclamoTipoDocumento" />
+    </Key>
+    <Property Name="idReclamoTipoDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="reclamoTipoDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TipoEndoso">
+    <Key>
+      <PropertyRef Name="tipoEndosoId" />
+    </Key>
+    <Property Name="tipoEndosoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoEndosoDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TipoEstatus">
+    <Key>
+      <PropertyRef Name="tipoEstatusId" />
+    </Key>
+    <Property Name="tipoEstatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoEstatusNombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cuotas" Relationship="Self.FK_CUOTAESTATUSID_ESTATUSID" FromRole="TipoEstatus" ToRole="Cuotas" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZAESTATUSID_ESTATUSID" FromRole="TipoEstatus" ToRole="Polizas" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_USUARIOSESTATUSID_ESTATUSID" FromRole="TipoEstatus" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="TipoGasto">
+    <Key>
+      <PropertyRef Name="tipoGastoId" />
+    </Key>
+    <Property Name="tipoGastoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoGastoDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TipoPersona">
+    <Key>
+      <PropertyRef Name="tipoPersonaId" />
+    </Key>
+    <Property Name="tipoPersonaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoPersonaDescripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Personas" Relationship="Self.FK_PERSONASTIPOPERSONAID_TIPOPERSONAID" FromRole="TipoPersona" ToRole="Personas" />
+  </EntityType>
+  <EntityType Name="TipoPlaca">
+    <Key>
+      <PropertyRef Name="TipoPlacaId" />
+    </Key>
+    <Property Name="TipoPlacaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoPlacaDescripcion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="TipoPlacaPrefijo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Automotores" Relationship="Self.FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID" FromRole="TipoPlaca" ToRole="Automotores" />
+  </EntityType>
+  <EntityType Name="TipoPoliza">
+    <Key>
+      <PropertyRef Name="tipoPolizaId" />
+    </Key>
+    <Property Name="tipoPolizaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoPolizaDescripcion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Polizas" Relationship="Self.FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID" FromRole="TipoPoliza" ToRole="Polizas" />
+    <NavigationProperty Name="Ramos" Relationship="Self.FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID" FromRole="TipoPoliza" ToRole="Ramos" />
+  </EntityType>
+  <EntityType Name="TipoPrima">
+    <Key>
+      <PropertyRef Name="tipoPrimaId" />
+    </Key>
+    <Property Name="tipoPrimaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoPrimaDescripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="tipoPrimaCodigo" Type="Int32" />
+    <Property Name="FactorSumaAsegurada" Type="Boolean" />
+    <NavigationProperty Name="Primas" Relationship="Self.FK_PRIMATIPOID_TIPOPRIMAID" FromRole="TipoPrima" ToRole="Primas" />
+  </EntityType>
+  <EntityType Name="TransporteCoberturas">
+    <Key>
+      <PropertyRef Name="transporteCoberturasId" />
+    </Key>
+    <Property Name="transporteCoberturasId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PolizaTransporteCoberturas" Relationship="Self.FK_polizaTransporteCoberturas_coberturas" FromRole="TransporteCoberturas" ToRole="PolizaTransporteCoberturas" />
+  </EntityType>
+  <EntityType Name="TransporteDetalleFacturas">
+    <Key>
+      <PropertyRef Name="detalleFacturaId" />
+    </Key>
+    <Property Name="detalleFacturaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transporteId" Type="Int32" />
+    <Property Name="detalleFacturaNum" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="detalleFacturaFecha" Type="DateTime" Precision="0" />
+    <Property Name="detalleFacturaMonto" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="CertificadoTransporte" Relationship="Self.FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID" FromRole="TransporteDetalleFacturas" ToRole="CertificadoTransporte" />
+  </EntityType>
+  <EntityType Name="UsuarioDepartamento">
+    <Key>
+      <PropertyRef Name="departamentoId" />
+    </Key>
+    <Property Name="departamentoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="departamentoNombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID" FromRole="UsuarioDepartamento" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="UsuarioPuestoFuncional">
+    <Key>
+      <PropertyRef Name="puestoFuncionalId" />
+    </Key>
+    <Property Name="puestoFuncionalId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PuestoFuncionalNombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID" FromRole="UsuarioPuestoFuncional" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="usuarioId" />
+    </Key>
+    <Property Name="usuarioId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuarioUsername" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioNombre" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioCorreo" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioCelular" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="usuarioAdmin" Type="Boolean" />
+    <Property Name="tipoEstatusId" Type="Int32" />
+    <Property Name="empresaId" Type="Int32" />
+    <Property Name="PuestoFuncionalId" Type="Int32" />
+    <Property Name="departamentoId" Type="Int32" />
+    <Property Name="empresaNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Agenda" Relationship="Self.FK_agendausuario" FromRole="Usuarios" ToRole="Agenda" />
+    <NavigationProperty Name="Empresas" Relationship="Self.FK_USUARIOSEMPRESAID_EMPRESAID" FromRole="Usuarios" ToRole="Empresas" />
+    <NavigationProperty Name="HistorialUsuario" Relationship="Self.FK_HISTORIALUSUARIOID_USUARIOID" FromRole="Usuarios" ToRole="HistorialUsuario" />
+    <NavigationProperty Name="ReclamoSeguimiento" Relationship="Self.fk_RECLAMOSEGUIMIENTO_IDEMPLEADO" FromRole="Usuarios" ToRole="ReclamoSeguimiento" />
+    <NavigationProperty Name="TipoEstatus" Relationship="Self.FK_USUARIOSESTATUSID_ESTATUSID" FromRole="Usuarios" ToRole="TipoEstatus" />
+    <NavigationProperty Name="UsuarioDepartamento" Relationship="Self.FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID" FromRole="Usuarios" ToRole="UsuarioDepartamento" />
+    <NavigationProperty Name="UsuarioPuestoFuncional" Relationship="Self.FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID" FromRole="Usuarios" ToRole="UsuarioPuestoFuncional" />
+  </EntityType>
+  <Association Name="FK_agendaempresa">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agendausuario">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuarioId" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_aseguradora_pais">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="0..1" />
+    <End Role="Aseguradoras" Type="Self.Aseguradoras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="paisId" />
+      </Principal>
+      <Dependent Role="Aseguradoras">
+        <PropertyRef Name="paisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAASEGURADORAID_ASEGURADORAID">
+    <End Role="Aseguradoras" Type="Self.Aseguradoras" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aseguradoras">
+        <PropertyRef Name="aseguradoraId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="aseguradoraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AUTOMOTORCLASEID_CLASEID">
+    <End Role="AutomotorClase" Type="Self.AutomotorClase" Multiplicity="0..1" />
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutomotorClase">
+        <PropertyRef Name="automotorClaseId" />
+      </Principal>
+      <Dependent Role="Automotores">
+        <PropertyRef Name="automotorClaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AUTOMOTORMARCAID_MARCAID">
+    <End Role="AutomotoresMarcas" Type="Self.AutomotoresMarcas" Multiplicity="0..1" />
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutomotoresMarcas">
+        <PropertyRef Name="marcaId" />
+      </Principal>
+      <Dependent Role="Automotores">
+        <PropertyRef Name="marcaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AUTOMOTORMODELOID_MODELOID">
+    <End Role="AutomotoresModelos" Type="Self.AutomotoresModelos" Multiplicity="0..1" />
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutomotoresModelos">
+        <PropertyRef Name="modeloId" />
+      </Principal>
+      <Dependent Role="Automotores">
+        <PropertyRef Name="modeloId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID">
+    <End Role="TipoPlaca" Type="Self.TipoPlaca" Multiplicity="0..1" />
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPlaca">
+        <PropertyRef Name="TipoPlacaId" />
+      </Principal>
+      <Dependent Role="Automotores">
+        <PropertyRef Name="tipoPlacaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA">
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Automotores">
+        <PropertyRef Name="automotorPlaca" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="automotorPlaca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaAutomotorCoberturas_AUTOMOTOR">
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="0..1" />
+    <End Role="PolizaAutomotorCoberturas" Type="Self.PolizaAutomotorCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Automotores">
+        <PropertyRef Name="automotorPlaca" />
+      </Principal>
+      <Dependent Role="PolizaAutomotorCoberturas">
+        <PropertyRef Name="automotorPlaca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaAutomotorCoberturas_COBERTURAS">
+    <End Role="AutomotoresCoberturas" Type="Self.AutomotoresCoberturas" Multiplicity="0..1" />
+    <End Role="PolizaAutomotorCoberturas" Type="Self.PolizaAutomotorCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutomotoresCoberturas">
+        <PropertyRef Name="coberturasId" />
+      </Principal>
+      <Dependent Role="PolizaAutomotorCoberturas">
+        <PropertyRef Name="coberturasId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BIENESASEGURADOS_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BienesAsegurados" Type="Self.BienesAsegurados" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="BienesAsegurados">
+        <PropertyRef Name="bienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="BienesAsegurados" Type="Self.BienesAsegurados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="BienesAsegurados">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BIENESASEGURADOSPRIMAID_PRIMAID">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="BienesAsegurados" Type="Self.BienesAsegurados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="BienesAsegurados">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID">
+    <End Role="TipoBien" Type="Self.TipoBien" Multiplicity="0..1" />
+    <End Role="BienesAsegurados" Type="Self.BienesAsegurados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoBien">
+        <PropertyRef Name="tipoBienId" />
+      </Principal>
+      <Dependent Role="BienesAsegurados">
+        <PropertyRef Name="tipoBienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTO_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="certAutoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="clienteCobro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOIDPERSONA_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOIDPRIMA_PRIMAID">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO">
+    <End Role="TipoCertificado" Type="Self.TipoCertificado" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCertificado">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID">
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="0..1" />
+    <End Role="PolizaAutomotorCoberturas" Type="Self.PolizaAutomotorCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoAutomotor">
+        <PropertyRef Name="certAutoId" />
+      </Principal>
+      <Dependent Role="PolizaAutomotorCoberturas">
+        <PropertyRef Name="certAutoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONA_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="certPersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONA_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID">
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="0..1" />
+    <End Role="CertificadoPersonaBeneficiario" Type="Self.CertificadoPersonaBeneficiario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoPersona">
+        <PropertyRef Name="certPersonaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersonaBeneficiario">
+        <PropertyRef Name="certPersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA">
+    <End Role="TipoCategoria" Type="Self.TipoCategoria" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCategoria">
+        <PropertyRef Name="tipoCategoriaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="tipoCategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO">
+    <End Role="TipoCertificado" Type="Self.TipoCertificado" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCertificado">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoPersonaBeneficiario" Type="Self.CertificadoPersonaBeneficiario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersonaBeneficiario">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID">
+    <End Role="TipoBeneficiario" Type="Self.TipoBeneficiario" Multiplicity="0..1" />
+    <End Role="CertificadoPersonaBeneficiario" Type="Self.CertificadoPersonaBeneficiario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoBeneficiario">
+        <PropertyRef Name="tipoBeneficiarioId" />
+      </Principal>
+      <Dependent Role="CertificadoPersonaBeneficiario">
+        <PropertyRef Name="tipoBeneficiarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_DEPENDIENTE">
+    <End Role="CertificadoPersonaBeneficiario" Type="Self.CertificadoPersonaBeneficiario" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoPersonaBeneficiario">
+        <PropertyRef Name="certPBeneficiarioId" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="dependiente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOTRANS_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="CertificadoTransporte">
+        <PropertyRef Name="transporteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXCLUSIONES_CERT">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="0..1" />
+    <End Role="Exclusiones" Type="Self.Exclusiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="Exclusiones">
+        <PropertyRef Name="certificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INMUEBLECERTIFICADO_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="Inmuebles">
+        <PropertyRef Name="inmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="certificadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOTRANSIDPERSONA_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoTransporte">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO">
+    <End Role="TipoCertificado" Type="Self.TipoCertificado" Multiplicity="0..1" />
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCertificado">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Principal>
+      <Dependent Role="CertificadoTransporte">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="CertificadoTransporte">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaTransporteCoberturas_transporte">
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="0..1" />
+    <End Role="PolizaTransporteCoberturas" Type="Self.PolizaTransporteCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoTransporte">
+        <PropertyRef Name="transporteId" />
+      </Principal>
+      <Dependent Role="PolizaTransporteCoberturas">
+        <PropertyRef Name="transporteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID">
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="0..1" />
+    <End Role="TransporteDetalleFacturas" Type="Self.TransporteDetalleFacturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoTransporte">
+        <PropertyRef Name="transporteId" />
+      </Principal>
+      <Dependent Role="TransporteDetalleFacturas">
+        <PropertyRef Name="transporteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTEDOCUMENTO_TRANSPORTEID">
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="0..1" />
+    <End Role="PolizaTransporteDocumento" Type="Self.PolizaTransporteDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoTransporte">
+        <PropertyRef Name="transporteId" />
+      </Principal>
+      <Dependent Role="PolizaTransporteDocumento">
+        <PropertyRef Name="transporteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CUOTAESTATUSID_ESTATUSID">
+    <End Role="TipoEstatus" Type="Self.TipoEstatus" Multiplicity="0..1" />
+    <End Role="Cuotas" Type="Self.Cuotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEstatus">
+        <PropertyRef Name="tipoEstatusId" />
+      </Principal>
+      <Dependent Role="Cuotas">
+        <PropertyRef Name="tipoEstatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CUOTAPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Cuotas" Type="Self.Cuotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Cuotas">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CUOTAPRIMA_PRIMAID">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="Cuotas" Type="Self.Cuotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="Cuotas">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZADEDUCIBLES_DEDUCIBLES">
+    <End Role="Deducibles" Type="Self.Deducibles" Multiplicity="0..1" />
+    <End Role="PolizaDeducibles" Type="Self.PolizaDeducibles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deducibles">
+        <PropertyRef Name="deduciblesId" />
+      </Principal>
+      <Dependent Role="PolizaDeducibles">
+        <PropertyRef Name="deduciblesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID">
+    <End Role="TipoContribuyentes" Type="Self.TipoContribuyentes" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContribuyentes">
+        <PropertyRef Name="tipoContribuyenteId" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="tipoContribuyenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GRUPOCLIENTESEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="GrupoClientes" Type="Self.GrupoClientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="GrupoClientes">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONASEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAMOEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Ramos" Type="Self.Ramos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Ramos">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_IDEMPRESA">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMODOCUMENTO_IDEMPRESA">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="ReclamoDocumento" Type="Self.ReclamoDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="ReclamoDocumento">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMOSEGUIMIENTO_IDEMPRESA">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="ReclamoSeguimiento" Type="Self.ReclamoSeguimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="ReclamoSeguimiento">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOSEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXCLUSIONES_POLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Exclusiones" Type="Self.Exclusiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Exclusiones">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXCLUSIONES_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="Exclusiones" Type="Self.Exclusiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="Exclusiones">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAFORMADEPAGOID_FORMADEPAGOID">
+    <End Role="FormaDePago" Type="Self.FormaDePago" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormaDePago">
+        <PropertyRef Name="formaDePagoId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="formaDePagoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID">
+    <End Role="GastoFraccionado" Type="Self.GastoFraccionado" Multiplicity="0..1" />
+    <End Role="PolizaGastosFraccionados" Type="Self.PolizaGastosFraccionados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GastoFraccionado">
+        <PropertyRef Name="gastoFraccionadoId" />
+      </Principal>
+      <Dependent Role="PolizaGastosFraccionados">
+        <PropertyRef Name="gastoFraccionadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAGASTOINICIALID_GASTOINICIALID">
+    <End Role="GastoInicial" Type="Self.GastoInicial" Multiplicity="0..1" />
+    <End Role="PolizaGastosIniciales" Type="Self.PolizaGastosIniciales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GastoInicial">
+        <PropertyRef Name="gastoInicialId" />
+      </Principal>
+      <Dependent Role="PolizaGastosIniciales">
+        <PropertyRef Name="gastoInicialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID">
+    <End Role="GrupoClientes" Type="Self.GrupoClientes" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoClientes">
+        <PropertyRef Name="grupoClienteId" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="grupoClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HISTORIALUSUARIOID_USUARIOID">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HistorialUsuario" Type="Self.HistorialUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuarioId" />
+      </Principal>
+      <Dependent Role="HistorialUsuario">
+        <PropertyRef Name="usuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Inmuebles">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagos_cliente">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="clienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagos_pagador">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="pagadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagos_prima">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONASCONTACTOPERSONAID_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="PersonaContactos" Type="Self.PersonaContactos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="PersonaContactos">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONASDIRPERSONAID_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="PersonaDirecciones" Type="Self.PersonaDirecciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="PersonaDirecciones">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID">
+    <End Role="TipoContribuyentes" Type="Self.TipoContribuyentes" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContribuyentes">
+        <PropertyRef Name="tipoContribuyenteId" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="tipoContribuyenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONAS_PERSONAEMPRESA">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Personas1" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Personas1">
+        <PropertyRef Name="personaEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONASTIPOPERSONAID_TIPOPERSONAID">
+    <End Role="TipoPersona" Type="Self.TipoPersona" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPersona">
+        <PropertyRef Name="tipoPersonaId" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="tipoPersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZACLIENTECOBROID_CLIENTECOBROID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="clienteCobroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZACLIENTEID_CLIENTEID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="clienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_IDPERSONA">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaAutomotorCoberturas_POLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaAutomotorCoberturas" Type="Self.PolizaAutomotorCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaAutomotorCoberturas">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaCancelaciones" Type="Self.PolizaCancelaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaCancelaciones">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaComentarios" Type="Self.PolizaComentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaComentarios">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZADEDUCIBLES_POLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaDeducibles" Type="Self.PolizaDeducibles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaDeducibles">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZADEDUCIBLES_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="PolizaDeducibles" Type="Self.PolizaDeducibles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="PolizaDeducibles">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAGASTOSFRACCIONADOS_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="PolizaGastosFraccionados" Type="Self.PolizaGastosFraccionados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="PolizaGastosFraccionados">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAGASTOSINICIALES_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="PolizaGastosIniciales" Type="Self.PolizaGastosIniciales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="PolizaGastosIniciales">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaGastosIniciales" Type="Self.PolizaGastosIniciales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaGastosIniciales">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAESTATUSID_ESTATUSID">
+    <End Role="TipoEstatus" Type="Self.TipoEstatus" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEstatus">
+        <PropertyRef Name="tipoEstatusId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="tipoEstatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZARAMOID_RAMOID">
+    <End Role="Ramos" Type="Self.Ramos" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ramos">
+        <PropertyRef Name="ramoId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="ramoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID">
+    <End Role="TipoPoliza" Type="Self.TipoPoliza" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPoliza">
+        <PropertyRef Name="tipoPolizaId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="tipoPolizaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaTransporteCoberturas_poliza">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaTransporteCoberturas" Type="Self.PolizaTransporteCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaTransporteCoberturas">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRIMANUMERO_NUMEROPOLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Primas" Type="Self.Primas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Primas">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_NUMPOLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTEDOCUMENTO_NUMPOLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaTransporteDocumento" Type="Self.PolizaTransporteDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaTransporteDocumento">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaTransporteCoberturas_coberturas">
+    <End Role="TransporteCoberturas" Type="Self.TransporteCoberturas" Multiplicity="0..1" />
+    <End Role="PolizaTransporteCoberturas" Type="Self.PolizaTransporteCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransporteCoberturas">
+        <PropertyRef Name="transporteCoberturasId" />
+      </Principal>
+      <Dependent Role="PolizaTransporteCoberturas">
+        <PropertyRef Name="transporteCoberturasId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO">
+    <End Role="TipoDocumentoLegal" Type="Self.TipoDocumentoLegal" Multiplicity="0..1" />
+    <End Role="PolizaTransporteDocumento" Type="Self.PolizaTransporteDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumentoLegal">
+        <PropertyRef Name="tipoDocumentoId" />
+      </Principal>
+      <Dependent Role="PolizaTransporteDocumento">
+        <PropertyRef Name="tipoDocumentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRIMATIPOID_TIPOPRIMAID">
+    <End Role="TipoPrima" Type="Self.TipoPrima" Multiplicity="0..1" />
+    <End Role="Primas" Type="Self.Primas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPrima">
+        <PropertyRef Name="tipoPrimaId" />
+      </Principal>
+      <Dependent Role="Primas">
+        <PropertyRef Name="primaTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID">
+    <End Role="TipoCertificado" Type="Self.TipoCertificado" Multiplicity="0..1" />
+    <End Role="Ramos" Type="Self.Ramos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCertificado">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Principal>
+      <Dependent Role="Ramos">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID">
+    <End Role="TipoPoliza" Type="Self.TipoPoliza" Multiplicity="0..1" />
+    <End Role="Ramos" Type="Self.Ramos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPoliza">
+        <PropertyRef Name="tipoPolizaId" />
+      </Principal>
+      <Dependent Role="Ramos">
+        <PropertyRef Name="tipoPolizaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMODOCUMENTO_RECLAMO">
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="0..1" />
+    <End Role="ReclamoDocumento" Type="Self.ReclamoDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reclamos">
+        <PropertyRef Name="reclamoId" />
+      </Principal>
+      <Dependent Role="ReclamoDocumento">
+        <PropertyRef Name="reclamoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMOSEGUIMIENTO_RECLAMO">
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="0..1" />
+    <End Role="ReclamoSeguimiento" Type="Self.ReclamoSeguimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reclamos">
+        <PropertyRef Name="reclamoId" />
+      </Principal>
+      <Dependent Role="ReclamoSeguimiento">
+        <PropertyRef Name="reclamoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMOSEGUIMIENTO_IDEMPLEADO">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="ReclamoSeguimiento" Type="Self.ReclamoSeguimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuarioId" />
+      </Principal>
+      <Dependent Role="ReclamoSeguimiento">
+        <PropertyRef Name="reclamoSEmpleadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOSESTATUSID_ESTATUSID">
+    <End Role="TipoEstatus" Type="Self.TipoEstatus" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEstatus">
+        <PropertyRef Name="tipoEstatusId" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="tipoEstatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID">
+    <End Role="UsuarioDepartamento" Type="Self.UsuarioDepartamento" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsuarioDepartamento">
+        <PropertyRef Name="departamentoId" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="departamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID">
+    <End Role="UsuarioPuestoFuncional" Type="Self.UsuarioPuestoFuncional" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsuarioPuestoFuncional">
+        <PropertyRef Name="puestoFuncionalId" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="PuestoFuncionalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="syspolizaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agenda" EntityType="Self.Agenda" />
+    <EntitySet Name="Aseguradoras" EntityType="Self.Aseguradoras" />
+    <EntitySet Name="AutomotorClase" EntityType="Self.AutomotorClase" />
+    <EntitySet Name="Automotores" EntityType="Self.Automotores" />
+    <EntitySet Name="AutomotoresCoberturas" EntityType="Self.AutomotoresCoberturas" />
+    <EntitySet Name="AutomotoresMarcas" EntityType="Self.AutomotoresMarcas" />
+    <EntitySet Name="AutomotoresModelos" EntityType="Self.AutomotoresModelos" />
+    <EntitySet Name="Bancos" EntityType="Self.Bancos" />
+    <EntitySet Name="BienesAsegurados" EntityType="Self.BienesAsegurados" />
+    <EntitySet Name="CertificadoAutomotor" EntityType="Self.CertificadoAutomotor" />
+    <EntitySet Name="CertificadoPersona" EntityType="Self.CertificadoPersona" />
+    <EntitySet Name="CertificadoPersonaBeneficiario" EntityType="Self.CertificadoPersonaBeneficiario" />
+    <EntitySet Name="Certificados" EntityType="Self.Certificados" />
+    <EntitySet Name="CertificadoTransporte" EntityType="Self.CertificadoTransporte" />
+    <EntitySet Name="Cuotas" EntityType="Self.Cuotas" />
+    <EntitySet Name="Deducibles" EntityType="Self.Deducibles" />
+    <EntitySet Name="Documentos" EntityType="Self.Documentos" />
+    <EntitySet Name="Empresas" EntityType="Self.Empresas" />
+    <EntitySet Name="Exclusiones" EntityType="Self.Exclusiones" />
+    <EntitySet Name="FormaDePago" EntityType="Self.FormaDePago" />
+    <EntitySet Name="GastoFraccionado" EntityType="Self.GastoFraccionado" />
+    <EntitySet Name="GastoInicial" EntityType="Self.GastoInicial" />
+    <EntitySet Name="GrupoClientes" EntityType="Self.GrupoClientes" />
+    <EntitySet Name="HistorialUsuario" EntityType="Self.HistorialUsuario" />
+    <EntitySet Name="HistoricoCuotas" EntityType="Self.HistoricoCuotas" />
+    <EntitySet Name="HistoricoPagos" EntityType="Self.HistoricoPagos" />
+    <EntitySet Name="HistoricoPoliza" EntityType="Self.HistoricoPoliza" />
+    <EntitySet Name="HistoricoPrima" EntityType="Self.HistoricoPrima" />
+    <EntitySet Name="Inmuebles" EntityType="Self.Inmuebles" />
+    <EntitySet Name="Pagos" EntityType="Self.Pagos" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" />
+    <EntitySet Name="PersonaContactos" EntityType="Self.PersonaContactos" />
+    <EntitySet Name="PersonaDirecciones" EntityType="Self.PersonaDirecciones" />
+    <EntitySet Name="Personas" EntityType="Self.Personas" />
+    <EntitySet Name="PolizaAutomotorCoberturas" EntityType="Self.PolizaAutomotorCoberturas" />
+    <EntitySet Name="PolizaCancelaciones" EntityType="Self.PolizaCancelaciones" />
+    <EntitySet Name="PolizaComentarios" EntityType="Self.PolizaComentarios" />
+    <EntitySet Name="PolizaDeducibles" EntityType="Self.PolizaDeducibles" />
+    <EntitySet Name="PolizaGastosFraccionados" EntityType="Self.PolizaGastosFraccionados" />
+    <EntitySet Name="PolizaGastosIniciales" EntityType="Self.PolizaGastosIniciales" />
+    <EntitySet Name="Polizas" EntityType="Self.Polizas" />
+    <EntitySet Name="PolizaTransporteCoberturas" EntityType="Self.PolizaTransporteCoberturas" />
+    <EntitySet Name="PolizaTransporteDocumento" EntityType="Self.PolizaTransporteDocumento" />
+    <EntitySet Name="Primas" EntityType="Self.Primas" />
+    <EntitySet Name="Ramos" EntityType="Self.Ramos" />
+    <EntitySet Name="ReclamoDocumento" EntityType="Self.ReclamoDocumento" />
+    <EntitySet Name="Reclamos" EntityType="Self.Reclamos" />
+    <EntitySet Name="ReclamoSeguimiento" EntityType="Self.ReclamoSeguimiento" />
+    <EntitySet Name="TipoBeneficiario" EntityType="Self.TipoBeneficiario" />
+    <EntitySet Name="TipoBien" EntityType="Self.TipoBien" />
+    <EntitySet Name="TipoCategoria" EntityType="Self.TipoCategoria" />
+    <EntitySet Name="TipoCertificado" EntityType="Self.TipoCertificado" />
+    <EntitySet Name="TipoContribuyentes" EntityType="Self.TipoContribuyentes" />
+    <EntitySet Name="TipoDireccion" EntityType="Self.TipoDireccion" />
+    <EntitySet Name="TipoDocumentoLegal" EntityType="Self.TipoDocumentoLegal" />
+    <EntitySet Name="TipoDocumentoReclamo" EntityType="Self.TipoDocumentoReclamo" />
+    <EntitySet Name="TipoEndoso" EntityType="Self.TipoEndoso" />
+    <EntitySet Name="TipoEstatus" EntityType="Self.TipoEstatus" />
+    <EntitySet Name="TipoGasto" EntityType="Self.TipoGasto" />
+    <EntitySet Name="TipoPersona" EntityType="Self.TipoPersona" />
+    <EntitySet Name="TipoPlaca" EntityType="Self.TipoPlaca" />
+    <EntitySet Name="TipoPoliza" EntityType="Self.TipoPoliza" />
+    <EntitySet Name="TipoPrima" EntityType="Self.TipoPrima" />
+    <EntitySet Name="TransporteCoberturas" EntityType="Self.TransporteCoberturas" />
+    <EntitySet Name="TransporteDetalleFacturas" EntityType="Self.TransporteDetalleFacturas" />
+    <EntitySet Name="UsuarioDepartamento" EntityType="Self.UsuarioDepartamento" />
+    <EntitySet Name="UsuarioPuestoFuncional" EntityType="Self.UsuarioPuestoFuncional" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK_agendaempresa" Association="Self.FK_agendaempresa">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agendausuario" Association="Self.FK_agendausuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="fk_aseguradora_pais" Association="Self.fk_aseguradora_pais">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Aseguradoras" EntitySet="Aseguradoras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAASEGURADORAID_ASEGURADORAID" Association="Self.FK_POLIZAASEGURADORAID_ASEGURADORAID">
+      <End Role="Aseguradoras" EntitySet="Aseguradoras" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AUTOMOTORCLASEID_CLASEID" Association="Self.FK_AUTOMOTORCLASEID_CLASEID">
+      <End Role="AutomotorClase" EntitySet="AutomotorClase" />
+      <End Role="Automotores" EntitySet="Automotores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AUTOMOTORMARCAID_MARCAID" Association="Self.FK_AUTOMOTORMARCAID_MARCAID">
+      <End Role="AutomotoresMarcas" EntitySet="AutomotoresMarcas" />
+      <End Role="Automotores" EntitySet="Automotores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AUTOMOTORMODELOID_MODELOID" Association="Self.FK_AUTOMOTORMODELOID_MODELOID">
+      <End Role="AutomotoresModelos" EntitySet="AutomotoresModelos" />
+      <End Role="Automotores" EntitySet="Automotores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID" Association="Self.FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID">
+      <End Role="TipoPlaca" EntitySet="TipoPlaca" />
+      <End Role="Automotores" EntitySet="Automotores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA" Association="Self.FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA">
+      <End Role="Automotores" EntitySet="Automotores" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaAutomotorCoberturas_AUTOMOTOR" Association="Self.FK_polizaAutomotorCoberturas_AUTOMOTOR">
+      <End Role="Automotores" EntitySet="Automotores" />
+      <End Role="PolizaAutomotorCoberturas" EntitySet="PolizaAutomotorCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaAutomotorCoberturas_COBERTURAS" Association="Self.FK_polizaAutomotorCoberturas_COBERTURAS">
+      <End Role="AutomotoresCoberturas" EntitySet="AutomotoresCoberturas" />
+      <End Role="PolizaAutomotorCoberturas" EntitySet="PolizaAutomotorCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BIENESASEGURADOS_CERTIFICADO" Association="Self.FK_BIENESASEGURADOS_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="BienesAsegurados" EntitySet="BienesAsegurados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO" Association="Self.FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="BienesAsegurados" EntitySet="BienesAsegurados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BIENESASEGURADOSPRIMAID_PRIMAID" Association="Self.FK_BIENESASEGURADOSPRIMAID_PRIMAID">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="BienesAsegurados" EntitySet="BienesAsegurados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID" Association="Self.FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID">
+      <End Role="TipoBien" EntitySet="TipoBien" />
+      <End Role="BienesAsegurados" EntitySet="BienesAsegurados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTO_CERTIFICADO" Association="Self.FK_CERTIFICADOAUTO_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID" Association="Self.FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOIDPERSONA_PERSONAID" Association="Self.FK_CERTIFICADOAUTOIDPERSONA_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOIDPRIMA_PRIMAID" Association="Self.FK_CERTIFICADOAUTOIDPRIMA_PRIMAID">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO" Association="Self.FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO" Association="Self.FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO">
+      <End Role="TipoCertificado" EntitySet="TipoCertificado" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID" Association="Self.FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID">
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+      <End Role="PolizaAutomotorCoberturas" EntitySet="PolizaAutomotorCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONA_CERTIFICADO" Association="Self.FK_CERTIFICADOPERSONA_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONA_PRIMA" Association="Self.FK_CERTIFICADOPERSONA_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID" Association="Self.FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID">
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+      <End Role="CertificadoPersonaBeneficiario" EntitySet="CertificadoPersonaBeneficiario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID" Association="Self.FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO" Association="Self.FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA" Association="Self.FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA">
+      <End Role="TipoCategoria" EntitySet="TipoCategoria" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO" Association="Self.FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO">
+      <End Role="TipoCertificado" EntitySet="TipoCertificado" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID" Association="Self.FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoPersonaBeneficiario" EntitySet="CertificadoPersonaBeneficiario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID" Association="Self.FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID">
+      <End Role="TipoBeneficiario" EntitySet="TipoBeneficiario" />
+      <End Role="CertificadoPersonaBeneficiario" EntitySet="CertificadoPersonaBeneficiario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_DEPENDIENTE" Association="Self.fk_RECLAMO_DEPENDIENTE">
+      <End Role="CertificadoPersonaBeneficiario" EntitySet="CertificadoPersonaBeneficiario" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOTRANS_CERTIFICADO" Association="Self.FK_CERTIFICADOTRANS_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXCLUSIONES_CERT" Association="Self.FK_EXCLUSIONES_CERT">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="Exclusiones" EntitySet="Exclusiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INMUEBLECERTIFICADO_CERTIFICADO" Association="Self.FK_INMUEBLECERTIFICADO_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_CERTIFICADO" Association="Self.fk_RECLAMO_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOTRANSIDPERSONA_PERSONAID" Association="Self.FK_CERTIFICADOTRANSIDPERSONA_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO" Association="Self.FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO">
+      <End Role="TipoCertificado" EntitySet="TipoCertificado" />
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO" Association="Self.FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaTransporteCoberturas_transporte" Association="Self.FK_polizaTransporteCoberturas_transporte">
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+      <End Role="PolizaTransporteCoberturas" EntitySet="PolizaTransporteCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID" Association="Self.FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID">
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+      <End Role="TransporteDetalleFacturas" EntitySet="TransporteDetalleFacturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTEDOCUMENTO_TRANSPORTEID" Association="Self.FK_TRANSPORTEDOCUMENTO_TRANSPORTEID">
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+      <End Role="PolizaTransporteDocumento" EntitySet="PolizaTransporteDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CUOTAESTATUSID_ESTATUSID" Association="Self.FK_CUOTAESTATUSID_ESTATUSID">
+      <End Role="TipoEstatus" EntitySet="TipoEstatus" />
+      <End Role="Cuotas" EntitySet="Cuotas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CUOTAPOLIZANUMERO_POLIZANUMERO" Association="Self.FK_CUOTAPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Cuotas" EntitySet="Cuotas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CUOTAPRIMA_PRIMAID" Association="Self.FK_CUOTAPRIMA_PRIMAID">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="Cuotas" EntitySet="Cuotas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZADEDUCIBLES_DEDUCIBLES" Association="Self.FK_POLIZADEDUCIBLES_DEDUCIBLES">
+      <End Role="Deducibles" EntitySet="Deducibles" />
+      <End Role="PolizaDeducibles" EntitySet="PolizaDeducibles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" Association="Self.FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID">
+      <End Role="TipoContribuyentes" EntitySet="TipoContribuyentes" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GRUPOCLIENTESEMPRESAID_EMPRESAID" Association="Self.FK_GRUPOCLIENTESEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="GrupoClientes" EntitySet="GrupoClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONASEMPRESAID_EMPRESAID" Association="Self.FK_PERSONASEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAEMPRESAID_EMPRESAID" Association="Self.FK_POLIZAEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAMOEMPRESAID_EMPRESAID" Association="Self.FK_RAMOEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Ramos" EntitySet="Ramos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_IDEMPRESA" Association="Self.fk_RECLAMO_IDEMPRESA">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMODOCUMENTO_IDEMPRESA" Association="Self.fk_RECLAMODOCUMENTO_IDEMPRESA">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="ReclamoDocumento" EntitySet="ReclamoDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMOSEGUIMIENTO_IDEMPRESA" Association="Self.fk_RECLAMOSEGUIMIENTO_IDEMPRESA">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="ReclamoSeguimiento" EntitySet="ReclamoSeguimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOSEMPRESAID_EMPRESAID" Association="Self.FK_USUARIOSEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXCLUSIONES_POLIZA" Association="Self.FK_EXCLUSIONES_POLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Exclusiones" EntitySet="Exclusiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXCLUSIONES_PRIMA" Association="Self.FK_EXCLUSIONES_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="Exclusiones" EntitySet="Exclusiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAFORMADEPAGOID_FORMADEPAGOID" Association="Self.FK_POLIZAFORMADEPAGOID_FORMADEPAGOID">
+      <End Role="FormaDePago" EntitySet="FormaDePago" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID" Association="Self.FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID">
+      <End Role="GastoFraccionado" EntitySet="GastoFraccionado" />
+      <End Role="PolizaGastosFraccionados" EntitySet="PolizaGastosFraccionados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAGASTOINICIALID_GASTOINICIALID" Association="Self.FK_POLIZAGASTOINICIALID_GASTOINICIALID">
+      <End Role="GastoInicial" EntitySet="GastoInicial" />
+      <End Role="PolizaGastosIniciales" EntitySet="PolizaGastosIniciales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID" Association="Self.FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID">
+      <End Role="GrupoClientes" EntitySet="GrupoClientes" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HISTORIALUSUARIOID_USUARIOID" Association="Self.FK_HISTORIALUSUARIOID_USUARIOID">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="HistorialUsuario" EntitySet="HistorialUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO" Association="Self.FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagos_cliente" Association="Self.fk_pagos_cliente">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagos_pagador" Association="Self.fk_pagos_pagador">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagos_prima" Association="Self.fk_pagos_prima">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONASCONTACTOPERSONAID_PERSONAID" Association="Self.FK_PERSONASCONTACTOPERSONAID_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="PersonaContactos" EntitySet="PersonaContactos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONASDIRPERSONAID_PERSONAID" Association="Self.FK_PERSONASDIRPERSONAID_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="PersonaDirecciones" EntitySet="PersonaDirecciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" Association="Self.FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID">
+      <End Role="TipoContribuyentes" EntitySet="TipoContribuyentes" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONAS_PERSONAEMPRESA" Association="Self.FK_PERSONAS_PERSONAEMPRESA">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Personas1" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONASTIPOPERSONAID_TIPOPERSONAID" Association="Self.FK_PERSONASTIPOPERSONAID_TIPOPERSONAID">
+      <End Role="TipoPersona" EntitySet="TipoPersona" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZACLIENTECOBROID_CLIENTECOBROID" Association="Self.FK_POLIZACLIENTECOBROID_CLIENTECOBROID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZACLIENTEID_CLIENTEID" Association="Self.FK_POLIZACLIENTEID_CLIENTEID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_IDPERSONA" Association="Self.fk_RECLAMO_IDPERSONA">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaAutomotorCoberturas_POLIZA" Association="Self.FK_polizaAutomotorCoberturas_POLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaAutomotorCoberturas" EntitySet="PolizaAutomotorCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO" Association="Self.FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaCancelaciones" EntitySet="PolizaCancelaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA" Association="Self.FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaComentarios" EntitySet="PolizaComentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZADEDUCIBLES_POLIZA" Association="Self.FK_POLIZADEDUCIBLES_POLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaDeducibles" EntitySet="PolizaDeducibles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZADEDUCIBLES_PRIMA" Association="Self.FK_POLIZADEDUCIBLES_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="PolizaDeducibles" EntitySet="PolizaDeducibles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAGASTOSFRACCIONADOS_PRIMA" Association="Self.FK_POLIZAGASTOSFRACCIONADOS_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="PolizaGastosFraccionados" EntitySet="PolizaGastosFraccionados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAGASTOSINICIALES_PRIMA" Association="Self.FK_POLIZAGASTOSINICIALES_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="PolizaGastosIniciales" EntitySet="PolizaGastosIniciales" />
+    </AssociationSet>
+    <AssociationSet Name="K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO" Association="Self.K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaGastosIniciales" EntitySet="PolizaGastosIniciales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAESTATUSID_ESTATUSID" Association="Self.FK_POLIZAESTATUSID_ESTATUSID">
+      <End Role="TipoEstatus" EntitySet="TipoEstatus" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZARAMOID_RAMOID" Association="Self.FK_POLIZARAMOID_RAMOID">
+      <End Role="Ramos" EntitySet="Ramos" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID" Association="Self.FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID">
+      <End Role="TipoPoliza" EntitySet="TipoPoliza" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaTransporteCoberturas_poliza" Association="Self.FK_polizaTransporteCoberturas_poliza">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaTransporteCoberturas" EntitySet="PolizaTransporteCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRIMANUMERO_NUMEROPOLIZA" Association="Self.FK_PRIMANUMERO_NUMEROPOLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Primas" EntitySet="Primas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_NUMPOLIZA" Association="Self.fk_RECLAMO_NUMPOLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTEDOCUMENTO_NUMPOLIZA" Association="Self.FK_TRANSPORTEDOCUMENTO_NUMPOLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaTransporteDocumento" EntitySet="PolizaTransporteDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaTransporteCoberturas_coberturas" Association="Self.FK_polizaTransporteCoberturas_coberturas">
+      <End Role="TransporteCoberturas" EntitySet="TransporteCoberturas" />
+      <End Role="PolizaTransporteCoberturas" EntitySet="PolizaTransporteCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO" Association="Self.FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO">
+      <End Role="TipoDocumentoLegal" EntitySet="TipoDocumentoLegal" />
+      <End Role="PolizaTransporteDocumento" EntitySet="PolizaTransporteDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRIMATIPOID_TIPOPRIMAID" Association="Self.FK_PRIMATIPOID_TIPOPRIMAID">
+      <End Role="TipoPrima" EntitySet="TipoPrima" />
+      <End Role="Primas" EntitySet="Primas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID" Association="Self.FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID">
+      <End Role="TipoCertificado" EntitySet="TipoCertificado" />
+      <End Role="Ramos" EntitySet="Ramos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID" Association="Self.FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID">
+      <End Role="TipoPoliza" EntitySet="TipoPoliza" />
+      <End Role="Ramos" EntitySet="Ramos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMODOCUMENTO_RECLAMO" Association="Self.fk_RECLAMODOCUMENTO_RECLAMO">
+      <End Role="Reclamos" EntitySet="Reclamos" />
+      <End Role="ReclamoDocumento" EntitySet="ReclamoDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMOSEGUIMIENTO_RECLAMO" Association="Self.fk_RECLAMOSEGUIMIENTO_RECLAMO">
+      <End Role="Reclamos" EntitySet="Reclamos" />
+      <End Role="ReclamoSeguimiento" EntitySet="ReclamoSeguimiento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMOSEGUIMIENTO_IDEMPLEADO" Association="Self.fk_RECLAMOSEGUIMIENTO_IDEMPLEADO">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="ReclamoSeguimiento" EntitySet="ReclamoSeguimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOSESTATUSID_ESTATUSID" Association="Self.FK_USUARIOSESTATUSID_ESTATUSID">
+      <End Role="TipoEstatus" EntitySet="TipoEstatus" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID" Association="Self.FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID">
+      <End Role="UsuarioDepartamento" EntitySet="UsuarioDepartamento" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID" Association="Self.FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID">
+      <End Role="UsuarioPuestoFuncional" EntitySet="UsuarioPuestoFuncional" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

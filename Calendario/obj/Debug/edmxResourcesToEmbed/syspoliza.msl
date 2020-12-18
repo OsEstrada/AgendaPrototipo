@@ -1,0 +1,973 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="syspolizaModelStoreContainer" CdmEntityContainer="syspolizaEntities">
+    <EntitySetMapping Name="Agenda">
+      <EntityTypeMapping TypeName="syspolizaModel.Agenda">
+        <MappingFragment StoreEntitySet="Agenda">
+          <ScalarProperty Name="idRegistro" ColumnName="idRegistro" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
+          <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="detalles" ColumnName="detalles" />
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Aseguradoras">
+      <EntityTypeMapping TypeName="syspolizaModel.Aseguradoras">
+        <MappingFragment StoreEntitySet="Aseguradoras">
+          <ScalarProperty Name="aseguradoraId" ColumnName="aseguradoraId" />
+          <ScalarProperty Name="paisId" ColumnName="paisId" />
+          <ScalarProperty Name="aseguradoraNombre" ColumnName="aseguradoraNombre" />
+          <ScalarProperty Name="aseguradoraDireccion" ColumnName="aseguradoraDireccion" />
+          <ScalarProperty Name="aseguradoraWeb" ColumnName="aseguradoraWeb" />
+          <ScalarProperty Name="aseguradoraCheque" ColumnName="aseguradoraCheque" />
+          <ScalarProperty Name="aseguradoraTelefono" ColumnName="aseguradoraTelefono" />
+          <ScalarProperty Name="aseguradoraAbreviatura" ColumnName="aseguradoraAbreviatura" />
+          <ScalarProperty Name="aseguradoraNIT" ColumnName="aseguradoraNIT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutomotorClase">
+      <EntityTypeMapping TypeName="syspolizaModel.AutomotorClase">
+        <MappingFragment StoreEntitySet="AutomotorClase">
+          <ScalarProperty Name="automotorClaseId" ColumnName="automotorClaseId" />
+          <ScalarProperty Name="automotorClase1" ColumnName="automotorClase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Automotores">
+      <EntityTypeMapping TypeName="syspolizaModel.Automotores">
+        <MappingFragment StoreEntitySet="Automotores">
+          <ScalarProperty Name="automotorPlaca" ColumnName="automotorPlaca" />
+          <ScalarProperty Name="tipoPlacaId" ColumnName="tipoPlacaId" />
+          <ScalarProperty Name="automotorCapacidad" ColumnName="automotorCapacidad" />
+          <ScalarProperty Name="automotorAnio" ColumnName="automotorAnio" />
+          <ScalarProperty Name="marcaId" ColumnName="marcaId" />
+          <ScalarProperty Name="modeloId" ColumnName="modeloId" />
+          <ScalarProperty Name="automotorColor" ColumnName="automotorColor" />
+          <ScalarProperty Name="automotorNumeroMotor" ColumnName="automotorNumeroMotor" />
+          <ScalarProperty Name="automotorChasisGrabado" ColumnName="automotorChasisGrabado" />
+          <ScalarProperty Name="automotorChasisVin" ColumnName="automotorChasisVin" />
+          <ScalarProperty Name="automotoresTipoPropiedad" ColumnName="automotoresTipoPropiedad" />
+          <ScalarProperty Name="automotorClaseId" ColumnName="automotorClaseId" />
+          <ScalarProperty Name="automotorObservaciones" ColumnName="automotorObservaciones" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutomotoresCoberturas">
+      <EntityTypeMapping TypeName="syspolizaModel.AutomotoresCoberturas">
+        <MappingFragment StoreEntitySet="AutomotoresCoberturas">
+          <ScalarProperty Name="coberturasId" ColumnName="coberturasId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutomotoresMarcas">
+      <EntityTypeMapping TypeName="syspolizaModel.AutomotoresMarcas">
+        <MappingFragment StoreEntitySet="AutomotoresMarcas">
+          <ScalarProperty Name="marcaId" ColumnName="marcaId" />
+          <ScalarProperty Name="marcaDescripcion" ColumnName="marcaDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AutomotoresModelos">
+      <EntityTypeMapping TypeName="syspolizaModel.AutomotoresModelos">
+        <MappingFragment StoreEntitySet="AutomotoresModelos">
+          <ScalarProperty Name="modeloId" ColumnName="modeloId" />
+          <ScalarProperty Name="modeloDescripcion" ColumnName="modeloDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bancos">
+      <EntityTypeMapping TypeName="syspolizaModel.Bancos">
+        <MappingFragment StoreEntitySet="Bancos">
+          <ScalarProperty Name="bancoId" ColumnName="bancoId" />
+          <ScalarProperty Name="bancoDescripcion" ColumnName="bancoDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BienesAsegurados">
+      <EntityTypeMapping TypeName="syspolizaModel.BienesAsegurados">
+        <MappingFragment StoreEntitySet="BienesAsegurados">
+          <ScalarProperty Name="bienId" ColumnName="bienId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="tipoBienId" ColumnName="tipoBienId" />
+          <ScalarProperty Name="bienNoSerie" ColumnName="bienNoSerie" />
+          <ScalarProperty Name="bienDescripcion" ColumnName="bienDescripcion" />
+          <ScalarProperty Name="bienModelo" ColumnName="bienModelo" />
+          <ScalarProperty Name="bienMarca" ColumnName="bienMarca" />
+          <ScalarProperty Name="bienValor" ColumnName="bienValor" />
+          <ScalarProperty Name="bienObservaciones" ColumnName="bienObservaciones" />
+          <ScalarProperty Name="bienPrima" ColumnName="bienPrima" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="bienUbicacion" ColumnName="bienUbicacion" />
+          <ScalarProperty Name="bienEstado" ColumnName="bienEstado" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CertificadoAutomotor">
+      <EntityTypeMapping TypeName="syspolizaModel.CertificadoAutomotor">
+        <MappingFragment StoreEntitySet="CertificadoAutomotor">
+          <ScalarProperty Name="certAutoId" ColumnName="certAutoId" />
+          <ScalarProperty Name="certAuto" ColumnName="certAuto" />
+          <ScalarProperty Name="automotorPlaca" ColumnName="automotorPlaca" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="clienteCobro" ColumnName="clienteCobro" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="tipoCertificadoId" ColumnName="tipoCertificadoId" />
+          <ScalarProperty Name="certAutoFechaIncorporado" ColumnName="certAutoFechaIncorporado" />
+          <ScalarProperty Name="certAutoPropietario" ColumnName="certAutoPropietario" />
+          <ScalarProperty Name="certAutoDeducible" ColumnName="certAutoDeducible" />
+          <ScalarProperty Name="certAutoSumAsegurada" ColumnName="certAutoSumAsegurada" />
+          <ScalarProperty Name="certAutoPrima" ColumnName="certAutoPrima" />
+          <ScalarProperty Name="certAutoClase" ColumnName="certAutoClase" />
+          <ScalarProperty Name="certAutoPorcentaje" ColumnName="certAutoPorcentaje" />
+          <ScalarProperty Name="certAutoDescuento" ColumnName="certAutoDescuento" />
+          <ScalarProperty Name="certAutoEstado" ColumnName="certAutoEstado" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CertificadoPersona">
+      <EntityTypeMapping TypeName="syspolizaModel.CertificadoPersona">
+        <MappingFragment StoreEntitySet="CertificadoPersona">
+          <ScalarProperty Name="certPersonaId" ColumnName="certPersonaId" />
+          <ScalarProperty Name="certPersona" ColumnName="certPersona" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="tipoCertificadoId" ColumnName="tipoCertificadoId" />
+          <ScalarProperty Name="tipoCategoriaId" ColumnName="tipoCategoriaId" />
+          <ScalarProperty Name="certPersonaFechaIncorporado" ColumnName="certPersonaFechaIncorporado" />
+          <ScalarProperty Name="certPersonaDeducible" ColumnName="certPersonaDeducible" />
+          <ScalarProperty Name="certPersonaPrima" ColumnName="certPersonaPrima" />
+          <ScalarProperty Name="certPersonaSumaAsegurada" ColumnName="certPersonaSumaAsegurada" />
+          <ScalarProperty Name="certPersonaObservaciones" ColumnName="certPersonaObservaciones" />
+          <ScalarProperty Name="certPersonaEstado" ColumnName="certPersonaEstado" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CertificadoPersonaBeneficiario">
+      <EntityTypeMapping TypeName="syspolizaModel.CertificadoPersonaBeneficiario">
+        <MappingFragment StoreEntitySet="CertificadoPersonaBeneficiario">
+          <ScalarProperty Name="certPBeneficiarioId" ColumnName="certPBeneficiarioId" />
+          <ScalarProperty Name="certPersonaId" ColumnName="certPersonaId" />
+          <ScalarProperty Name="certPBeneficiarioNombre" ColumnName="certPBeneficiarioNombre" />
+          <ScalarProperty Name="certPBeneficiarioFechaNacimiento" ColumnName="certPBeneficiarioFechaNacimiento" />
+          <ScalarProperty Name="certPBeneficiarioSexo" ColumnName="certPBeneficiarioSexo" />
+          <ScalarProperty Name="certPBeneficiarioPorcentaje" ColumnName="certPBeneficiarioPorcentaje" />
+          <ScalarProperty Name="certPBeneficiarioEstado" ColumnName="certPBeneficiarioEstado" />
+          <ScalarProperty Name="certPBeneficiarioFechaInactividad" ColumnName="certPBeneficiarioFechaInactividad" />
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="tipoBeneficiarioId" ColumnName="tipoBeneficiarioId" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Certificados">
+      <EntityTypeMapping TypeName="syspolizaModel.Certificados">
+        <MappingFragment StoreEntitySet="Certificados">
+          <ScalarProperty Name="certificadosId" ColumnName="certificadosId" />
+          <ScalarProperty Name="certificadosTipo" ColumnName="certificadosTipo" />
+          <ScalarProperty Name="certificado" ColumnName="certificado" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+          <ScalarProperty Name="certificadoExcluido" ColumnName="certificadoExcluido" />
+          <ScalarProperty Name="numPoliza" ColumnName="numPoliza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CertificadoTransporte">
+      <EntityTypeMapping TypeName="syspolizaModel.CertificadoTransporte">
+        <MappingFragment StoreEntitySet="CertificadoTransporte">
+          <ScalarProperty Name="transporteId" ColumnName="transporteId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="tipoCertificadoId" ColumnName="tipoCertificadoId" />
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="transporteNoDocumento" ColumnName="transporteNoDocumento" />
+          <ScalarProperty Name="transporteOrigen" ColumnName="transporteOrigen" />
+          <ScalarProperty Name="transporteDestino" ColumnName="transporteDestino" />
+          <ScalarProperty Name="tipoTransporte" ColumnName="tipoTransporte" />
+          <ScalarProperty Name="transTransportador" ColumnName="transTransportador" />
+          <ScalarProperty Name="transConsignador" ColumnName="transConsignador" />
+          <ScalarProperty Name="transDespachador" ColumnName="transDespachador" />
+          <ScalarProperty Name="transDocumentosLegales" ColumnName="transDocumentosLegales" />
+          <ScalarProperty Name="transMercaderia" ColumnName="transMercaderia" />
+          <ScalarProperty Name="transValor" ColumnName="transValor" />
+          <ScalarProperty Name="transGastos" ColumnName="transGastos" />
+          <ScalarProperty Name="transDeducible" ColumnName="transDeducible" />
+          <ScalarProperty Name="transPorcentaje" ColumnName="transPorcentaje" />
+          <ScalarProperty Name="transTotal" ColumnName="transTotal" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cuotas">
+      <EntityTypeMapping TypeName="syspolizaModel.Cuotas">
+        <MappingFragment StoreEntitySet="Cuotas">
+          <ScalarProperty Name="cuotaId" ColumnName="cuotaId" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="cuotaNumero" ColumnName="cuotaNumero" />
+          <ScalarProperty Name="cuotaPrimaExenta" ColumnName="cuotaPrimaExenta" />
+          <ScalarProperty Name="cuotaPrimaGravada" ColumnName="cuotaPrimaGravada" />
+          <ScalarProperty Name="cuotaPrimaNeta" ColumnName="cuotaPrimaNeta" />
+          <ScalarProperty Name="cuotaGastos" ColumnName="cuotaGastos" />
+          <ScalarProperty Name="cuotaIva" ColumnName="cuotaIva" />
+          <ScalarProperty Name="cuotaTotal" ColumnName="cuotaTotal" />
+          <ScalarProperty Name="cuotaPagado" ColumnName="cuotaPagado" />
+          <ScalarProperty Name="cuotaDevolucion" ColumnName="cuotaDevolucion" />
+          <ScalarProperty Name="cuotaFechaPago" ColumnName="cuotaFechaPago" />
+          <ScalarProperty Name="cuotaObservaciones" ColumnName="cuotaObservaciones" />
+          <ScalarProperty Name="tipoEstatusId" ColumnName="tipoEstatusId" />
+          <ScalarProperty Name="cuotaPlan" ColumnName="cuotaPlan" />
+          <ScalarProperty Name="cuotaEstado" ColumnName="cuotaEstado" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+          <ScalarProperty Name="cuotaAviso" ColumnName="cuotaAviso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deducibles">
+      <EntityTypeMapping TypeName="syspolizaModel.Deducibles">
+        <MappingFragment StoreEntitySet="Deducibles">
+          <ScalarProperty Name="deduciblesId" ColumnName="deduciblesId" />
+          <ScalarProperty Name="deduciblesDescripcion" ColumnName="deduciblesDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documentos">
+      <EntityTypeMapping TypeName="syspolizaModel.Documentos">
+        <MappingFragment StoreEntitySet="Documentos">
+          <ScalarProperty Name="documentosId" ColumnName="documentosId" />
+          <ScalarProperty Name="documentosCodigo" ColumnName="documentosCodigo" />
+          <ScalarProperty Name="documentosNombre" ColumnName="documentosNombre" />
+          <ScalarProperty Name="documentosDescripcion" ColumnName="documentosDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="syspolizaModel.Empresas">
+        <MappingFragment StoreEntitySet="Empresas">
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="empresaNombre" ColumnName="empresaNombre" />
+          <ScalarProperty Name="empresaAbreviatura" ColumnName="empresaAbreviatura" />
+          <ScalarProperty Name="empresaFechaNacimiento" ColumnName="empresaFechaNacimiento" />
+          <ScalarProperty Name="empresaNit" ColumnName="empresaNit" />
+          <ScalarProperty Name="empresaNrc" ColumnName="empresaNrc" />
+          <ScalarProperty Name="empresaRepresentanteLegal" ColumnName="empresaRepresentanteLegal" />
+          <ScalarProperty Name="empresaDUIRepresentante" ColumnName="empresaDUIRepresentante" />
+          <ScalarProperty Name="empresaActividadEconomica" ColumnName="empresaActividadEconomica" />
+          <ScalarProperty Name="tipoContribuyenteId" ColumnName="tipoContribuyenteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exclusiones">
+      <EntityTypeMapping TypeName="syspolizaModel.Exclusiones">
+        <MappingFragment StoreEntitySet="Exclusiones">
+          <ScalarProperty Name="exclusionesId" ColumnName="exclusionesId" />
+          <ScalarProperty Name="exclusionesTipo" ColumnName="exclusionesTipo" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="certificadoId" ColumnName="certificadoId" />
+          <ScalarProperty Name="certificado" ColumnName="certificado" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="fechagrabado" ColumnName="fechagrabado" />
+          <ScalarProperty Name="sumario" ColumnName="sumario" />
+          <ScalarProperty Name="pagado" ColumnName="pagado" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormaDePago">
+      <EntityTypeMapping TypeName="syspolizaModel.FormaDePago">
+        <MappingFragment StoreEntitySet="FormaDePago">
+          <ScalarProperty Name="formaDePagoId" ColumnName="formaDePagoId" />
+          <ScalarProperty Name="formaDePagoDescripcion" ColumnName="formaDePagoDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GastoFraccionado">
+      <EntityTypeMapping TypeName="syspolizaModel.GastoFraccionado">
+        <MappingFragment StoreEntitySet="GastoFraccionado">
+          <ScalarProperty Name="gastoFraccionadoId" ColumnName="gastoFraccionadoId" />
+          <ScalarProperty Name="gastoFraccionadoDescripcion" ColumnName="gastoFraccionadoDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GastoInicial">
+      <EntityTypeMapping TypeName="syspolizaModel.GastoInicial">
+        <MappingFragment StoreEntitySet="GastoInicial">
+          <ScalarProperty Name="gastoInicialId" ColumnName="gastoInicialId" />
+          <ScalarProperty Name="gastoInicialDescripcion" ColumnName="gastoInicialDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GrupoClientes">
+      <EntityTypeMapping TypeName="syspolizaModel.GrupoClientes">
+        <MappingFragment StoreEntitySet="GrupoClientes">
+          <ScalarProperty Name="grupoClienteId" ColumnName="grupoClienteId" />
+          <ScalarProperty Name="grupoClienteNombre" ColumnName="grupoClienteNombre" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistorialUsuario">
+      <EntityTypeMapping TypeName="syspolizaModel.HistorialUsuario">
+        <MappingFragment StoreEntitySet="HistorialUsuario">
+          <ScalarProperty Name="historialId" ColumnName="historialId" />
+          <ScalarProperty Name="usuarioID" ColumnName="usuarioID" />
+          <ScalarProperty Name="historialFechaHora" ColumnName="historialFechaHora" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoricoCuotas">
+      <EntityTypeMapping TypeName="syspolizaModel.HistoricoCuotas">
+        <MappingFragment StoreEntitySet="HistoricoCuotas">
+          <ScalarProperty Name="idHistoricoCuota" ColumnName="idHistoricoCuota" />
+          <ScalarProperty Name="cuotaId" ColumnName="cuotaId" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="cuotaNumero" ColumnName="cuotaNumero" />
+          <ScalarProperty Name="cuotaPrimaExenta" ColumnName="cuotaPrimaExenta" />
+          <ScalarProperty Name="cuotaPrimaGravada" ColumnName="cuotaPrimaGravada" />
+          <ScalarProperty Name="cuotaPrimaNeta" ColumnName="cuotaPrimaNeta" />
+          <ScalarProperty Name="cuotaGastos" ColumnName="cuotaGastos" />
+          <ScalarProperty Name="cuotaIva" ColumnName="cuotaIva" />
+          <ScalarProperty Name="cuotaTotal" ColumnName="cuotaTotal" />
+          <ScalarProperty Name="cuotaPagado" ColumnName="cuotaPagado" />
+          <ScalarProperty Name="cuotaDevolucion" ColumnName="cuotaDevolucion" />
+          <ScalarProperty Name="cuotaFechaPago" ColumnName="cuotaFechaPago" />
+          <ScalarProperty Name="cuotaObservaciones" ColumnName="cuotaObservaciones" />
+          <ScalarProperty Name="cuotaPlan" ColumnName="cuotaPlan" />
+          <ScalarProperty Name="cuotaEstado" ColumnName="cuotaEstado" />
+          <ScalarProperty Name="historicoCuotaAccion" ColumnName="historicoCuotaAccion" />
+          <ScalarProperty Name="historicoCuotaUsuario" ColumnName="historicoCuotaUsuario" />
+          <ScalarProperty Name="fechaGuardado" ColumnName="fechaGuardado" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoricoPagos">
+      <EntityTypeMapping TypeName="syspolizaModel.HistoricoPagos">
+        <MappingFragment StoreEntitySet="HistoricoPagos">
+          <ScalarProperty Name="historicoPagosId" ColumnName="historicoPagosId" />
+          <ScalarProperty Name="pagoId" ColumnName="pagoId" />
+          <ScalarProperty Name="comentarios" ColumnName="comentarios" />
+          <ScalarProperty Name="historicoUsuario" ColumnName="historicoUsuario" />
+          <ScalarProperty Name="historicoEmpresa" ColumnName="historicoEmpresa" />
+          <ScalarProperty Name="historicoFechaGrabado" ColumnName="historicoFechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoricoPoliza">
+      <EntityTypeMapping TypeName="syspolizaModel.HistoricoPoliza">
+        <MappingFragment StoreEntitySet="HistoricoPoliza">
+          <ScalarProperty Name="idHistoricoPoliza" ColumnName="idHistoricoPoliza" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="tipoPolizaId" ColumnName="tipoPolizaId" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="ramo" ColumnName="ramo" />
+          <ScalarProperty Name="aseguradora" ColumnName="aseguradora" />
+          <ScalarProperty Name="clienteCobro" ColumnName="clienteCobro" />
+          <ScalarProperty Name="formaDePago" ColumnName="formaDePago" />
+          <ScalarProperty Name="polizaNumeroPagos" ColumnName="polizaNumeroPagos" />
+          <ScalarProperty Name="polizaFechaDesde" ColumnName="polizaFechaDesde" />
+          <ScalarProperty Name="polizaFechaHasta" ColumnName="polizaFechaHasta" />
+          <ScalarProperty Name="polizaSumAsegurada" ColumnName="polizaSumAsegurada" />
+          <ScalarProperty Name="polizaDeducible" ColumnName="polizaDeducible" />
+          <ScalarProperty Name="polizaObservaciones" ColumnName="polizaObservaciones" />
+          <ScalarProperty Name="polizaPrimaTotal" ColumnName="polizaPrimaTotal" />
+          <ScalarProperty Name="historicoPolizaAccion" ColumnName="historicoPolizaAccion" />
+          <ScalarProperty Name="historicoPolizaUsuario" ColumnName="historicoPolizaUsuario" />
+          <ScalarProperty Name="fechaGuardado" ColumnName="fechaGuardado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoricoPrima">
+      <EntityTypeMapping TypeName="syspolizaModel.HistoricoPrima">
+        <MappingFragment StoreEntitySet="HistoricoPrima">
+          <ScalarProperty Name="idHistoricoPrima" ColumnName="idHistoricoPrima" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="primaTipo" ColumnName="primaTipo" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="empresa" ColumnName="empresa" />
+          <ScalarProperty Name="cliente" ColumnName="cliente" />
+          <ScalarProperty Name="pagador" ColumnName="pagador" />
+          <ScalarProperty Name="primaVigencia" ColumnName="primaVigencia" />
+          <ScalarProperty Name="primaVencimiento" ColumnName="primaVencimiento" />
+          <ScalarProperty Name="primaRegistrada" ColumnName="primaRegistrada" />
+          <ScalarProperty Name="primaAsegurada" ColumnName="primaAsegurada" />
+          <ScalarProperty Name="primaDeducible" ColumnName="primaDeducible" />
+          <ScalarProperty Name="primaPrimaExenta" ColumnName="primaPrimaExenta" />
+          <ScalarProperty Name="primaPrimaGravada" ColumnName="primaPrimaGravada" />
+          <ScalarProperty Name="primaPrimaNeta" ColumnName="primaPrimaNeta" />
+          <ScalarProperty Name="primaGastos" ColumnName="primaGastos" />
+          <ScalarProperty Name="primaFraccionados" ColumnName="primaFraccionados" />
+          <ScalarProperty Name="primaIva" ColumnName="primaIva" />
+          <ScalarProperty Name="primaTotal" ColumnName="primaTotal" />
+          <ScalarProperty Name="primaNumPagos" ColumnName="primaNumPagos" />
+          <ScalarProperty Name="primaObservaciones" ColumnName="primaObservaciones" />
+          <ScalarProperty Name="primaPagado" ColumnName="primaPagado" />
+          <ScalarProperty Name="primaPeriodicidad" ColumnName="primaPeriodicidad" />
+          <ScalarProperty Name="primaTasa" ColumnName="primaTasa" />
+          <ScalarProperty Name="historicoPrimaAccion" ColumnName="historicoPrimaAccion" />
+          <ScalarProperty Name="historicoPrimaUsuario" ColumnName="historicoPrimaUsuario" />
+          <ScalarProperty Name="fechaModificacion" ColumnName="fechaModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inmuebles">
+      <EntityTypeMapping TypeName="syspolizaModel.Inmuebles">
+        <MappingFragment StoreEntitySet="Inmuebles">
+          <ScalarProperty Name="inmuebleId" ColumnName="inmuebleId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="inmuebleDireccion1" ColumnName="inmuebleDireccion1" />
+          <ScalarProperty Name="inmuebleDireccion2" ColumnName="inmuebleDireccion2" />
+          <ScalarProperty Name="inmuebleDireccion3" ColumnName="inmuebleDireccion3" />
+          <ScalarProperty Name="inmuebleTipo" ColumnName="inmuebleTipo" />
+          <ScalarProperty Name="inmuebleContenido" ColumnName="inmuebleContenido" />
+          <ScalarProperty Name="inmuebleConstruccion" ColumnName="inmuebleConstruccion" />
+          <ScalarProperty Name="inmuebleValuo" ColumnName="inmuebleValuo" />
+          <ScalarProperty Name="inmueblePrima" ColumnName="inmueblePrima" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="inmuebleEstado" ColumnName="inmuebleEstado" />
+          <ScalarProperty Name="inmuebleObservaciones" ColumnName="inmuebleObservaciones" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pagos">
+      <EntityTypeMapping TypeName="syspolizaModel.Pagos">
+        <MappingFragment StoreEntitySet="Pagos">
+          <ScalarProperty Name="pagosId" ColumnName="pagosId" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="pagosCuotaId" ColumnName="pagosCuotaId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="pagadorId" ColumnName="pagadorId" />
+          <ScalarProperty Name="pagosFecha" ColumnName="pagosFecha" />
+          <ScalarProperty Name="pagosPrima" ColumnName="pagosPrima" />
+          <ScalarProperty Name="pagosGastos" ColumnName="pagosGastos" />
+          <ScalarProperty Name="pagosIva" ColumnName="pagosIva" />
+          <ScalarProperty Name="pagosTotal" ColumnName="pagosTotal" />
+          <ScalarProperty Name="pagosTipo" ColumnName="pagosTipo" />
+          <ScalarProperty Name="pagosObservaciones" ColumnName="pagosObservaciones" />
+          <ScalarProperty Name="pagosFechaDocu" ColumnName="pagosFechaDocu" />
+          <ScalarProperty Name="pagosNumDoc" ColumnName="pagosNumDoc" />
+          <ScalarProperty Name="pagosBanco" ColumnName="pagosBanco" />
+          <ScalarProperty Name="pagosValorDoc" ColumnName="pagosValorDoc" />
+          <ScalarProperty Name="pagosValorEfectivo" ColumnName="pagosValorEfectivo" />
+          <ScalarProperty Name="pagosTipoFiscal" ColumnName="pagosTipoFiscal" />
+          <ScalarProperty Name="pagosComprobante" ColumnName="pagosComprobante" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+          <ScalarProperty Name="pagosEstado" ColumnName="pagosEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paises">
+      <EntityTypeMapping TypeName="syspolizaModel.Paises">
+        <MappingFragment StoreEntitySet="Paises">
+          <ScalarProperty Name="paisId" ColumnName="paisId" />
+          <ScalarProperty Name="paisNombre" ColumnName="paisNombre" />
+          <ScalarProperty Name="paisName" ColumnName="paisName" />
+          <ScalarProperty Name="paisNom" ColumnName="paisNom" />
+          <ScalarProperty Name="paisIso2" ColumnName="paisIso2" />
+          <ScalarProperty Name="paisIso3" ColumnName="paisIso3" />
+          <ScalarProperty Name="paisPhoneCode" ColumnName="paisPhoneCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonaContactos">
+      <EntityTypeMapping TypeName="syspolizaModel.PersonaContactos">
+        <MappingFragment StoreEntitySet="PersonaContactos">
+          <ScalarProperty Name="contactoId" ColumnName="contactoId" />
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="contactoNombre" ColumnName="contactoNombre" />
+          <ScalarProperty Name="contactoEmail" ColumnName="contactoEmail" />
+          <ScalarProperty Name="contactoCargo" ColumnName="contactoCargo" />
+          <ScalarProperty Name="contactoTelefono" ColumnName="contactoTelefono" />
+          <ScalarProperty Name="contactoMovil" ColumnName="contactoMovil" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonaDirecciones">
+      <EntityTypeMapping TypeName="syspolizaModel.PersonaDirecciones">
+        <MappingFragment StoreEntitySet="PersonaDirecciones">
+          <ScalarProperty Name="personaDirId" ColumnName="personaDirId" />
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="personatipoDireccion" ColumnName="personatipoDireccion" />
+          <ScalarProperty Name="personaDireccion" ColumnName="personaDireccion" />
+          <ScalarProperty Name="personaMunicipio" ColumnName="personaMunicipio" />
+          <ScalarProperty Name="personaDepartamento" ColumnName="personaDepartamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personas">
+      <EntityTypeMapping TypeName="syspolizaModel.Personas">
+        <MappingFragment StoreEntitySet="Personas">
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="tipoPersonaId" ColumnName="tipoPersonaId" />
+          <ScalarProperty Name="personaNombre" ColumnName="personaNombre" />
+          <ScalarProperty Name="personaFechaNacimiento" ColumnName="personaFechaNacimiento" />
+          <ScalarProperty Name="personaEstadoCivil" ColumnName="personaEstadoCivil" />
+          <ScalarProperty Name="personaCorreoElectronico" ColumnName="personaCorreoElectronico" />
+          <ScalarProperty Name="personaSexo" ColumnName="personaSexo" />
+          <ScalarProperty Name="personaProfesion" ColumnName="personaProfesion" />
+          <ScalarProperty Name="personaTelefono" ColumnName="personaTelefono" />
+          <ScalarProperty Name="personaCliente" ColumnName="personaCliente" />
+          <ScalarProperty Name="personaCliDui" ColumnName="personaCliDui" />
+          <ScalarProperty Name="personaCliNit" ColumnName="personaCliNit" />
+          <ScalarProperty Name="personaCliActividadEconomica" ColumnName="personaCliActividadEconomica" />
+          <ScalarProperty Name="grupoClienteId" ColumnName="grupoClienteId" />
+          <ScalarProperty Name="tipoContribuyenteId" ColumnName="tipoContribuyenteId" />
+          <ScalarProperty Name="personaEstado" ColumnName="personaEstado" />
+          <ScalarProperty Name="personaEmpresa" ColumnName="personaEmpresa" />
+          <ScalarProperty Name="personaTelefono2" ColumnName="personaTelefono2" />
+          <ScalarProperty Name="personaTelefono3" ColumnName="personaTelefono3" />
+          <ScalarProperty Name="personaDireccion" ColumnName="personaDireccion" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolizaAutomotorCoberturas">
+      <EntityTypeMapping TypeName="syspolizaModel.PolizaAutomotorCoberturas">
+        <MappingFragment StoreEntitySet="PolizaAutomotorCoberturas">
+          <ScalarProperty Name="polizaAutomotorCoberturasId" ColumnName="polizaAutomotorCoberturasId" />
+          <ScalarProperty Name="automotorPlaca" ColumnName="automotorPlaca" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="coberturasId" ColumnName="coberturasId" />
+          <ScalarProperty Name="certAutoId" ColumnName="certAutoId" />
+          <ScalarProperty Name="prima" ColumnName="prima" />
+          <ScalarProperty Name="suma" ColumnName="suma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolizaCancelaciones">
+      <EntityTypeMapping TypeName="syspolizaModel.PolizaCancelaciones">
+        <MappingFragment StoreEntitySet="PolizaCancelaciones">
+          <ScalarProperty Name="cancelacionesId" ColumnName="cancelacionesId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="cancelacionesFecha" ColumnName="cancelacionesFecha" />
+          <ScalarProperty Name="cancelacionesObservaciones" ColumnName="cancelacionesObservaciones" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolizaComentarios">
+      <EntityTypeMapping TypeName="syspolizaModel.PolizaComentarios">
+        <MappingFragment StoreEntitySet="PolizaComentarios">
+          <ScalarProperty Name="comentariosId" ColumnName="comentariosId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="comentarioTipo" ColumnName="comentarioTipo" />
+          <ScalarProperty Name="comentarioFecha" ColumnName="comentarioFecha" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="grabado" ColumnName="grabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolizaDeducibles">
+      <EntityTypeMapping TypeName="syspolizaModel.PolizaDeducibles">
+        <MappingFragment StoreEntitySet="PolizaDeducibles">
+          <ScalarProperty Name="polizaDeduciblesId" ColumnName="polizaDeduciblesId" />
+          <ScalarProperty Name="deduciblesId" ColumnName="deduciblesId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolizaGastosFraccionados">
+      <EntityTypeMapping TypeName="syspolizaModel.PolizaGastosFraccionados">
+        <MappingFragment StoreEntitySet="PolizaGastosFraccionados">
+          <ScalarProperty Name="polizaGastosFraccionadosId" ColumnName="polizaGastosFraccionadosId" />
+          <ScalarProperty Name="gastoFraccionadoId" ColumnName="gastoFraccionadoId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolizaGastosIniciales">
+      <EntityTypeMapping TypeName="syspolizaModel.PolizaGastosIniciales">
+        <MappingFragment StoreEntitySet="PolizaGastosIniciales">
+          <ScalarProperty Name="polizaGastosInicialesId" ColumnName="polizaGastosInicialesId" />
+          <ScalarProperty Name="gastoInicialId" ColumnName="gastoInicialId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Polizas">
+      <EntityTypeMapping TypeName="syspolizaModel.Polizas">
+        <MappingFragment StoreEntitySet="Polizas">
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="tipoPolizaId" ColumnName="tipoPolizaId" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="ramoId" ColumnName="ramoId" />
+          <ScalarProperty Name="aseguradoraId" ColumnName="aseguradoraId" />
+          <ScalarProperty Name="clienteCobroId" ColumnName="clienteCobroId" />
+          <ScalarProperty Name="formaDePagoId" ColumnName="formaDePagoId" />
+          <ScalarProperty Name="tipoEstatusId" ColumnName="tipoEstatusId" />
+          <ScalarProperty Name="polizaNumeroPagos" ColumnName="polizaNumeroPagos" />
+          <ScalarProperty Name="polizaFechaDesde" ColumnName="polizaFechaDesde" />
+          <ScalarProperty Name="polizaFechaHasta" ColumnName="polizaFechaHasta" />
+          <ScalarProperty Name="polizaSumAsegurada" ColumnName="polizaSumAsegurada" />
+          <ScalarProperty Name="polizaDeducible" ColumnName="polizaDeducible" />
+          <ScalarProperty Name="polizaObservaciones" ColumnName="polizaObservaciones" />
+          <ScalarProperty Name="polizaSumaActual" ColumnName="polizaSumaActual" />
+          <ScalarProperty Name="polizaPrimaTotal" ColumnName="polizaPrimaTotal" />
+          <ScalarProperty Name="polizaRenovaciones" ColumnName="polizaRenovaciones" />
+          <ScalarProperty Name="tipoEstatus" ColumnName="tipoEstatus" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolizaTransporteCoberturas">
+      <EntityTypeMapping TypeName="syspolizaModel.PolizaTransporteCoberturas">
+        <MappingFragment StoreEntitySet="PolizaTransporteCoberturas">
+          <ScalarProperty Name="polizaTransporteCoberturasId" ColumnName="polizaTransporteCoberturasId" />
+          <ScalarProperty Name="transporteId" ColumnName="transporteId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="transporteCoberturasId" ColumnName="transporteCoberturasId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PolizaTransporteDocumento">
+      <EntityTypeMapping TypeName="syspolizaModel.PolizaTransporteDocumento">
+        <MappingFragment StoreEntitySet="PolizaTransporteDocumento">
+          <ScalarProperty Name="polizaTransporteDocumentoId" ColumnName="polizaTransporteDocumentoId" />
+          <ScalarProperty Name="transporteId" ColumnName="transporteId" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="tipoDocumentoId" ColumnName="tipoDocumentoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Primas">
+      <EntityTypeMapping TypeName="syspolizaModel.Primas">
+        <MappingFragment StoreEntitySet="Primas">
+          <ScalarProperty Name="primaId" ColumnName="primaId" />
+          <ScalarProperty Name="primaTipo" ColumnName="primaTipo" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="clienteId" ColumnName="clienteId" />
+          <ScalarProperty Name="primaPagador" ColumnName="primaPagador" />
+          <ScalarProperty Name="primaVigencia" ColumnName="primaVigencia" />
+          <ScalarProperty Name="primaVencimiento" ColumnName="primaVencimiento" />
+          <ScalarProperty Name="primaRegistrada" ColumnName="primaRegistrada" />
+          <ScalarProperty Name="primaAsegurada" ColumnName="primaAsegurada" />
+          <ScalarProperty Name="primaDeducible" ColumnName="primaDeducible" />
+          <ScalarProperty Name="primaPrimaExenta" ColumnName="primaPrimaExenta" />
+          <ScalarProperty Name="primaPrimaGravada" ColumnName="primaPrimaGravada" />
+          <ScalarProperty Name="primaPrimaNeta" ColumnName="primaPrimaNeta" />
+          <ScalarProperty Name="primaGastos" ColumnName="primaGastos" />
+          <ScalarProperty Name="primaFraccionados" ColumnName="primaFraccionados" />
+          <ScalarProperty Name="primaIva" ColumnName="primaIva" />
+          <ScalarProperty Name="primaTotal" ColumnName="primaTotal" />
+          <ScalarProperty Name="primaNumPagos" ColumnName="primaNumPagos" />
+          <ScalarProperty Name="primaObservaciones" ColumnName="primaObservaciones" />
+          <ScalarProperty Name="primaPagado" ColumnName="primaPagado" />
+          <ScalarProperty Name="primaStatus" ColumnName="primaStatus" />
+          <ScalarProperty Name="primaPeriodicidad" ColumnName="primaPeriodicidad" />
+          <ScalarProperty Name="primaTasa" ColumnName="primaTasa" />
+          <ScalarProperty Name="primaClienteCobro" ColumnName="primaClienteCobro" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioEmpresa" ColumnName="usuarioEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ramos">
+      <EntityTypeMapping TypeName="syspolizaModel.Ramos">
+        <MappingFragment StoreEntitySet="Ramos">
+          <ScalarProperty Name="ramoId" ColumnName="ramoId" />
+          <ScalarProperty Name="ramoDescripcion" ColumnName="ramoDescripcion" />
+          <ScalarProperty Name="ramoSiglas" ColumnName="ramoSiglas" />
+          <ScalarProperty Name="tipoPolizaId" ColumnName="tipoPolizaId" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="tipoCertificadoId" ColumnName="tipoCertificadoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReclamoDocumento">
+      <EntityTypeMapping TypeName="syspolizaModel.ReclamoDocumento">
+        <MappingFragment StoreEntitySet="ReclamoDocumento">
+          <ScalarProperty Name="idReclamoDocumento" ColumnName="idReclamoDocumento" />
+          <ScalarProperty Name="reclamoId" ColumnName="reclamoId" />
+          <ScalarProperty Name="reclamoNo" ColumnName="reclamoNo" />
+          <ScalarProperty Name="reclamoRutaDocumento" ColumnName="reclamoRutaDocumento" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reclamos">
+      <EntityTypeMapping TypeName="syspolizaModel.Reclamos">
+        <MappingFragment StoreEntitySet="Reclamos">
+          <ScalarProperty Name="reclamoId" ColumnName="reclamoId" />
+          <ScalarProperty Name="reclamoNo" ColumnName="reclamoNo" />
+          <ScalarProperty Name="polizaNumero" ColumnName="polizaNumero" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="personaId" ColumnName="personaId" />
+          <ScalarProperty Name="dependiente" ColumnName="dependiente" />
+          <ScalarProperty Name="certificadosId" ColumnName="certificadosId" />
+          <ScalarProperty Name="reclamoDependienteNombre" ColumnName="reclamoDependienteNombre" />
+          <ScalarProperty Name="reclamoFechaEvento" ColumnName="reclamoFechaEvento" />
+          <ScalarProperty Name="reclamoFechaPago" ColumnName="reclamoFechaPago" />
+          <ScalarProperty Name="reclamoFechaEnvio" ColumnName="reclamoFechaEnvio" />
+          <ScalarProperty Name="reclamoFechaLiquidacionA" ColumnName="reclamoFechaLiquidacionA" />
+          <ScalarProperty Name="reclamoFechaLiquidacion" ColumnName="reclamoFechaLiquidacion" />
+          <ScalarProperty Name="reclamoDeducible" ColumnName="reclamoDeducible" />
+          <ScalarProperty Name="reclamoMontoAbsorbido" ColumnName="reclamoMontoAbsorbido" />
+          <ScalarProperty Name="reclamoMontoPagado" ColumnName="reclamoMontoPagado" />
+          <ScalarProperty Name="reclamoDiagnostico" ColumnName="reclamoDiagnostico" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+          <ScalarProperty Name="reclamoTerminado" ColumnName="reclamoTerminado" />
+          <ScalarProperty Name="reclamosAnulado" ColumnName="reclamosAnulado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReclamoSeguimiento">
+      <EntityTypeMapping TypeName="syspolizaModel.ReclamoSeguimiento">
+        <MappingFragment StoreEntitySet="ReclamoSeguimiento">
+          <ScalarProperty Name="idReclamoSeguimiento" ColumnName="idReclamoSeguimiento" />
+          <ScalarProperty Name="reclamoId" ColumnName="reclamoId" />
+          <ScalarProperty Name="reclamoNo" ColumnName="reclamoNo" />
+          <ScalarProperty Name="reclamoSFechaContacto" ColumnName="reclamoSFechaContacto" />
+          <ScalarProperty Name="reclamoSEmpleadoId" ColumnName="reclamoSEmpleadoId" />
+          <ScalarProperty Name="reclamoSEmpleado" ColumnName="reclamoSEmpleado" />
+          <ScalarProperty Name="reclamoSContactoA" ColumnName="reclamoSContactoA" />
+          <ScalarProperty Name="reclamoSDescripcion" ColumnName="reclamoSDescripcion" />
+          <ScalarProperty Name="reclamoSMedioUtilizado" ColumnName="reclamoSMedioUtilizado" />
+          <ScalarProperty Name="reclamoSObservaciones" ColumnName="reclamoSObservaciones" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="fechaGrabado" ColumnName="fechaGrabado" />
+          <ScalarProperty Name="reclamoSAnulado" ColumnName="reclamoSAnulado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoBeneficiario">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoBeneficiario">
+        <MappingFragment StoreEntitySet="TipoBeneficiario">
+          <ScalarProperty Name="tipoBeneficiarioId" ColumnName="tipoBeneficiarioId" />
+          <ScalarProperty Name="tipoBeneficiarioDescripcion" ColumnName="tipoBeneficiarioDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoBien">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoBien">
+        <MappingFragment StoreEntitySet="TipoBien">
+          <ScalarProperty Name="tipoBienId" ColumnName="tipoBienId" />
+          <ScalarProperty Name="tipoBienDescripcion" ColumnName="tipoBienDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCategoria">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoCategoria">
+        <MappingFragment StoreEntitySet="TipoCategoria">
+          <ScalarProperty Name="tipoCategoriaId" ColumnName="tipoCategoriaId" />
+          <ScalarProperty Name="tipoCategoriaDescripcion" ColumnName="tipoCategoriaDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCertificado">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoCertificado">
+        <MappingFragment StoreEntitySet="TipoCertificado">
+          <ScalarProperty Name="tipoCertificadoId" ColumnName="tipoCertificadoId" />
+          <ScalarProperty Name="tipoCertificadoDescripcion" ColumnName="tipoCertificadoDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoContribuyentes">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoContribuyentes">
+        <MappingFragment StoreEntitySet="TipoContribuyentes">
+          <ScalarProperty Name="tipoContribuyenteId" ColumnName="tipoContribuyenteId" />
+          <ScalarProperty Name="tipoContribuyenteDescripcion" ColumnName="tipoContribuyenteDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDireccion">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoDireccion">
+        <MappingFragment StoreEntitySet="TipoDireccion">
+          <ScalarProperty Name="tipoDireccionId" ColumnName="tipoDireccionId" />
+          <ScalarProperty Name="tipoDireccionDescripcion" ColumnName="tipoDireccionDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDocumentoLegal">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoDocumentoLegal">
+        <MappingFragment StoreEntitySet="TipoDocumentoLegal">
+          <ScalarProperty Name="tipoDocumentoId" ColumnName="tipoDocumentoId" />
+          <ScalarProperty Name="tipoDocumentoDescripcion" ColumnName="tipoDocumentoDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoDocumentoReclamo">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoDocumentoReclamo">
+        <MappingFragment StoreEntitySet="TipoDocumentoReclamo">
+          <ScalarProperty Name="idReclamoTipoDocumento" ColumnName="idReclamoTipoDocumento" />
+          <ScalarProperty Name="reclamoTipoDocumento" ColumnName="reclamoTipoDocumento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoEndoso">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoEndoso">
+        <MappingFragment StoreEntitySet="TipoEndoso">
+          <ScalarProperty Name="tipoEndosoId" ColumnName="tipoEndosoId" />
+          <ScalarProperty Name="tipoEndosoDescripcion" ColumnName="tipoEndosoDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoEstatus">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoEstatus">
+        <MappingFragment StoreEntitySet="TipoEstatus">
+          <ScalarProperty Name="tipoEstatusId" ColumnName="tipoEstatusId" />
+          <ScalarProperty Name="tipoEstatusNombre" ColumnName="tipoEstatusNombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoGasto">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoGasto">
+        <MappingFragment StoreEntitySet="TipoGasto">
+          <ScalarProperty Name="tipoGastoId" ColumnName="tipoGastoId" />
+          <ScalarProperty Name="tipoGastoDescripcion" ColumnName="tipoGastoDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPersona">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoPersona">
+        <MappingFragment StoreEntitySet="TipoPersona">
+          <ScalarProperty Name="tipoPersonaId" ColumnName="tipoPersonaId" />
+          <ScalarProperty Name="tipoPersonaDescripcion" ColumnName="tipoPersonaDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPlaca">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoPlaca">
+        <MappingFragment StoreEntitySet="TipoPlaca">
+          <ScalarProperty Name="TipoPlacaId" ColumnName="TipoPlacaId" />
+          <ScalarProperty Name="TipoPlacaDescripcion" ColumnName="TipoPlacaDescripcion" />
+          <ScalarProperty Name="TipoPlacaPrefijo" ColumnName="TipoPlacaPrefijo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPoliza">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoPoliza">
+        <MappingFragment StoreEntitySet="TipoPoliza">
+          <ScalarProperty Name="tipoPolizaId" ColumnName="tipoPolizaId" />
+          <ScalarProperty Name="tipoPolizaDescripcion" ColumnName="tipoPolizaDescripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoPrima">
+      <EntityTypeMapping TypeName="syspolizaModel.TipoPrima">
+        <MappingFragment StoreEntitySet="TipoPrima">
+          <ScalarProperty Name="tipoPrimaId" ColumnName="tipoPrimaId" />
+          <ScalarProperty Name="tipoPrimaDescripcion" ColumnName="tipoPrimaDescripcion" />
+          <ScalarProperty Name="tipoPrimaCodigo" ColumnName="tipoPrimaCodigo" />
+          <ScalarProperty Name="FactorSumaAsegurada" ColumnName="FactorSumaAsegurada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransporteCoberturas">
+      <EntityTypeMapping TypeName="syspolizaModel.TransporteCoberturas">
+        <MappingFragment StoreEntitySet="TransporteCoberturas">
+          <ScalarProperty Name="transporteCoberturasId" ColumnName="transporteCoberturasId" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransporteDetalleFacturas">
+      <EntityTypeMapping TypeName="syspolizaModel.TransporteDetalleFacturas">
+        <MappingFragment StoreEntitySet="TransporteDetalleFacturas">
+          <ScalarProperty Name="detalleFacturaId" ColumnName="detalleFacturaId" />
+          <ScalarProperty Name="transporteId" ColumnName="transporteId" />
+          <ScalarProperty Name="detalleFacturaNum" ColumnName="detalleFacturaNum" />
+          <ScalarProperty Name="detalleFacturaFecha" ColumnName="detalleFacturaFecha" />
+          <ScalarProperty Name="detalleFacturaMonto" ColumnName="detalleFacturaMonto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuarioDepartamento">
+      <EntityTypeMapping TypeName="syspolizaModel.UsuarioDepartamento">
+        <MappingFragment StoreEntitySet="UsuarioDepartamento">
+          <ScalarProperty Name="departamentoId" ColumnName="departamentoId" />
+          <ScalarProperty Name="departamentoNombre" ColumnName="departamentoNombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuarioPuestoFuncional">
+      <EntityTypeMapping TypeName="syspolizaModel.UsuarioPuestoFuncional">
+        <MappingFragment StoreEntitySet="UsuarioPuestoFuncional">
+          <ScalarProperty Name="puestoFuncionalId" ColumnName="puestoFuncionalId" />
+          <ScalarProperty Name="PuestoFuncionalNombre" ColumnName="PuestoFuncionalNombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="syspolizaModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
+          <ScalarProperty Name="usuarioUsername" ColumnName="usuarioUsername" />
+          <ScalarProperty Name="usuarioPassword" ColumnName="usuarioPassword" />
+          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
+          <ScalarProperty Name="usuarioCorreo" ColumnName="usuarioCorreo" />
+          <ScalarProperty Name="usuarioCelular" ColumnName="usuarioCelular" />
+          <ScalarProperty Name="usuarioAdmin" ColumnName="usuarioAdmin" />
+          <ScalarProperty Name="tipoEstatusId" ColumnName="tipoEstatusId" />
+          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="PuestoFuncionalId" ColumnName="PuestoFuncionalId" />
+          <ScalarProperty Name="departamentoId" ColumnName="departamentoId" />
+          <ScalarProperty Name="empresaNombre" ColumnName="empresaNombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

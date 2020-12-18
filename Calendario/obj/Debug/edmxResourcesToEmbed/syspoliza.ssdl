@@ -1,0 +1,2585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="syspolizaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agenda">
+    <Key>
+      <PropertyRef Name="idRegistro" />
+    </Key>
+    <Property Name="idRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="horaInicio" Type="varchar" MaxLength="6" />
+    <Property Name="horaFinal" Type="varchar" MaxLength="7" />
+    <Property Name="duracion" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="titulo" Type="varchar" MaxLength="40" />
+    <Property Name="detalles" Type="varchar" MaxLength="300" />
+    <Property Name="usuarioId" Type="int" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="empresaId" Type="int" />
+  </EntityType>
+  <EntityType Name="Aseguradoras">
+    <Key>
+      <PropertyRef Name="aseguradoraId" />
+    </Key>
+    <Property Name="aseguradoraId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paisId" Type="int" />
+    <Property Name="aseguradoraNombre" Type="varchar" MaxLength="100" />
+    <Property Name="aseguradoraDireccion" Type="varchar" MaxLength="300" />
+    <Property Name="aseguradoraWeb" Type="varchar" MaxLength="200" />
+    <Property Name="aseguradoraCheque" Type="varchar" MaxLength="150" />
+    <Property Name="aseguradoraTelefono" Type="varchar" MaxLength="20" />
+    <Property Name="aseguradoraAbreviatura" Type="varchar" MaxLength="40" />
+    <Property Name="aseguradoraNIT" Type="char" MaxLength="18" />
+  </EntityType>
+  <EntityType Name="AutomotorClase">
+    <Key>
+      <PropertyRef Name="automotorClaseId" />
+    </Key>
+    <Property Name="automotorClaseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="automotorClase" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Automotores">
+    <Key>
+      <PropertyRef Name="automotorPlaca" />
+    </Key>
+    <Property Name="automotorPlaca" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="tipoPlacaId" Type="int" />
+    <Property Name="automotorCapacidad" Type="int" />
+    <Property Name="automotorAnio" Type="int" />
+    <Property Name="marcaId" Type="int" />
+    <Property Name="modeloId" Type="int" />
+    <Property Name="automotorColor" Type="varchar" MaxLength="20" />
+    <Property Name="automotorNumeroMotor" Type="varchar" MaxLength="20" />
+    <Property Name="automotorChasisGrabado" Type="char" MaxLength="17" />
+    <Property Name="automotorChasisVin" Type="char" MaxLength="17" />
+    <Property Name="automotoresTipoPropiedad" Type="varchar" MaxLength="60" />
+    <Property Name="automotorClaseId" Type="int" />
+    <Property Name="automotorObservaciones" Type="varchar" MaxLength="150" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AutomotoresCoberturas">
+    <Key>
+      <PropertyRef Name="coberturasId" />
+    </Key>
+    <Property Name="coberturasId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AutomotoresMarcas">
+    <Key>
+      <PropertyRef Name="marcaId" />
+    </Key>
+    <Property Name="marcaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="marcaDescripcion" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="AutomotoresModelos">
+    <Key>
+      <PropertyRef Name="modeloId" />
+    </Key>
+    <Property Name="modeloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="modeloDescripcion" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Bancos">
+    <Key>
+      <PropertyRef Name="bancoId" />
+    </Key>
+    <Property Name="bancoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bancoDescripcion" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="BienesAsegurados">
+    <Key>
+      <PropertyRef Name="bienId" />
+    </Key>
+    <Property Name="bienId" Type="int" Nullable="false" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="tipoBienId" Type="int" />
+    <Property Name="bienNoSerie" Type="varchar" MaxLength="30" />
+    <Property Name="bienDescripcion" Type="varchar" MaxLength="60" />
+    <Property Name="bienModelo" Type="varchar" MaxLength="60" />
+    <Property Name="bienMarca" Type="varchar" MaxLength="60" />
+    <Property Name="bienValor" Type="money" />
+    <Property Name="bienObservaciones" Type="varchar" MaxLength="100" />
+    <Property Name="bienPrima" Type="money" />
+    <Property Name="primaId" Type="int" />
+    <Property Name="bienUbicacion" Type="varchar" MaxLength="100" />
+    <Property Name="bienEstado" Type="bit" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CertificadoAutomotor">
+    <Key>
+      <PropertyRef Name="certAutoId" />
+    </Key>
+    <Property Name="certAutoId" Type="int" Nullable="false" />
+    <Property Name="certAuto" Type="varchar" MaxLength="15" />
+    <Property Name="automotorPlaca" Type="varchar" MaxLength="20" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="personaId" Type="int" />
+    <Property Name="clienteCobro" Type="int" />
+    <Property Name="primaId" Type="int" />
+    <Property Name="tipoCertificadoId" Type="int" />
+    <Property Name="certAutoFechaIncorporado" Type="date" />
+    <Property Name="certAutoPropietario" Type="varchar" MaxLength="80" />
+    <Property Name="certAutoDeducible" Type="money" />
+    <Property Name="certAutoSumAsegurada" Type="money" />
+    <Property Name="certAutoPrima" Type="money" />
+    <Property Name="certAutoClase" Type="varchar" MaxLength="3" />
+    <Property Name="certAutoPorcentaje" Type="int" />
+    <Property Name="certAutoDescuento" Type="money" />
+    <Property Name="certAutoEstado" Type="bit" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CertificadoPersona">
+    <Key>
+      <PropertyRef Name="certPersonaId" />
+    </Key>
+    <Property Name="certPersonaId" Type="int" Nullable="false" />
+    <Property Name="certPersona" Type="varchar" MaxLength="15" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="personaId" Type="int" />
+    <Property Name="tipoCertificadoId" Type="int" />
+    <Property Name="tipoCategoriaId" Type="int" />
+    <Property Name="certPersonaFechaIncorporado" Type="date" />
+    <Property Name="certPersonaDeducible" Type="money" />
+    <Property Name="certPersonaPrima" Type="money" />
+    <Property Name="certPersonaSumaAsegurada" Type="money" />
+    <Property Name="certPersonaObservaciones" Type="varchar" MaxLength="100" />
+    <Property Name="certPersonaEstado" Type="bit" />
+    <Property Name="primaId" Type="int" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="CertificadoPersonaBeneficiario">
+    <Key>
+      <PropertyRef Name="certPBeneficiarioId" />
+    </Key>
+    <Property Name="certPBeneficiarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="certPersonaId" Type="int" />
+    <Property Name="certPBeneficiarioNombre" Type="varchar" MaxLength="50" />
+    <Property Name="certPBeneficiarioFechaNacimiento" Type="date" />
+    <Property Name="certPBeneficiarioSexo" Type="char" MaxLength="2" />
+    <Property Name="certPBeneficiarioPorcentaje" Type="int" />
+    <Property Name="certPBeneficiarioEstado" Type="bit" />
+    <Property Name="certPBeneficiarioFechaInactividad" Type="date" />
+    <Property Name="personaId" Type="int" />
+    <Property Name="tipoBeneficiarioId" Type="int" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Certificados">
+    <Key>
+      <PropertyRef Name="certificadosId" />
+    </Key>
+    <Property Name="certificadosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="certificadosTipo" Type="varchar" MaxLength="30" />
+    <Property Name="certificado" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+    <Property Name="certificadoExcluido" Type="bit" />
+    <Property Name="numPoliza" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="CertificadoTransporte">
+    <Key>
+      <PropertyRef Name="transporteId" />
+    </Key>
+    <Property Name="transporteId" Type="int" Nullable="false" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="tipoCertificadoId" Type="int" />
+    <Property Name="personaId" Type="int" />
+    <Property Name="transporteNoDocumento" Type="varchar" MaxLength="20" />
+    <Property Name="transporteOrigen" Type="varchar" MaxLength="100" />
+    <Property Name="transporteDestino" Type="varchar" MaxLength="100" />
+    <Property Name="tipoTransporte" Type="varchar" MaxLength="30" />
+    <Property Name="transTransportador" Type="varchar" MaxLength="60" />
+    <Property Name="transConsignador" Type="varchar" MaxLength="60" />
+    <Property Name="transDespachador" Type="varchar" MaxLength="60" />
+    <Property Name="transDocumentosLegales" Type="varchar" MaxLength="40" />
+    <Property Name="transMercaderia" Type="varchar" MaxLength="250" />
+    <Property Name="transValor" Type="money" />
+    <Property Name="transGastos" Type="money" />
+    <Property Name="transDeducible" Type="money" />
+    <Property Name="transPorcentaje" Type="int" />
+    <Property Name="transTotal" Type="money" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Cuotas">
+    <Key>
+      <PropertyRef Name="cuotaId" />
+    </Key>
+    <Property Name="cuotaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="primaId" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="cuotaNumero" Type="int" />
+    <Property Name="cuotaPrimaExenta" Type="money" />
+    <Property Name="cuotaPrimaGravada" Type="money" />
+    <Property Name="cuotaPrimaNeta" Type="money" />
+    <Property Name="cuotaGastos" Type="money" />
+    <Property Name="cuotaIva" Type="float" />
+    <Property Name="cuotaTotal" Type="money" />
+    <Property Name="cuotaPagado" Type="money" />
+    <Property Name="cuotaDevolucion" Type="money" />
+    <Property Name="cuotaFechaPago" Type="date" />
+    <Property Name="cuotaObservaciones" Type="varchar" MaxLength="100" />
+    <Property Name="tipoEstatusId" Type="int" />
+    <Property Name="cuotaPlan" Type="varchar" MaxLength="30" />
+    <Property Name="cuotaEstado" Type="bit" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+    <Property Name="cuotaAviso" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="Deducibles">
+    <Key>
+      <PropertyRef Name="deduciblesId" />
+    </Key>
+    <Property Name="deduciblesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deduciblesDescripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Documentos">
+    <Key>
+      <PropertyRef Name="documentosId" />
+    </Key>
+    <Property Name="documentosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="documentosCodigo" Type="varchar" MaxLength="2" />
+    <Property Name="documentosNombre" Type="varchar" MaxLength="150" />
+    <Property Name="documentosDescripcion" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Empresas">
+    <Key>
+      <PropertyRef Name="empresaId" />
+    </Key>
+    <Property Name="empresaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empresaNombre" Type="varchar" MaxLength="60" />
+    <Property Name="empresaAbreviatura" Type="varchar" MaxLength="20" />
+    <Property Name="empresaFechaNacimiento" Type="date" />
+    <Property Name="empresaNit" Type="varchar" MaxLength="18" />
+    <Property Name="empresaNrc" Type="varchar" MaxLength="10" />
+    <Property Name="empresaRepresentanteLegal" Type="varchar" MaxLength="60" />
+    <Property Name="empresaDUIRepresentante" Type="varchar" MaxLength="10" />
+    <Property Name="empresaActividadEconomica" Type="varchar" MaxLength="30" />
+    <Property Name="tipoContribuyenteId" Type="int" />
+  </EntityType>
+  <EntityType Name="Exclusiones">
+    <Key>
+      <PropertyRef Name="exclusionesId" />
+    </Key>
+    <Property Name="exclusionesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="exclusionesTipo" Type="varchar" MaxLength="80" />
+    <Property Name="primaId" Type="int" />
+    <Property Name="certificadoId" Type="int" />
+    <Property Name="certificado" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="valor" Type="money" />
+    <Property Name="iva" Type="money" />
+    <Property Name="total" Type="money" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="comentario" Type="varchar" MaxLength="240" />
+    <Property Name="fechagrabado" Type="date" />
+    <Property Name="sumario" Type="varchar" MaxLength="240" />
+    <Property Name="pagado" Type="money" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="FormaDePago">
+    <Key>
+      <PropertyRef Name="formaDePagoId" />
+    </Key>
+    <Property Name="formaDePagoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="formaDePagoDescripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="GastoFraccionado">
+    <Key>
+      <PropertyRef Name="gastoFraccionadoId" />
+    </Key>
+    <Property Name="gastoFraccionadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gastoFraccionadoDescripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="GastoInicial">
+    <Key>
+      <PropertyRef Name="gastoInicialId" />
+    </Key>
+    <Property Name="gastoInicialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gastoInicialDescripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="GrupoClientes">
+    <Key>
+      <PropertyRef Name="grupoClienteId" />
+    </Key>
+    <Property Name="grupoClienteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="grupoClienteNombre" Type="varchar" MaxLength="60" />
+    <Property Name="empresaId" Type="int" />
+  </EntityType>
+  <EntityType Name="HistorialUsuario">
+    <Key>
+      <PropertyRef Name="historialId" />
+    </Key>
+    <Property Name="historialId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuarioID" Type="int" />
+    <Property Name="historialFechaHora" Type="datetime" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HistoricoCuotas">
+    <Key>
+      <PropertyRef Name="idHistoricoCuota" />
+    </Key>
+    <Property Name="idHistoricoCuota" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cuotaId" Type="int" />
+    <Property Name="primaId" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="cuotaNumero" Type="int" />
+    <Property Name="cuotaPrimaExenta" Type="money" />
+    <Property Name="cuotaPrimaGravada" Type="money" />
+    <Property Name="cuotaPrimaNeta" Type="money" />
+    <Property Name="cuotaGastos" Type="money" />
+    <Property Name="cuotaIva" Type="float" />
+    <Property Name="cuotaTotal" Type="money" />
+    <Property Name="cuotaPagado" Type="money" />
+    <Property Name="cuotaDevolucion" Type="money" />
+    <Property Name="cuotaFechaPago" Type="date" />
+    <Property Name="cuotaObservaciones" Type="varchar" MaxLength="100" />
+    <Property Name="cuotaPlan" Type="varchar" MaxLength="30" />
+    <Property Name="cuotaEstado" Type="bit" />
+    <Property Name="historicoCuotaAccion" Type="varchar" MaxLength="100" />
+    <Property Name="historicoCuotaUsuario" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGuardado" Type="datetime" />
+    <Property Name="empresa" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="HistoricoPagos">
+    <Key>
+      <PropertyRef Name="historicoPagosId" />
+    </Key>
+    <Property Name="historicoPagosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pagoId" Type="int" />
+    <Property Name="comentarios" Type="varchar" MaxLength="300" />
+    <Property Name="historicoUsuario" Type="varchar" MaxLength="80" />
+    <Property Name="historicoEmpresa" Type="varchar" MaxLength="80" />
+    <Property Name="historicoFechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HistoricoPoliza">
+    <Key>
+      <PropertyRef Name="idHistoricoPoliza" />
+    </Key>
+    <Property Name="idHistoricoPoliza" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="tipoPolizaId" Type="int" />
+    <Property Name="empresa" Type="varchar" MaxLength="100" />
+    <Property Name="cliente" Type="varchar" MaxLength="100" />
+    <Property Name="ramo" Type="varchar" MaxLength="100" />
+    <Property Name="aseguradora" Type="varchar" MaxLength="100" />
+    <Property Name="clienteCobro" Type="varchar" MaxLength="100" />
+    <Property Name="formaDePago" Type="varchar" MaxLength="100" />
+    <Property Name="polizaNumeroPagos" Type="int" />
+    <Property Name="polizaFechaDesde" Type="date" />
+    <Property Name="polizaFechaHasta" Type="date" />
+    <Property Name="polizaSumAsegurada" Type="money" />
+    <Property Name="polizaDeducible" Type="money" />
+    <Property Name="polizaObservaciones" Type="varchar" MaxLength="100" />
+    <Property Name="polizaPrimaTotal" Type="money" />
+    <Property Name="historicoPolizaAccion" Type="varchar" MaxLength="100" />
+    <Property Name="historicoPolizaUsuario" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGuardado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="HistoricoPrima">
+    <Key>
+      <PropertyRef Name="idHistoricoPrima" />
+    </Key>
+    <Property Name="idHistoricoPrima" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="primaId" Type="int" Nullable="false" />
+    <Property Name="primaTipo" Type="varchar" MaxLength="100" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="empresa" Type="varchar" MaxLength="100" />
+    <Property Name="cliente" Type="varchar" MaxLength="100" />
+    <Property Name="pagador" Type="varchar" MaxLength="100" />
+    <Property Name="primaVigencia" Type="date" />
+    <Property Name="primaVencimiento" Type="date" />
+    <Property Name="primaRegistrada" Type="date" />
+    <Property Name="primaAsegurada" Type="money" />
+    <Property Name="primaDeducible" Type="money" />
+    <Property Name="primaPrimaExenta" Type="money" />
+    <Property Name="primaPrimaGravada" Type="money" />
+    <Property Name="primaPrimaNeta" Type="money" />
+    <Property Name="primaGastos" Type="money" />
+    <Property Name="primaFraccionados" Type="money" />
+    <Property Name="primaIva" Type="money" />
+    <Property Name="primaTotal" Type="money" />
+    <Property Name="primaNumPagos" Type="int" />
+    <Property Name="primaObservaciones" Type="varchar" MaxLength="200" />
+    <Property Name="primaPagado" Type="money" />
+    <Property Name="primaPeriodicidad" Type="varchar" MaxLength="60" />
+    <Property Name="primaTasa" Type="money" />
+    <Property Name="historicoPrimaAccion" Type="varchar" MaxLength="100" />
+    <Property Name="historicoPrimaUsuario" Type="varchar" MaxLength="100" />
+    <Property Name="fechaModificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Inmuebles">
+    <Key>
+      <PropertyRef Name="inmuebleId" />
+    </Key>
+    <Property Name="inmuebleId" Type="int" Nullable="false" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="inmuebleDireccion1" Type="varchar" MaxLength="150" />
+    <Property Name="inmuebleDireccion2" Type="varchar" MaxLength="150" />
+    <Property Name="inmuebleDireccion3" Type="varchar" MaxLength="150" />
+    <Property Name="inmuebleTipo" Type="varchar" MaxLength="60" />
+    <Property Name="inmuebleContenido" Type="money" />
+    <Property Name="inmuebleConstruccion" Type="money" />
+    <Property Name="inmuebleValuo" Type="money" />
+    <Property Name="inmueblePrima" Type="money" />
+    <Property Name="primaId" Type="int" />
+    <Property Name="inmuebleEstado" Type="bit" />
+    <Property Name="inmuebleObservaciones" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Pagos">
+    <Key>
+      <PropertyRef Name="pagosId" />
+    </Key>
+    <Property Name="pagosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="primaId" Type="int" />
+    <Property Name="pagosCuotaId" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="20" />
+    <Property Name="clienteId" Type="int" />
+    <Property Name="pagadorId" Type="int" />
+    <Property Name="pagosFecha" Type="datetime" />
+    <Property Name="pagosPrima" Type="money" />
+    <Property Name="pagosGastos" Type="money" />
+    <Property Name="pagosIva" Type="money" />
+    <Property Name="pagosTotal" Type="money" />
+    <Property Name="pagosTipo" Type="nvarchar" MaxLength="1" />
+    <Property Name="pagosObservaciones" Type="nvarchar" MaxLength="80" />
+    <Property Name="pagosFechaDocu" Type="datetime" />
+    <Property Name="pagosNumDoc" Type="nvarchar" MaxLength="30" />
+    <Property Name="pagosBanco" Type="nvarchar" MaxLength="50" />
+    <Property Name="pagosValorDoc" Type="money" />
+    <Property Name="pagosValorEfectivo" Type="money" />
+    <Property Name="pagosTipoFiscal" Type="bit" />
+    <Property Name="pagosComprobante" Type="nvarchar" MaxLength="50" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="20" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+    <Property Name="pagosEstado" Type="bit" />
+  </EntityType>
+  <EntityType Name="Paises">
+    <Key>
+      <PropertyRef Name="paisId" />
+    </Key>
+    <Property Name="paisId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paisNombre" Type="varchar" MaxLength="300" />
+    <Property Name="paisName" Type="varchar" MaxLength="300" />
+    <Property Name="paisNom" Type="varchar" MaxLength="300" />
+    <Property Name="paisIso2" Type="varchar" MaxLength="300" />
+    <Property Name="paisIso3" Type="varchar" MaxLength="300" />
+    <Property Name="paisPhoneCode" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="PersonaContactos">
+    <Key>
+      <PropertyRef Name="contactoId" />
+    </Key>
+    <Property Name="contactoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="personaId" Type="int" />
+    <Property Name="contactoNombre" Type="varchar" MaxLength="80" />
+    <Property Name="contactoEmail" Type="varchar" MaxLength="80" />
+    <Property Name="contactoCargo" Type="varchar" MaxLength="60" />
+    <Property Name="contactoTelefono" Type="varchar" MaxLength="10" />
+    <Property Name="contactoMovil" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="PersonaDirecciones">
+    <Key>
+      <PropertyRef Name="personaDirId" />
+    </Key>
+    <Property Name="personaDirId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="personaId" Type="int" />
+    <Property Name="personatipoDireccion" Type="varchar" MaxLength="50" />
+    <Property Name="personaDireccion" Type="varchar" MaxLength="150" />
+    <Property Name="personaMunicipio" Type="varchar" MaxLength="80" />
+    <Property Name="personaDepartamento" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="Personas">
+    <Key>
+      <PropertyRef Name="personaId" />
+    </Key>
+    <Property Name="personaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empresaId" Type="int" />
+    <Property Name="tipoPersonaId" Type="int" />
+    <Property Name="personaNombre" Type="varchar" MaxLength="100" />
+    <Property Name="personaFechaNacimiento" Type="date" />
+    <Property Name="personaEstadoCivil" Type="varchar" MaxLength="10" />
+    <Property Name="personaCorreoElectronico" Type="varchar" MaxLength="70" />
+    <Property Name="personaSexo" Type="char" MaxLength="2" />
+    <Property Name="personaProfesion" Type="varchar" MaxLength="30" />
+    <Property Name="personaTelefono" Type="varchar" MaxLength="20" />
+    <Property Name="personaCliente" Type="bit" />
+    <Property Name="personaCliDui" Type="char" MaxLength="10" />
+    <Property Name="personaCliNit" Type="varchar" MaxLength="20" />
+    <Property Name="personaCliActividadEconomica" Type="varchar" MaxLength="80" />
+    <Property Name="grupoClienteId" Type="int" />
+    <Property Name="tipoContribuyenteId" Type="int" />
+    <Property Name="personaEstado" Type="bit" />
+    <Property Name="personaEmpresa" Type="int" />
+    <Property Name="personaTelefono2" Type="varchar" MaxLength="15" />
+    <Property Name="personaTelefono3" Type="varchar" MaxLength="15" />
+    <Property Name="personaDireccion" Type="varchar" MaxLength="150" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PolizaAutomotorCoberturas">
+    <Key>
+      <PropertyRef Name="polizaAutomotorCoberturasId" />
+    </Key>
+    <Property Name="polizaAutomotorCoberturasId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="automotorPlaca" Type="varchar" MaxLength="20" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="coberturasId" Type="int" />
+    <Property Name="certAutoId" Type="int" />
+    <Property Name="prima" Type="money" />
+    <Property Name="suma" Type="money" />
+  </EntityType>
+  <EntityType Name="PolizaCancelaciones">
+    <Key>
+      <PropertyRef Name="cancelacionesId" />
+    </Key>
+    <Property Name="cancelacionesId" Type="int" Nullable="false" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="cancelacionesFecha" Type="date" />
+    <Property Name="cancelacionesObservaciones" Type="text" />
+    <Property Name="usuario" Type="varchar" MaxLength="50" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PolizaComentarios">
+    <Key>
+      <PropertyRef Name="comentariosId" />
+    </Key>
+    <Property Name="comentariosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="comentarioTipo" Type="varchar" MaxLength="30" />
+    <Property Name="comentarioFecha" Type="date" />
+    <Property Name="comentario" Type="text" />
+    <Property Name="usuario" Type="varchar" MaxLength="20" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="grabado" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="PolizaDeducibles">
+    <Key>
+      <PropertyRef Name="polizaDeduciblesId" />
+    </Key>
+    <Property Name="polizaDeduciblesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="deduciblesId" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="valor" Type="money" />
+    <Property Name="primaId" Type="int" />
+  </EntityType>
+  <EntityType Name="PolizaGastosFraccionados">
+    <Key>
+      <PropertyRef Name="polizaGastosFraccionadosId" />
+    </Key>
+    <Property Name="polizaGastosFraccionadosId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gastoFraccionadoId" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="valor" Type="money" />
+    <Property Name="primaId" Type="int" />
+  </EntityType>
+  <EntityType Name="PolizaGastosIniciales">
+    <Key>
+      <PropertyRef Name="polizaGastosInicialesId" />
+    </Key>
+    <Property Name="polizaGastosInicialesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gastoInicialId" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="valor" Type="money" />
+    <Property Name="primaId" Type="int" />
+  </EntityType>
+  <EntityType Name="Polizas">
+    <Key>
+      <PropertyRef Name="polizaNumero" />
+    </Key>
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="tipoPolizaId" Type="int" />
+    <Property Name="empresaId" Type="int" />
+    <Property Name="clienteId" Type="int" />
+    <Property Name="ramoId" Type="int" />
+    <Property Name="aseguradoraId" Type="int" />
+    <Property Name="clienteCobroId" Type="int" />
+    <Property Name="formaDePagoId" Type="int" />
+    <Property Name="tipoEstatusId" Type="int" />
+    <Property Name="polizaNumeroPagos" Type="int" />
+    <Property Name="polizaFechaDesde" Type="date" />
+    <Property Name="polizaFechaHasta" Type="date" />
+    <Property Name="polizaSumAsegurada" Type="money" />
+    <Property Name="polizaDeducible" Type="money" />
+    <Property Name="polizaObservaciones" Type="varchar" MaxLength="255" />
+    <Property Name="polizaSumaActual" Type="money" />
+    <Property Name="polizaPrimaTotal" Type="money" />
+    <Property Name="polizaRenovaciones" Type="int" />
+    <Property Name="tipoEstatus" Type="bit" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+    <Property Name="fechaGrabado" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PolizaTransporteCoberturas">
+    <Key>
+      <PropertyRef Name="polizaTransporteCoberturasId" />
+    </Key>
+    <Property Name="polizaTransporteCoberturasId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transporteId" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="transporteCoberturasId" Type="int" />
+  </EntityType>
+  <EntityType Name="PolizaTransporteDocumento">
+    <Key>
+      <PropertyRef Name="polizaTransporteDocumentoId" />
+    </Key>
+    <Property Name="polizaTransporteDocumentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transporteId" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="tipoDocumentoId" Type="int" />
+  </EntityType>
+  <EntityType Name="Primas">
+    <Key>
+      <PropertyRef Name="primaId" />
+    </Key>
+    <Property Name="primaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="primaTipo" Type="int" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="clienteId" Type="int" />
+    <Property Name="primaPagador" Type="int" />
+    <Property Name="primaVigencia" Type="date" />
+    <Property Name="primaVencimiento" Type="date" />
+    <Property Name="primaRegistrada" Type="date" />
+    <Property Name="primaAsegurada" Type="money" />
+    <Property Name="primaDeducible" Type="money" />
+    <Property Name="primaPrimaExenta" Type="money" />
+    <Property Name="primaPrimaGravada" Type="money" />
+    <Property Name="primaPrimaNeta" Type="money" />
+    <Property Name="primaGastos" Type="money" />
+    <Property Name="primaFraccionados" Type="money" />
+    <Property Name="primaIva" Type="money" />
+    <Property Name="primaTotal" Type="money" />
+    <Property Name="primaNumPagos" Type="int" />
+    <Property Name="primaObservaciones" Type="varchar" MaxLength="200" />
+    <Property Name="primaPagado" Type="money" />
+    <Property Name="primaStatus" Type="char" MaxLength="1" />
+    <Property Name="primaPeriodicidad" Type="varchar" MaxLength="60" />
+    <Property Name="primaTasa" Type="money" />
+    <Property Name="primaClienteCobro" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
+    <Property Name="usuarioEmpresa" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Ramos">
+    <Key>
+      <PropertyRef Name="ramoId" />
+    </Key>
+    <Property Name="ramoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ramoDescripcion" Type="varchar" MaxLength="60" />
+    <Property Name="ramoSiglas" Type="varchar" MaxLength="50" />
+    <Property Name="tipoPolizaId" Type="int" />
+    <Property Name="empresaId" Type="int" />
+    <Property Name="tipoCertificadoId" Type="int" />
+  </EntityType>
+  <EntityType Name="ReclamoDocumento">
+    <Key>
+      <PropertyRef Name="idReclamoDocumento" />
+    </Key>
+    <Property Name="idReclamoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reclamoId" Type="int" />
+    <Property Name="reclamoNo" Type="varchar" MaxLength="20" />
+    <Property Name="reclamoRutaDocumento" Type="text" />
+    <Property Name="empresaId" Type="int" />
+    <Property Name="usuario" Type="varchar" MaxLength="20" />
+    <Property Name="fechaGrabado" Type="date" />
+  </EntityType>
+  <EntityType Name="Reclamos">
+    <Key>
+      <PropertyRef Name="reclamoId" />
+    </Key>
+    <Property Name="reclamoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reclamoNo" Type="varchar" MaxLength="20" />
+    <Property Name="polizaNumero" Type="varchar" MaxLength="25" />
+    <Property Name="empresaId" Type="int" />
+    <Property Name="personaId" Type="int" />
+    <Property Name="dependiente" Type="int" />
+    <Property Name="certificadosId" Type="int" />
+    <Property Name="reclamoDependienteNombre" Type="varchar" MaxLength="80" />
+    <Property Name="reclamoFechaEvento" Type="date" />
+    <Property Name="reclamoFechaPago" Type="date" />
+    <Property Name="reclamoFechaEnvio" Type="date" />
+    <Property Name="reclamoFechaLiquidacionA" Type="date" />
+    <Property Name="reclamoFechaLiquidacion" Type="date" />
+    <Property Name="reclamoDeducible" Type="money" />
+    <Property Name="reclamoMontoAbsorbido" Type="money" />
+    <Property Name="reclamoMontoPagado" Type="money" />
+    <Property Name="reclamoDiagnostico" Type="text" />
+    <Property Name="usuario" Type="varchar" MaxLength="20" />
+    <Property Name="fechaGrabado" Type="date" />
+    <Property Name="reclamoTerminado" Type="bit" />
+    <Property Name="reclamosAnulado" Type="bit" />
+  </EntityType>
+  <EntityType Name="ReclamoSeguimiento">
+    <Key>
+      <PropertyRef Name="idReclamoSeguimiento" />
+    </Key>
+    <Property Name="idReclamoSeguimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reclamoId" Type="int" />
+    <Property Name="reclamoNo" Type="varchar" MaxLength="20" />
+    <Property Name="reclamoSFechaContacto" Type="date" />
+    <Property Name="reclamoSEmpleadoId" Type="int" />
+    <Property Name="reclamoSEmpleado" Type="varchar" MaxLength="20" />
+    <Property Name="reclamoSContactoA" Type="varchar" MaxLength="80" />
+    <Property Name="reclamoSDescripcion" Type="varchar" MaxLength="150" />
+    <Property Name="reclamoSMedioUtilizado" Type="varchar" MaxLength="20" />
+    <Property Name="reclamoSObservaciones" Type="text" />
+    <Property Name="empresaId" Type="int" />
+    <Property Name="usuario" Type="varchar" MaxLength="20" />
+    <Property Name="fechaGrabado" Type="date" />
+    <Property Name="reclamoSAnulado" Type="bit" />
+  </EntityType>
+  <EntityType Name="TipoBeneficiario">
+    <Key>
+      <PropertyRef Name="tipoBeneficiarioId" />
+    </Key>
+    <Property Name="tipoBeneficiarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoBeneficiarioDescripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TipoBien">
+    <Key>
+      <PropertyRef Name="tipoBienId" />
+    </Key>
+    <Property Name="tipoBienId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoBienDescripcion" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="TipoCategoria">
+    <Key>
+      <PropertyRef Name="tipoCategoriaId" />
+    </Key>
+    <Property Name="tipoCategoriaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoCategoriaDescripcion" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="TipoCertificado">
+    <Key>
+      <PropertyRef Name="tipoCertificadoId" />
+    </Key>
+    <Property Name="tipoCertificadoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoCertificadoDescripcion" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="TipoContribuyentes">
+    <Key>
+      <PropertyRef Name="tipoContribuyenteId" />
+    </Key>
+    <Property Name="tipoContribuyenteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoContribuyenteDescripcion" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TipoDireccion">
+    <Key>
+      <PropertyRef Name="tipoDireccionId" />
+    </Key>
+    <Property Name="tipoDireccionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoDireccionDescripcion" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="TipoDocumentoLegal">
+    <Key>
+      <PropertyRef Name="tipoDocumentoId" />
+    </Key>
+    <Property Name="tipoDocumentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoDocumentoDescripcion" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="TipoDocumentoReclamo">
+    <Key>
+      <PropertyRef Name="idReclamoTipoDocumento" />
+    </Key>
+    <Property Name="idReclamoTipoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="reclamoTipoDocumento" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TipoEndoso">
+    <Key>
+      <PropertyRef Name="tipoEndosoId" />
+    </Key>
+    <Property Name="tipoEndosoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoEndosoDescripcion" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="TipoEstatus">
+    <Key>
+      <PropertyRef Name="tipoEstatusId" />
+    </Key>
+    <Property Name="tipoEstatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoEstatusNombre" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TipoGasto">
+    <Key>
+      <PropertyRef Name="tipoGastoId" />
+    </Key>
+    <Property Name="tipoGastoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoGastoDescripcion" Type="varchar" MaxLength="60" />
+  </EntityType>
+  <EntityType Name="TipoPersona">
+    <Key>
+      <PropertyRef Name="tipoPersonaId" />
+    </Key>
+    <Property Name="tipoPersonaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoPersonaDescripcion" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TipoPlaca">
+    <Key>
+      <PropertyRef Name="TipoPlacaId" />
+    </Key>
+    <Property Name="TipoPlacaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoPlacaDescripcion" Type="varchar" MaxLength="30" />
+    <Property Name="TipoPlacaPrefijo" Type="char" MaxLength="2" />
+  </EntityType>
+  <EntityType Name="TipoPoliza">
+    <Key>
+      <PropertyRef Name="tipoPolizaId" />
+    </Key>
+    <Property Name="tipoPolizaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoPolizaDescripcion" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="TipoPrima">
+    <Key>
+      <PropertyRef Name="tipoPrimaId" />
+    </Key>
+    <Property Name="tipoPrimaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tipoPrimaDescripcion" Type="varchar" MaxLength="60" />
+    <Property Name="tipoPrimaCodigo" Type="int" />
+    <Property Name="FactorSumaAsegurada" Type="bit" />
+  </EntityType>
+  <EntityType Name="TransporteCoberturas">
+    <Key>
+      <PropertyRef Name="transporteCoberturasId" />
+    </Key>
+    <Property Name="transporteCoberturasId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TransporteDetalleFacturas">
+    <Key>
+      <PropertyRef Name="detalleFacturaId" />
+    </Key>
+    <Property Name="detalleFacturaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transporteId" Type="int" />
+    <Property Name="detalleFacturaNum" Type="varchar" MaxLength="30" />
+    <Property Name="detalleFacturaFecha" Type="date" />
+    <Property Name="detalleFacturaMonto" Type="money" />
+  </EntityType>
+  <EntityType Name="UsuarioDepartamento">
+    <Key>
+      <PropertyRef Name="departamentoId" />
+    </Key>
+    <Property Name="departamentoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="departamentoNombre" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="UsuarioPuestoFuncional">
+    <Key>
+      <PropertyRef Name="puestoFuncionalId" />
+    </Key>
+    <Property Name="puestoFuncionalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PuestoFuncionalNombre" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="usuarioId" />
+    </Key>
+    <Property Name="usuarioId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuarioUsername" Type="varchar" MaxLength="15" />
+    <Property Name="usuarioPassword" Type="varchar" MaxLength="20" />
+    <Property Name="usuarioNombre" Type="varchar" MaxLength="60" />
+    <Property Name="usuarioCorreo" Type="varchar" MaxLength="70" />
+    <Property Name="usuarioCelular" Type="varchar" MaxLength="10" />
+    <Property Name="usuarioAdmin" Type="bit" />
+    <Property Name="tipoEstatusId" Type="int" />
+    <Property Name="empresaId" Type="int" />
+    <Property Name="PuestoFuncionalId" Type="int" />
+    <Property Name="departamentoId" Type="int" />
+    <Property Name="empresaNombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_agendaempresa">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agendausuario">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuarioId" />
+      </Principal>
+      <Dependent Role="Agenda">
+        <PropertyRef Name="usuarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_aseguradora_pais">
+    <End Role="Paises" Type="Self.Paises" Multiplicity="0..1" />
+    <End Role="Aseguradoras" Type="Self.Aseguradoras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paises">
+        <PropertyRef Name="paisId" />
+      </Principal>
+      <Dependent Role="Aseguradoras">
+        <PropertyRef Name="paisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AUTOMOTORCLASEID_CLASEID">
+    <End Role="AutomotorClase" Type="Self.AutomotorClase" Multiplicity="0..1" />
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutomotorClase">
+        <PropertyRef Name="automotorClaseId" />
+      </Principal>
+      <Dependent Role="Automotores">
+        <PropertyRef Name="automotorClaseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AUTOMOTORMARCAID_MARCAID">
+    <End Role="AutomotoresMarcas" Type="Self.AutomotoresMarcas" Multiplicity="0..1" />
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutomotoresMarcas">
+        <PropertyRef Name="marcaId" />
+      </Principal>
+      <Dependent Role="Automotores">
+        <PropertyRef Name="marcaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AUTOMOTORMODELOID_MODELOID">
+    <End Role="AutomotoresModelos" Type="Self.AutomotoresModelos" Multiplicity="0..1" />
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutomotoresModelos">
+        <PropertyRef Name="modeloId" />
+      </Principal>
+      <Dependent Role="Automotores">
+        <PropertyRef Name="modeloId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID">
+    <End Role="TipoPlaca" Type="Self.TipoPlaca" Multiplicity="0..1" />
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPlaca">
+        <PropertyRef Name="TipoPlacaId" />
+      </Principal>
+      <Dependent Role="Automotores">
+        <PropertyRef Name="tipoPlacaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BIENESASEGURADOS_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BienesAsegurados" Type="Self.BienesAsegurados" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="BienesAsegurados">
+        <PropertyRef Name="bienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="BienesAsegurados" Type="Self.BienesAsegurados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="BienesAsegurados">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BIENESASEGURADOSPRIMAID_PRIMAID">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="BienesAsegurados" Type="Self.BienesAsegurados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="BienesAsegurados">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID">
+    <End Role="TipoBien" Type="Self.TipoBien" Multiplicity="0..1" />
+    <End Role="BienesAsegurados" Type="Self.BienesAsegurados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoBien">
+        <PropertyRef Name="tipoBienId" />
+      </Principal>
+      <Dependent Role="BienesAsegurados">
+        <PropertyRef Name="tipoBienId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTO_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="certAutoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="clienteCobro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOIDPERSONA_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOIDPRIMA_PRIMAID">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA">
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Automotores">
+        <PropertyRef Name="automotorPlaca" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="automotorPlaca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO">
+    <End Role="TipoCertificado" Type="Self.TipoCertificado" Multiplicity="0..1" />
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCertificado">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Principal>
+      <Dependent Role="CertificadoAutomotor">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONA_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="certPersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONA_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID">
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="0..1" />
+    <End Role="CertificadoPersonaBeneficiario" Type="Self.CertificadoPersonaBeneficiario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoPersona">
+        <PropertyRef Name="certPersonaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersonaBeneficiario">
+        <PropertyRef Name="certPersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoPersonaBeneficiario" Type="Self.CertificadoPersonaBeneficiario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersonaBeneficiario">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID">
+    <End Role="TipoBeneficiario" Type="Self.TipoBeneficiario" Multiplicity="0..1" />
+    <End Role="CertificadoPersonaBeneficiario" Type="Self.CertificadoPersonaBeneficiario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoBeneficiario">
+        <PropertyRef Name="tipoBeneficiarioId" />
+      </Principal>
+      <Dependent Role="CertificadoPersonaBeneficiario">
+        <PropertyRef Name="tipoBeneficiarioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA">
+    <End Role="TipoCategoria" Type="Self.TipoCategoria" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCategoria">
+        <PropertyRef Name="tipoCategoriaId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="tipoCategoriaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO">
+    <End Role="TipoCertificado" Type="Self.TipoCertificado" Multiplicity="0..1" />
+    <End Role="CertificadoPersona" Type="Self.CertificadoPersona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCertificado">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Principal>
+      <Dependent Role="CertificadoPersona">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOTRANS_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="CertificadoTransporte">
+        <PropertyRef Name="transporteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOTRANSIDPERSONA_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="CertificadoTransporte">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO">
+    <End Role="TipoCertificado" Type="Self.TipoCertificado" Multiplicity="0..1" />
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCertificado">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Principal>
+      <Dependent Role="CertificadoTransporte">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="CertificadoTransporte">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID">
+    <End Role="GrupoClientes" Type="Self.GrupoClientes" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GrupoClientes">
+        <PropertyRef Name="grupoClienteId" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="grupoClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID">
+    <End Role="TipoContribuyentes" Type="Self.TipoContribuyentes" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContribuyentes">
+        <PropertyRef Name="tipoContribuyenteId" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="tipoContribuyenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CUOTAESTATUSID_ESTATUSID">
+    <End Role="TipoEstatus" Type="Self.TipoEstatus" Multiplicity="0..1" />
+    <End Role="Cuotas" Type="Self.Cuotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEstatus">
+        <PropertyRef Name="tipoEstatusId" />
+      </Principal>
+      <Dependent Role="Cuotas">
+        <PropertyRef Name="tipoEstatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CUOTAPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Cuotas" Type="Self.Cuotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Cuotas">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CUOTAPRIMA_PRIMAID">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="Cuotas" Type="Self.Cuotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="Cuotas">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID">
+    <End Role="TipoContribuyentes" Type="Self.TipoContribuyentes" Multiplicity="0..1" />
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoContribuyentes">
+        <PropertyRef Name="tipoContribuyenteId" />
+      </Principal>
+      <Dependent Role="Empresas">
+        <PropertyRef Name="tipoContribuyenteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXCLUSIONES_CERT">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="0..1" />
+    <End Role="Exclusiones" Type="Self.Exclusiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="Exclusiones">
+        <PropertyRef Name="certificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXCLUSIONES_POLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Exclusiones" Type="Self.Exclusiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Exclusiones">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXCLUSIONES_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="Exclusiones" Type="Self.Exclusiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="Exclusiones">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GRUPOCLIENTESEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="GrupoClientes" Type="Self.GrupoClientes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="GrupoClientes">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HISTORIALUSUARIOID_USUARIOID">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HistorialUsuario" Type="Self.HistorialUsuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuarioId" />
+      </Principal>
+      <Dependent Role="HistorialUsuario">
+        <PropertyRef Name="usuarioID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INMUEBLECERTIFICADO_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="Inmuebles">
+        <PropertyRef Name="inmuebleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Inmuebles" Type="Self.Inmuebles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Inmuebles">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagos_cliente">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="clienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagos_pagador">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="pagadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pagos_prima">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="Pagos" Type="Self.Pagos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="Pagos">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONAS_PERSONAEMPRESA">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Personas1" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Personas1">
+        <PropertyRef Name="personaEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONASCONTACTOPERSONAID_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="PersonaContactos" Type="Self.PersonaContactos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="PersonaContactos">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONASDIRPERSONAID_PERSONAID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="PersonaDirecciones" Type="Self.PersonaDirecciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="PersonaDirecciones">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONASEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PERSONASTIPOPERSONAID_TIPOPERSONAID">
+    <End Role="TipoPersona" Type="Self.TipoPersona" Multiplicity="0..1" />
+    <End Role="Personas" Type="Self.Personas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPersona">
+        <PropertyRef Name="tipoPersonaId" />
+      </Principal>
+      <Dependent Role="Personas">
+        <PropertyRef Name="tipoPersonaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAASEGURADORAID_ASEGURADORAID">
+    <End Role="Aseguradoras" Type="Self.Aseguradoras" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aseguradoras">
+        <PropertyRef Name="aseguradoraId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="aseguradoraId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID">
+    <End Role="CertificadoAutomotor" Type="Self.CertificadoAutomotor" Multiplicity="0..1" />
+    <End Role="PolizaAutomotorCoberturas" Type="Self.PolizaAutomotorCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoAutomotor">
+        <PropertyRef Name="certAutoId" />
+      </Principal>
+      <Dependent Role="PolizaAutomotorCoberturas">
+        <PropertyRef Name="certAutoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaAutomotorCoberturas_AUTOMOTOR">
+    <End Role="Automotores" Type="Self.Automotores" Multiplicity="0..1" />
+    <End Role="PolizaAutomotorCoberturas" Type="Self.PolizaAutomotorCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Automotores">
+        <PropertyRef Name="automotorPlaca" />
+      </Principal>
+      <Dependent Role="PolizaAutomotorCoberturas">
+        <PropertyRef Name="automotorPlaca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaAutomotorCoberturas_COBERTURAS">
+    <End Role="AutomotoresCoberturas" Type="Self.AutomotoresCoberturas" Multiplicity="0..1" />
+    <End Role="PolizaAutomotorCoberturas" Type="Self.PolizaAutomotorCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AutomotoresCoberturas">
+        <PropertyRef Name="coberturasId" />
+      </Principal>
+      <Dependent Role="PolizaAutomotorCoberturas">
+        <PropertyRef Name="coberturasId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaAutomotorCoberturas_POLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaAutomotorCoberturas" Type="Self.PolizaAutomotorCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaAutomotorCoberturas">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaCancelaciones" Type="Self.PolizaCancelaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaCancelaciones">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZACLIENTECOBROID_CLIENTECOBROID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="clienteCobroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZACLIENTEID_CLIENTEID">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="clienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaComentarios" Type="Self.PolizaComentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaComentarios">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZADEDUCIBLES_DEDUCIBLES">
+    <End Role="Deducibles" Type="Self.Deducibles" Multiplicity="0..1" />
+    <End Role="PolizaDeducibles" Type="Self.PolizaDeducibles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deducibles">
+        <PropertyRef Name="deduciblesId" />
+      </Principal>
+      <Dependent Role="PolizaDeducibles">
+        <PropertyRef Name="deduciblesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZADEDUCIBLES_POLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaDeducibles" Type="Self.PolizaDeducibles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaDeducibles">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZADEDUCIBLES_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="PolizaDeducibles" Type="Self.PolizaDeducibles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="PolizaDeducibles">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAESTATUSID_ESTATUSID">
+    <End Role="TipoEstatus" Type="Self.TipoEstatus" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEstatus">
+        <PropertyRef Name="tipoEstatusId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="tipoEstatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAFORMADEPAGOID_FORMADEPAGOID">
+    <End Role="FormaDePago" Type="Self.FormaDePago" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormaDePago">
+        <PropertyRef Name="formaDePagoId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="formaDePagoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID">
+    <End Role="GastoFraccionado" Type="Self.GastoFraccionado" Multiplicity="0..1" />
+    <End Role="PolizaGastosFraccionados" Type="Self.PolizaGastosFraccionados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GastoFraccionado">
+        <PropertyRef Name="gastoFraccionadoId" />
+      </Principal>
+      <Dependent Role="PolizaGastosFraccionados">
+        <PropertyRef Name="gastoFraccionadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAGASTOINICIALID_GASTOINICIALID">
+    <End Role="GastoInicial" Type="Self.GastoInicial" Multiplicity="0..1" />
+    <End Role="PolizaGastosIniciales" Type="Self.PolizaGastosIniciales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GastoInicial">
+        <PropertyRef Name="gastoInicialId" />
+      </Principal>
+      <Dependent Role="PolizaGastosIniciales">
+        <PropertyRef Name="gastoInicialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAGASTOSFRACCIONADOS_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="PolizaGastosFraccionados" Type="Self.PolizaGastosFraccionados" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="PolizaGastosFraccionados">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZAGASTOSINICIALES_PRIMA">
+    <End Role="Primas" Type="Self.Primas" Multiplicity="0..1" />
+    <End Role="PolizaGastosIniciales" Type="Self.PolizaGastosIniciales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Primas">
+        <PropertyRef Name="primaId" />
+      </Principal>
+      <Dependent Role="PolizaGastosIniciales">
+        <PropertyRef Name="primaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZARAMOID_RAMOID">
+    <End Role="Ramos" Type="Self.Ramos" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ramos">
+        <PropertyRef Name="ramoId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="ramoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID">
+    <End Role="TipoPoliza" Type="Self.TipoPoliza" Multiplicity="0..1" />
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPoliza">
+        <PropertyRef Name="tipoPolizaId" />
+      </Principal>
+      <Dependent Role="Polizas">
+        <PropertyRef Name="tipoPolizaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaTransporteCoberturas_coberturas">
+    <End Role="TransporteCoberturas" Type="Self.TransporteCoberturas" Multiplicity="0..1" />
+    <End Role="PolizaTransporteCoberturas" Type="Self.PolizaTransporteCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TransporteCoberturas">
+        <PropertyRef Name="transporteCoberturasId" />
+      </Principal>
+      <Dependent Role="PolizaTransporteCoberturas">
+        <PropertyRef Name="transporteCoberturasId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaTransporteCoberturas_poliza">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaTransporteCoberturas" Type="Self.PolizaTransporteCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaTransporteCoberturas">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_polizaTransporteCoberturas_transporte">
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="0..1" />
+    <End Role="PolizaTransporteCoberturas" Type="Self.PolizaTransporteCoberturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoTransporte">
+        <PropertyRef Name="transporteId" />
+      </Principal>
+      <Dependent Role="PolizaTransporteCoberturas">
+        <PropertyRef Name="transporteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRIMANUMERO_NUMEROPOLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Primas" Type="Self.Primas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Primas">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRIMATIPOID_TIPOPRIMAID">
+    <End Role="TipoPrima" Type="Self.TipoPrima" Multiplicity="0..1" />
+    <End Role="Primas" Type="Self.Primas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPrima">
+        <PropertyRef Name="tipoPrimaId" />
+      </Principal>
+      <Dependent Role="Primas">
+        <PropertyRef Name="primaTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAMOEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Ramos" Type="Self.Ramos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Ramos">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID">
+    <End Role="TipoCertificado" Type="Self.TipoCertificado" Multiplicity="0..1" />
+    <End Role="Ramos" Type="Self.Ramos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCertificado">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Principal>
+      <Dependent Role="Ramos">
+        <PropertyRef Name="tipoCertificadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID">
+    <End Role="TipoPoliza" Type="Self.TipoPoliza" Multiplicity="0..1" />
+    <End Role="Ramos" Type="Self.Ramos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoPoliza">
+        <PropertyRef Name="tipoPolizaId" />
+      </Principal>
+      <Dependent Role="Ramos">
+        <PropertyRef Name="tipoPolizaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_CERTIFICADO">
+    <End Role="Certificados" Type="Self.Certificados" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Certificados">
+        <PropertyRef Name="certificadosId" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="certificadosId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_DEPENDIENTE">
+    <End Role="CertificadoPersonaBeneficiario" Type="Self.CertificadoPersonaBeneficiario" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoPersonaBeneficiario">
+        <PropertyRef Name="certPBeneficiarioId" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="dependiente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_IDEMPRESA">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_IDPERSONA">
+    <End Role="Personas" Type="Self.Personas" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Personas">
+        <PropertyRef Name="personaId" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="personaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMO_NUMPOLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="Reclamos">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMODOCUMENTO_IDEMPRESA">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="ReclamoDocumento" Type="Self.ReclamoDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="ReclamoDocumento">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMODOCUMENTO_RECLAMO">
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="0..1" />
+    <End Role="ReclamoDocumento" Type="Self.ReclamoDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reclamos">
+        <PropertyRef Name="reclamoId" />
+      </Principal>
+      <Dependent Role="ReclamoDocumento">
+        <PropertyRef Name="reclamoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMOSEGUIMIENTO_IDEMPLEADO">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="ReclamoSeguimiento" Type="Self.ReclamoSeguimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="usuarioId" />
+      </Principal>
+      <Dependent Role="ReclamoSeguimiento">
+        <PropertyRef Name="reclamoSEmpleadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMOSEGUIMIENTO_IDEMPRESA">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="ReclamoSeguimiento" Type="Self.ReclamoSeguimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="ReclamoSeguimiento">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_RECLAMOSEGUIMIENTO_RECLAMO">
+    <End Role="Reclamos" Type="Self.Reclamos" Multiplicity="0..1" />
+    <End Role="ReclamoSeguimiento" Type="Self.ReclamoSeguimiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reclamos">
+        <PropertyRef Name="reclamoId" />
+      </Principal>
+      <Dependent Role="ReclamoSeguimiento">
+        <PropertyRef Name="reclamoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID">
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="0..1" />
+    <End Role="TransporteDetalleFacturas" Type="Self.TransporteDetalleFacturas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoTransporte">
+        <PropertyRef Name="transporteId" />
+      </Principal>
+      <Dependent Role="TransporteDetalleFacturas">
+        <PropertyRef Name="transporteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTEDOCUMENTO_NUMPOLIZA">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaTransporteDocumento" Type="Self.PolizaTransporteDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaTransporteDocumento">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO">
+    <End Role="TipoDocumentoLegal" Type="Self.TipoDocumentoLegal" Multiplicity="0..1" />
+    <End Role="PolizaTransporteDocumento" Type="Self.PolizaTransporteDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDocumentoLegal">
+        <PropertyRef Name="tipoDocumentoId" />
+      </Principal>
+      <Dependent Role="PolizaTransporteDocumento">
+        <PropertyRef Name="tipoDocumentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRANSPORTEDOCUMENTO_TRANSPORTEID">
+    <End Role="CertificadoTransporte" Type="Self.CertificadoTransporte" Multiplicity="0..1" />
+    <End Role="PolizaTransporteDocumento" Type="Self.PolizaTransporteDocumento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertificadoTransporte">
+        <PropertyRef Name="transporteId" />
+      </Principal>
+      <Dependent Role="PolizaTransporteDocumento">
+        <PropertyRef Name="transporteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID">
+    <End Role="UsuarioDepartamento" Type="Self.UsuarioDepartamento" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsuarioDepartamento">
+        <PropertyRef Name="departamentoId" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="departamentoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOSEMPRESAID_EMPRESAID">
+    <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresas">
+        <PropertyRef Name="empresaId" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="empresaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOSESTATUSID_ESTATUSID">
+    <End Role="TipoEstatus" Type="Self.TipoEstatus" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEstatus">
+        <PropertyRef Name="tipoEstatusId" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="tipoEstatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID">
+    <End Role="UsuarioPuestoFuncional" Type="Self.UsuarioPuestoFuncional" Multiplicity="0..1" />
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UsuarioPuestoFuncional">
+        <PropertyRef Name="puestoFuncionalId" />
+      </Principal>
+      <Dependent Role="Usuarios">
+        <PropertyRef Name="PuestoFuncionalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO">
+    <End Role="Polizas" Type="Self.Polizas" Multiplicity="0..1" />
+    <End Role="PolizaGastosIniciales" Type="Self.PolizaGastosIniciales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Polizas">
+        <PropertyRef Name="polizaNumero" />
+      </Principal>
+      <Dependent Role="PolizaGastosIniciales">
+        <PropertyRef Name="polizaNumero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="syspolizaModelStoreContainer">
+    <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Aseguradoras" EntityType="Self.Aseguradoras" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AutomotorClase" EntityType="Self.AutomotorClase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Automotores" EntityType="Self.Automotores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AutomotoresCoberturas" EntityType="Self.AutomotoresCoberturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AutomotoresMarcas" EntityType="Self.AutomotoresMarcas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AutomotoresModelos" EntityType="Self.AutomotoresModelos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bancos" EntityType="Self.Bancos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BienesAsegurados" EntityType="Self.BienesAsegurados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CertificadoAutomotor" EntityType="Self.CertificadoAutomotor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CertificadoPersona" EntityType="Self.CertificadoPersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CertificadoPersonaBeneficiario" EntityType="Self.CertificadoPersonaBeneficiario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Certificados" EntityType="Self.Certificados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CertificadoTransporte" EntityType="Self.CertificadoTransporte" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cuotas" EntityType="Self.Cuotas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Deducibles" EntityType="Self.Deducibles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresas" EntityType="Self.Empresas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exclusiones" EntityType="Self.Exclusiones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormaDePago" EntityType="Self.FormaDePago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GastoFraccionado" EntityType="Self.GastoFraccionado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GastoInicial" EntityType="Self.GastoInicial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GrupoClientes" EntityType="Self.GrupoClientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistorialUsuario" EntityType="Self.HistorialUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoricoCuotas" EntityType="Self.HistoricoCuotas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoricoPagos" EntityType="Self.HistoricoPagos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoricoPoliza" EntityType="Self.HistoricoPoliza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoricoPrima" EntityType="Self.HistoricoPrima" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inmuebles" EntityType="Self.Inmuebles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pagos" EntityType="Self.Pagos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonaContactos" EntityType="Self.PersonaContactos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonaDirecciones" EntityType="Self.PersonaDirecciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Personas" EntityType="Self.Personas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PolizaAutomotorCoberturas" EntityType="Self.PolizaAutomotorCoberturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PolizaCancelaciones" EntityType="Self.PolizaCancelaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PolizaComentarios" EntityType="Self.PolizaComentarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PolizaDeducibles" EntityType="Self.PolizaDeducibles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PolizaGastosFraccionados" EntityType="Self.PolizaGastosFraccionados" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PolizaGastosIniciales" EntityType="Self.PolizaGastosIniciales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Polizas" EntityType="Self.Polizas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PolizaTransporteCoberturas" EntityType="Self.PolizaTransporteCoberturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PolizaTransporteDocumento" EntityType="Self.PolizaTransporteDocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Primas" EntityType="Self.Primas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ramos" EntityType="Self.Ramos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReclamoDocumento" EntityType="Self.ReclamoDocumento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reclamos" EntityType="Self.Reclamos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ReclamoSeguimiento" EntityType="Self.ReclamoSeguimiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoBeneficiario" EntityType="Self.TipoBeneficiario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoBien" EntityType="Self.TipoBien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoCategoria" EntityType="Self.TipoCategoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoCertificado" EntityType="Self.TipoCertificado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoContribuyentes" EntityType="Self.TipoContribuyentes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDireccion" EntityType="Self.TipoDireccion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDocumentoLegal" EntityType="Self.TipoDocumentoLegal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoDocumentoReclamo" EntityType="Self.TipoDocumentoReclamo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoEndoso" EntityType="Self.TipoEndoso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoEstatus" EntityType="Self.TipoEstatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoGasto" EntityType="Self.TipoGasto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPersona" EntityType="Self.TipoPersona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPlaca" EntityType="Self.TipoPlaca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPoliza" EntityType="Self.TipoPoliza" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoPrima" EntityType="Self.TipoPrima" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransporteCoberturas" EntityType="Self.TransporteCoberturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransporteDetalleFacturas" EntityType="Self.TransporteDetalleFacturas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioDepartamento" EntityType="Self.UsuarioDepartamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsuarioPuestoFuncional" EntityType="Self.UsuarioPuestoFuncional" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_agendaempresa" Association="Self.FK_agendaempresa">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agendausuario" Association="Self.FK_agendausuario">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Agenda" EntitySet="Agenda" />
+    </AssociationSet>
+    <AssociationSet Name="fk_aseguradora_pais" Association="Self.fk_aseguradora_pais">
+      <End Role="Paises" EntitySet="Paises" />
+      <End Role="Aseguradoras" EntitySet="Aseguradoras" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AUTOMOTORCLASEID_CLASEID" Association="Self.FK_AUTOMOTORCLASEID_CLASEID">
+      <End Role="AutomotorClase" EntitySet="AutomotorClase" />
+      <End Role="Automotores" EntitySet="Automotores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AUTOMOTORMARCAID_MARCAID" Association="Self.FK_AUTOMOTORMARCAID_MARCAID">
+      <End Role="AutomotoresMarcas" EntitySet="AutomotoresMarcas" />
+      <End Role="Automotores" EntitySet="Automotores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AUTOMOTORMODELOID_MODELOID" Association="Self.FK_AUTOMOTORMODELOID_MODELOID">
+      <End Role="AutomotoresModelos" EntitySet="AutomotoresModelos" />
+      <End Role="Automotores" EntitySet="Automotores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID" Association="Self.FK_AUTOMOTORTIPOPLACAID_TIPOPLACAID">
+      <End Role="TipoPlaca" EntitySet="TipoPlaca" />
+      <End Role="Automotores" EntitySet="Automotores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BIENESASEGURADOS_CERTIFICADO" Association="Self.FK_BIENESASEGURADOS_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="BienesAsegurados" EntitySet="BienesAsegurados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO" Association="Self.FK_BIENESASEGURADOSPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="BienesAsegurados" EntitySet="BienesAsegurados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BIENESASEGURADOSPRIMAID_PRIMAID" Association="Self.FK_BIENESASEGURADOSPRIMAID_PRIMAID">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="BienesAsegurados" EntitySet="BienesAsegurados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID" Association="Self.FK_BIENESASEGURADOSTIPOBIENID_TIPOBIENID">
+      <End Role="TipoBien" EntitySet="TipoBien" />
+      <End Role="BienesAsegurados" EntitySet="BienesAsegurados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTO_CERTIFICADO" Association="Self.FK_CERTIFICADOAUTO_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID" Association="Self.FK_CERTIFICADOAUTOIDCLIENTE_CLIENTECOBROID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOIDPERSONA_PERSONAID" Association="Self.FK_CERTIFICADOAUTOIDPERSONA_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOIDPRIMA_PRIMAID" Association="Self.FK_CERTIFICADOAUTOIDPRIMA_PRIMAID">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA" Association="Self.FK_CERTIFICADOAUTOPLACA_AUTOMOTORPLACA">
+      <End Role="Automotores" EntitySet="Automotores" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO" Association="Self.FK_CERTIFICADOAUTOPOLIZANUM_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO" Association="Self.FK_CERTIFICADOAUTOTIPO_TIPOCERTIFICADO">
+      <End Role="TipoCertificado" EntitySet="TipoCertificado" />
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONA_CERTIFICADO" Association="Self.FK_CERTIFICADOPERSONA_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONA_PRIMA" Association="Self.FK_CERTIFICADOPERSONA_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID" Association="Self.FK_CERTIFICADOPERSONABENIDCERTIFICADO_PERSONACERTIFICADOID">
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+      <End Role="CertificadoPersonaBeneficiario" EntitySet="CertificadoPersonaBeneficiario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID" Association="Self.FK_CERTIFICADOPERSONABENIDPERSONA_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoPersonaBeneficiario" EntitySet="CertificadoPersonaBeneficiario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID" Association="Self.FK_CERTIFICADOPERSONABETIPOID_TIPOBENEFICIARIOID">
+      <End Role="TipoBeneficiario" EntitySet="TipoBeneficiario" />
+      <End Role="CertificadoPersonaBeneficiario" EntitySet="CertificadoPersonaBeneficiario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID" Association="Self.FK_CERTIFICADOPERSONAIDPERSONA_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO" Association="Self.FK_CERTIFICADOPERSONAPOLIZANUM_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA" Association="Self.FK_CERTIFICADOPERSONATIPO_TIPOCATEGORIA">
+      <End Role="TipoCategoria" EntitySet="TipoCategoria" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO" Association="Self.FK_CERTIFICADOPERSONATIPO_TIPOCERTIFICADO">
+      <End Role="TipoCertificado" EntitySet="TipoCertificado" />
+      <End Role="CertificadoPersona" EntitySet="CertificadoPersona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOTRANS_CERTIFICADO" Association="Self.FK_CERTIFICADOTRANS_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOTRANSIDPERSONA_PERSONAID" Association="Self.FK_CERTIFICADOTRANSIDPERSONA_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO" Association="Self.FK_CERTIFICADOTRANSTIPO_TIPOCERTIFICADO">
+      <End Role="TipoCertificado" EntitySet="TipoCertificado" />
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO" Association="Self.FK_CERTIFICADTRANSPOLIZANUM_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID" Association="Self.FK_CLIENTESGRUPOCLIENTEID_GRUPOCLIENTEID">
+      <End Role="GrupoClientes" EntitySet="GrupoClientes" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" Association="Self.FK_CLIENTESTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID">
+      <End Role="TipoContribuyentes" EntitySet="TipoContribuyentes" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CUOTAESTATUSID_ESTATUSID" Association="Self.FK_CUOTAESTATUSID_ESTATUSID">
+      <End Role="TipoEstatus" EntitySet="TipoEstatus" />
+      <End Role="Cuotas" EntitySet="Cuotas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CUOTAPOLIZANUMERO_POLIZANUMERO" Association="Self.FK_CUOTAPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Cuotas" EntitySet="Cuotas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CUOTAPRIMA_PRIMAID" Association="Self.FK_CUOTAPRIMA_PRIMAID">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="Cuotas" EntitySet="Cuotas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" Association="Self.FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID">
+      <End Role="TipoContribuyentes" EntitySet="TipoContribuyentes" />
+      <End Role="Empresas" EntitySet="Empresas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXCLUSIONES_CERT" Association="Self.FK_EXCLUSIONES_CERT">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="Exclusiones" EntitySet="Exclusiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXCLUSIONES_POLIZA" Association="Self.FK_EXCLUSIONES_POLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Exclusiones" EntitySet="Exclusiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXCLUSIONES_PRIMA" Association="Self.FK_EXCLUSIONES_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="Exclusiones" EntitySet="Exclusiones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GRUPOCLIENTESEMPRESAID_EMPRESAID" Association="Self.FK_GRUPOCLIENTESEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="GrupoClientes" EntitySet="GrupoClientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HISTORIALUSUARIOID_USUARIOID" Association="Self.FK_HISTORIALUSUARIOID_USUARIOID">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="HistorialUsuario" EntitySet="HistorialUsuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INMUEBLECERTIFICADO_CERTIFICADO" Association="Self.FK_INMUEBLECERTIFICADO_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO" Association="Self.FK_INMUEBLEPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Inmuebles" EntitySet="Inmuebles" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagos_cliente" Association="Self.fk_pagos_cliente">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagos_pagador" Association="Self.fk_pagos_pagador">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pagos_prima" Association="Self.fk_pagos_prima">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="Pagos" EntitySet="Pagos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONAS_PERSONAEMPRESA" Association="Self.FK_PERSONAS_PERSONAEMPRESA">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Personas1" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONASCONTACTOPERSONAID_PERSONAID" Association="Self.FK_PERSONASCONTACTOPERSONAID_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="PersonaContactos" EntitySet="PersonaContactos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONASDIRPERSONAID_PERSONAID" Association="Self.FK_PERSONASDIRPERSONAID_PERSONAID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="PersonaDirecciones" EntitySet="PersonaDirecciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONASEMPRESAID_EMPRESAID" Association="Self.FK_PERSONASEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PERSONASTIPOPERSONAID_TIPOPERSONAID" Association="Self.FK_PERSONASTIPOPERSONAID_TIPOPERSONAID">
+      <End Role="TipoPersona" EntitySet="TipoPersona" />
+      <End Role="Personas" EntitySet="Personas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAASEGURADORAID_ASEGURADORAID" Association="Self.FK_POLIZAASEGURADORAID_ASEGURADORAID">
+      <End Role="Aseguradoras" EntitySet="Aseguradoras" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID" Association="Self.FK_polizaAutomotorCoberturas_AUTOCERTIFICADOID">
+      <End Role="CertificadoAutomotor" EntitySet="CertificadoAutomotor" />
+      <End Role="PolizaAutomotorCoberturas" EntitySet="PolizaAutomotorCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaAutomotorCoberturas_AUTOMOTOR" Association="Self.FK_polizaAutomotorCoberturas_AUTOMOTOR">
+      <End Role="Automotores" EntitySet="Automotores" />
+      <End Role="PolizaAutomotorCoberturas" EntitySet="PolizaAutomotorCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaAutomotorCoberturas_COBERTURAS" Association="Self.FK_polizaAutomotorCoberturas_COBERTURAS">
+      <End Role="AutomotoresCoberturas" EntitySet="AutomotoresCoberturas" />
+      <End Role="PolizaAutomotorCoberturas" EntitySet="PolizaAutomotorCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaAutomotorCoberturas_POLIZA" Association="Self.FK_polizaAutomotorCoberturas_POLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaAutomotorCoberturas" EntitySet="PolizaAutomotorCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO" Association="Self.FK_POLIZACANCELACIONESPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaCancelaciones" EntitySet="PolizaCancelaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZACLIENTECOBROID_CLIENTECOBROID" Association="Self.FK_POLIZACLIENTECOBROID_CLIENTECOBROID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZACLIENTEID_CLIENTEID" Association="Self.FK_POLIZACLIENTEID_CLIENTEID">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA" Association="Self.FK_POLIZACOMENTARIONUMERO_NUMEROPOLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaComentarios" EntitySet="PolizaComentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZADEDUCIBLES_DEDUCIBLES" Association="Self.FK_POLIZADEDUCIBLES_DEDUCIBLES">
+      <End Role="Deducibles" EntitySet="Deducibles" />
+      <End Role="PolizaDeducibles" EntitySet="PolizaDeducibles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZADEDUCIBLES_POLIZA" Association="Self.FK_POLIZADEDUCIBLES_POLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaDeducibles" EntitySet="PolizaDeducibles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZADEDUCIBLES_PRIMA" Association="Self.FK_POLIZADEDUCIBLES_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="PolizaDeducibles" EntitySet="PolizaDeducibles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAEMPRESAID_EMPRESAID" Association="Self.FK_POLIZAEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAESTATUSID_ESTATUSID" Association="Self.FK_POLIZAESTATUSID_ESTATUSID">
+      <End Role="TipoEstatus" EntitySet="TipoEstatus" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAFORMADEPAGOID_FORMADEPAGOID" Association="Self.FK_POLIZAFORMADEPAGOID_FORMADEPAGOID">
+      <End Role="FormaDePago" EntitySet="FormaDePago" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID" Association="Self.FK_POLIZAGASTOFRACCIONADOID_GASTOFRACCIONADOID">
+      <End Role="GastoFraccionado" EntitySet="GastoFraccionado" />
+      <End Role="PolizaGastosFraccionados" EntitySet="PolizaGastosFraccionados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAGASTOINICIALID_GASTOINICIALID" Association="Self.FK_POLIZAGASTOINICIALID_GASTOINICIALID">
+      <End Role="GastoInicial" EntitySet="GastoInicial" />
+      <End Role="PolizaGastosIniciales" EntitySet="PolizaGastosIniciales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAGASTOSFRACCIONADOS_PRIMA" Association="Self.FK_POLIZAGASTOSFRACCIONADOS_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="PolizaGastosFraccionados" EntitySet="PolizaGastosFraccionados" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZAGASTOSINICIALES_PRIMA" Association="Self.FK_POLIZAGASTOSINICIALES_PRIMA">
+      <End Role="Primas" EntitySet="Primas" />
+      <End Role="PolizaGastosIniciales" EntitySet="PolizaGastosIniciales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZARAMOID_RAMOID" Association="Self.FK_POLIZARAMOID_RAMOID">
+      <End Role="Ramos" EntitySet="Ramos" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID" Association="Self.FK_POLIZATIPOPOLIZAID_TIPOPOLIZAID">
+      <End Role="TipoPoliza" EntitySet="TipoPoliza" />
+      <End Role="Polizas" EntitySet="Polizas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaTransporteCoberturas_coberturas" Association="Self.FK_polizaTransporteCoberturas_coberturas">
+      <End Role="TransporteCoberturas" EntitySet="TransporteCoberturas" />
+      <End Role="PolizaTransporteCoberturas" EntitySet="PolizaTransporteCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaTransporteCoberturas_poliza" Association="Self.FK_polizaTransporteCoberturas_poliza">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaTransporteCoberturas" EntitySet="PolizaTransporteCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_polizaTransporteCoberturas_transporte" Association="Self.FK_polizaTransporteCoberturas_transporte">
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+      <End Role="PolizaTransporteCoberturas" EntitySet="PolizaTransporteCoberturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRIMANUMERO_NUMEROPOLIZA" Association="Self.FK_PRIMANUMERO_NUMEROPOLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Primas" EntitySet="Primas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRIMATIPOID_TIPOPRIMAID" Association="Self.FK_PRIMATIPOID_TIPOPRIMAID">
+      <End Role="TipoPrima" EntitySet="TipoPrima" />
+      <End Role="Primas" EntitySet="Primas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAMOEMPRESAID_EMPRESAID" Association="Self.FK_RAMOEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Ramos" EntitySet="Ramos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID" Association="Self.FK_RAMOTIPOCERTIFICADOID_TIPOCERTIFICADOID">
+      <End Role="TipoCertificado" EntitySet="TipoCertificado" />
+      <End Role="Ramos" EntitySet="Ramos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID" Association="Self.FK_RAMOTIPOPOLIZAID_TIPOPOLIZAID">
+      <End Role="TipoPoliza" EntitySet="TipoPoliza" />
+      <End Role="Ramos" EntitySet="Ramos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_CERTIFICADO" Association="Self.fk_RECLAMO_CERTIFICADO">
+      <End Role="Certificados" EntitySet="Certificados" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_DEPENDIENTE" Association="Self.fk_RECLAMO_DEPENDIENTE">
+      <End Role="CertificadoPersonaBeneficiario" EntitySet="CertificadoPersonaBeneficiario" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_IDEMPRESA" Association="Self.fk_RECLAMO_IDEMPRESA">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_IDPERSONA" Association="Self.fk_RECLAMO_IDPERSONA">
+      <End Role="Personas" EntitySet="Personas" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMO_NUMPOLIZA" Association="Self.fk_RECLAMO_NUMPOLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="Reclamos" EntitySet="Reclamos" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMODOCUMENTO_IDEMPRESA" Association="Self.fk_RECLAMODOCUMENTO_IDEMPRESA">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="ReclamoDocumento" EntitySet="ReclamoDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMODOCUMENTO_RECLAMO" Association="Self.fk_RECLAMODOCUMENTO_RECLAMO">
+      <End Role="Reclamos" EntitySet="Reclamos" />
+      <End Role="ReclamoDocumento" EntitySet="ReclamoDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMOSEGUIMIENTO_IDEMPLEADO" Association="Self.fk_RECLAMOSEGUIMIENTO_IDEMPLEADO">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="ReclamoSeguimiento" EntitySet="ReclamoSeguimiento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMOSEGUIMIENTO_IDEMPRESA" Association="Self.fk_RECLAMOSEGUIMIENTO_IDEMPRESA">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="ReclamoSeguimiento" EntitySet="ReclamoSeguimiento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_RECLAMOSEGUIMIENTO_RECLAMO" Association="Self.fk_RECLAMOSEGUIMIENTO_RECLAMO">
+      <End Role="Reclamos" EntitySet="Reclamos" />
+      <End Role="ReclamoSeguimiento" EntitySet="ReclamoSeguimiento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID" Association="Self.FK_TRANSPORTEDETALLEFACTURA_TRANSPORTEID">
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+      <End Role="TransporteDetalleFacturas" EntitySet="TransporteDetalleFacturas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTEDOCUMENTO_NUMPOLIZA" Association="Self.FK_TRANSPORTEDOCUMENTO_NUMPOLIZA">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaTransporteDocumento" EntitySet="PolizaTransporteDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO" Association="Self.FK_TRANSPORTEDOCUMENTO_TIPODOCUMENTO">
+      <End Role="TipoDocumentoLegal" EntitySet="TipoDocumentoLegal" />
+      <End Role="PolizaTransporteDocumento" EntitySet="PolizaTransporteDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRANSPORTEDOCUMENTO_TRANSPORTEID" Association="Self.FK_TRANSPORTEDOCUMENTO_TRANSPORTEID">
+      <End Role="CertificadoTransporte" EntitySet="CertificadoTransporte" />
+      <End Role="PolizaTransporteDocumento" EntitySet="PolizaTransporteDocumento" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID" Association="Self.FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID">
+      <End Role="UsuarioDepartamento" EntitySet="UsuarioDepartamento" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOSEMPRESAID_EMPRESAID" Association="Self.FK_USUARIOSEMPRESAID_EMPRESAID">
+      <End Role="Empresas" EntitySet="Empresas" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOSESTATUSID_ESTATUSID" Association="Self.FK_USUARIOSESTATUSID_ESTATUSID">
+      <End Role="TipoEstatus" EntitySet="TipoEstatus" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID" Association="Self.FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID">
+      <End Role="UsuarioPuestoFuncional" EntitySet="UsuarioPuestoFuncional" />
+      <End Role="Usuarios" EntitySet="Usuarios" />
+    </AssociationSet>
+    <AssociationSet Name="K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO" Association="Self.K_POLIZAGASTOINICIALPOLIZANUMERO_POLIZANUMERO">
+      <End Role="Polizas" EntitySet="Polizas" />
+      <End Role="PolizaGastosIniciales" EntitySet="PolizaGastosIniciales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
