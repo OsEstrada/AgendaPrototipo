@@ -16,6 +16,7 @@
     <Property Name="empresaId" Type="Int32" />
     <NavigationProperty Name="Empresas" Relationship="Self.FK_agendaempresa" FromRole="Agenda" ToRole="Empresas" />
     <NavigationProperty Name="Usuarios" Relationship="Self.FK_agendausuario" FromRole="Agenda" ToRole="Usuarios" />
+    <Property Name="tipoRegistro" Type="Int32" />
   </EntityType>
   <EntityType Name="Aseguradoras">
     <Key>

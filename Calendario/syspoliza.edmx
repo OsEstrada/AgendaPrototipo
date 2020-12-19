@@ -5,20 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="syspolizaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Agenda">
+        <EntityType Name="AgendaRegistro">
           <Key>
             <PropertyRef Name="idRegistro" />
           </Key>
           <Property Name="idRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fecha" Type="date" />
-          <Property Name="horaInicio" Type="varchar" MaxLength="6" />
-          <Property Name="horaFinal" Type="varchar" MaxLength="7" />
-          <Property Name="duracion" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="titulo" Type="varchar" MaxLength="40" />
-          <Property Name="detalles" Type="varchar" MaxLength="300" />
-          <Property Name="usuarioId" Type="int" />
-          <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
-          <Property Name="empresaId" Type="int" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="idEmpresa" Type="int" />
+          <Property Name="fechaHoraInicio" Type="datetime" />
+          <Property Name="fechaHoraFinal" Type="datetime" />
+          <Property Name="tipoRegistro" Type="int" />
+          <Property Name="registroTitulo" Type="varchar" MaxLength="50" />
+          <Property Name="registroDetalles" Type="varchar" MaxLength="300" />
+          <Property Name="registroEstado" Type="bit" />
+          <Property Name="registroRef" Type="int" />
         </EntityType>
         <EntityType Name="Aseguradoras">
           <Key>
@@ -905,27 +905,39 @@
           <Property Name="departamentoId" Type="int" />
           <Property Name="empresaNombre" Type="varchar" MaxLength="100" />
         </EntityType>
-        <Association Name="FK_agendaempresa">
+        <Association Name="FK_agendaregistro_Empresa">
           <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
-          <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+          <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Empresas">
               <PropertyRef Name="empresaId" />
             </Principal>
-            <Dependent Role="Agenda">
-              <PropertyRef Name="empresaId" />
+            <Dependent Role="AgendaRegistro">
+              <PropertyRef Name="idEmpresa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_agendausuario">
+        <Association Name="FK_agendaregistro_ref">
+          <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="0..1" />
+          <End Role="AgendaRegistro1" Type="Self.AgendaRegistro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgendaRegistro">
+              <PropertyRef Name="idRegistro" />
+            </Principal>
+            <Dependent Role="AgendaRegistro1">
+              <PropertyRef Name="registroRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_agendaregistro_Usuario">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+          <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="usuarioId" />
             </Principal>
-            <Dependent Role="Agenda">
-              <PropertyRef Name="usuarioId" />
+            <Dependent Role="AgendaRegistro">
+              <PropertyRef Name="idUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2118,7 +2130,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="syspolizaModelStoreContainer">
-          <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgendaRegistro" EntityType="Self.AgendaRegistro" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Aseguradoras" EntityType="Self.Aseguradoras" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AutomotorClase" EntityType="Self.AutomotorClase" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Automotores" EntityType="Self.Automotores" Schema="dbo" store:Type="Tables" />
@@ -2186,13 +2198,17 @@
           <EntitySet Name="UsuarioDepartamento" EntityType="Self.UsuarioDepartamento" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UsuarioPuestoFuncional" EntityType="Self.UsuarioPuestoFuncional" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_agendaempresa" Association="Self.FK_agendaempresa">
+          <AssociationSet Name="FK_agendaregistro_Empresa" Association="Self.FK_agendaregistro_Empresa">
             <End Role="Empresas" EntitySet="Empresas" />
-            <End Role="Agenda" EntitySet="Agenda" />
+            <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
           </AssociationSet>
-          <AssociationSet Name="FK_agendausuario" Association="Self.FK_agendausuario">
+          <AssociationSet Name="FK_agendaregistro_ref" Association="Self.FK_agendaregistro_ref">
+            <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
+            <End Role="AgendaRegistro1" EntitySet="AgendaRegistro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_agendaregistro_Usuario" Association="Self.FK_agendaregistro_Usuario">
             <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Agenda" EntitySet="Agenda" />
+            <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
           </AssociationSet>
           <AssociationSet Name="fk_aseguradora_pais" Association="Self.fk_aseguradora_pais">
             <End Role="Paises" EntitySet="Paises" />
@@ -2592,22 +2608,24 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="syspolizaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Agenda">
+        <EntityType Name="AgendaRegistro">
           <Key>
             <PropertyRef Name="idRegistro" />
           </Key>
           <Property Name="idRegistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fecha" Type="DateTime" Precision="0" />
-          <Property Name="horaInicio" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
-          <Property Name="horaFinal" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="duracion" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="titulo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
-          <Property Name="detalles" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="usuarioId" Type="Int32" />
-          <Property Name="usuarioNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="empresaId" Type="Int32" />
-          <NavigationProperty Name="Empresas" Relationship="Self.FK_agendaempresa" FromRole="Agenda" ToRole="Empresas" />
-          <NavigationProperty Name="Usuarios" Relationship="Self.FK_agendausuario" FromRole="Agenda" ToRole="Usuarios" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="idEmpresa" Type="Int32" />
+          <Property Name="fechaHoraInicio" Type="DateTime" Precision="3" />
+          <Property Name="fechaHoraFinal" Type="DateTime" Precision="3" />
+          <Property Name="tipoRegistro" Type="Int32" />
+          <Property Name="registroTitulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="registroDetalles" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="registroEstado" Type="Boolean" />
+          <Property Name="registroRef" Type="Int32" />
+          <NavigationProperty Name="Empresas" Relationship="Self.FK_agendaregistro_Empresa" FromRole="AgendaRegistro" ToRole="Empresas" />
+          <NavigationProperty Name="AgendaRegistro1" Relationship="Self.FK_agendaregistro_ref" FromRole="AgendaRegistro" ToRole="AgendaRegistro1" />
+          <NavigationProperty Name="AgendaRegistro2" Relationship="Self.FK_agendaregistro_ref" FromRole="AgendaRegistro1" ToRole="AgendaRegistro" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_agendaregistro_Usuario" FromRole="AgendaRegistro" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Aseguradoras">
           <Key>
@@ -2912,7 +2930,7 @@
           <Property Name="empresaDUIRepresentante" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="empresaActividadEconomica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="tipoContribuyenteId" Type="Int32" />
-          <NavigationProperty Name="Agenda" Relationship="Self.FK_agendaempresa" FromRole="Empresas" ToRole="Agenda" />
+          <NavigationProperty Name="AgendaRegistro" Relationship="Self.FK_agendaregistro_Empresa" FromRole="Empresas" ToRole="AgendaRegistro" />
           <NavigationProperty Name="TipoContribuyentes" Relationship="Self.FK_EMPRESASTIPOCONTRIBUYENTEID_TIPOCONTRIBUYENTEID" FromRole="Empresas" ToRole="TipoContribuyentes" />
           <NavigationProperty Name="GrupoClientes" Relationship="Self.FK_GRUPOCLIENTESEMPRESAID_EMPRESAID" FromRole="Empresas" ToRole="GrupoClientes" />
           <NavigationProperty Name="Personas" Relationship="Self.FK_PERSONASEMPRESAID_EMPRESAID" FromRole="Empresas" ToRole="Personas" />
@@ -3684,7 +3702,7 @@
           <Property Name="PuestoFuncionalId" Type="Int32" />
           <Property Name="departamentoId" Type="Int32" />
           <Property Name="empresaNombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Agenda" Relationship="Self.FK_agendausuario" FromRole="Usuarios" ToRole="Agenda" />
+          <NavigationProperty Name="AgendaRegistro" Relationship="Self.FK_agendaregistro_Usuario" FromRole="Usuarios" ToRole="AgendaRegistro" />
           <NavigationProperty Name="Empresas" Relationship="Self.FK_USUARIOSEMPRESAID_EMPRESAID" FromRole="Usuarios" ToRole="Empresas" />
           <NavigationProperty Name="HistorialUsuario" Relationship="Self.FK_HISTORIALUSUARIOID_USUARIOID" FromRole="Usuarios" ToRole="HistorialUsuario" />
           <NavigationProperty Name="ReclamoSeguimiento" Relationship="Self.fk_RECLAMOSEGUIMIENTO_IDEMPLEADO" FromRole="Usuarios" ToRole="ReclamoSeguimiento" />
@@ -3692,27 +3710,39 @@
           <NavigationProperty Name="UsuarioDepartamento" Relationship="Self.FK_USUARIOSDEPARTAMENTOID_DEPARTAMENTOID" FromRole="Usuarios" ToRole="UsuarioDepartamento" />
           <NavigationProperty Name="UsuarioPuestoFuncional" Relationship="Self.FK_USUARIOSPUESTOFUNCIONALID_PUESTOFUNCIONALID" FromRole="Usuarios" ToRole="UsuarioPuestoFuncional" />
         </EntityType>
-        <Association Name="FK_agendaempresa">
+        <Association Name="FK_agendaregistro_Empresa">
           <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
-          <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+          <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Empresas">
               <PropertyRef Name="empresaId" />
             </Principal>
-            <Dependent Role="Agenda">
-              <PropertyRef Name="empresaId" />
+            <Dependent Role="AgendaRegistro">
+              <PropertyRef Name="idEmpresa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_agendausuario">
+        <Association Name="FK_agendaregistro_ref">
+          <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="0..1" />
+          <End Role="AgendaRegistro1" Type="Self.AgendaRegistro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgendaRegistro">
+              <PropertyRef Name="idRegistro" />
+            </Principal>
+            <Dependent Role="AgendaRegistro1">
+              <PropertyRef Name="registroRef" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_agendaregistro_Usuario">
           <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-          <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+          <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="usuarioId" />
             </Principal>
-            <Dependent Role="Agenda">
-              <PropertyRef Name="usuarioId" />
+            <Dependent Role="AgendaRegistro">
+              <PropertyRef Name="idUsuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4905,7 +4935,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="syspolizaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Agenda" EntityType="Self.Agenda" />
+          <EntitySet Name="AgendaRegistro" EntityType="Self.AgendaRegistro" />
           <EntitySet Name="Aseguradoras" EntityType="Self.Aseguradoras" />
           <EntitySet Name="AutomotorClase" EntityType="Self.AutomotorClase" />
           <EntitySet Name="Automotores" EntityType="Self.Automotores" />
@@ -4973,13 +5003,17 @@
           <EntitySet Name="UsuarioDepartamento" EntityType="Self.UsuarioDepartamento" />
           <EntitySet Name="UsuarioPuestoFuncional" EntityType="Self.UsuarioPuestoFuncional" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-          <AssociationSet Name="FK_agendaempresa" Association="Self.FK_agendaempresa">
+          <AssociationSet Name="FK_agendaregistro_Empresa" Association="Self.FK_agendaregistro_Empresa">
             <End Role="Empresas" EntitySet="Empresas" />
-            <End Role="Agenda" EntitySet="Agenda" />
+            <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
           </AssociationSet>
-          <AssociationSet Name="FK_agendausuario" Association="Self.FK_agendausuario">
+          <AssociationSet Name="FK_agendaregistro_ref" Association="Self.FK_agendaregistro_ref">
+            <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
+            <End Role="AgendaRegistro1" EntitySet="AgendaRegistro" />
+          </AssociationSet>
+          <AssociationSet Name="FK_agendaregistro_Usuario" Association="Self.FK_agendaregistro_Usuario">
             <End Role="Usuarios" EntitySet="Usuarios" />
-            <End Role="Agenda" EntitySet="Agenda" />
+            <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
           </AssociationSet>
           <AssociationSet Name="fk_aseguradora_pais" Association="Self.fk_aseguradora_pais">
             <End Role="Paises" EntitySet="Paises" />
@@ -5380,19 +5414,19 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="syspolizaModelStoreContainer" CdmEntityContainer="syspolizaEntities">
-          <EntitySetMapping Name="Agenda">
-            <EntityTypeMapping TypeName="syspolizaModel.Agenda">
-              <MappingFragment StoreEntitySet="Agenda">
+          <EntitySetMapping Name="AgendaRegistro">
+            <EntityTypeMapping TypeName="syspolizaModel.AgendaRegistro">
+              <MappingFragment StoreEntitySet="AgendaRegistro">
                 <ScalarProperty Name="idRegistro" ColumnName="idRegistro" />
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
-                <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
-                <ScalarProperty Name="duracion" ColumnName="duracion" />
-                <ScalarProperty Name="titulo" ColumnName="titulo" />
-                <ScalarProperty Name="detalles" ColumnName="detalles" />
-                <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-                <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
-                <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="fechaHoraInicio" ColumnName="fechaHoraInicio" />
+                <ScalarProperty Name="fechaHoraFinal" ColumnName="fechaHoraFinal" />
+                <ScalarProperty Name="tipoRegistro" ColumnName="tipoRegistro" />
+                <ScalarProperty Name="registroTitulo" ColumnName="registroTitulo" />
+                <ScalarProperty Name="registroDetalles" ColumnName="registroDetalles" />
+                <ScalarProperty Name="registroEstado" ColumnName="registroEstado" />
+                <ScalarProperty Name="registroRef" ColumnName="registroRef" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

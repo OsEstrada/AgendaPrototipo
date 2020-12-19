@@ -25,7 +25,7 @@ namespace Calendario
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Agenda> Agenda { get; set; }
+        public virtual DbSet<AgendaRegistro> AgendaRegistro { get; set; }
         public virtual DbSet<Aseguradoras> Aseguradoras { get; set; }
         public virtual DbSet<AutomotorClase> AutomotorClase { get; set; }
         public virtual DbSet<Automotores> Automotores { get; set; }

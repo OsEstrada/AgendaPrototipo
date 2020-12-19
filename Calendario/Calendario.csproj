@@ -61,6 +61,12 @@
     <Compile Include="Agenda.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>
+    <Compile Include="AgregarEventos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarEventos.Designer.cs">
+      <DependentUpon>AgregarEventos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Aseguradoras.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>
@@ -291,6 +297,9 @@
     <Compile Include="Usuarios.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AgregarEventos.resx">
+      <DependentUpon>AgregarEventos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

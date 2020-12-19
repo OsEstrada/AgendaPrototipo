@@ -17,7 +17,7 @@ namespace Calendario
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuarios()
         {
-            this.Agenda = new HashSet<Agenda>();
+            this.AgendaRegistro = new HashSet<AgendaRegistro>();
             this.HistorialUsuario = new HashSet<HistorialUsuario>();
             this.ReclamoSeguimiento = new HashSet<ReclamoSeguimiento>();
         }
@@ -36,7 +36,7 @@ namespace Calendario
         public string empresaNombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Agenda> Agenda { get; set; }
+        public virtual ICollection<AgendaRegistro> AgendaRegistro { get; set; }
         public virtual Empresas Empresas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HistorialUsuario> HistorialUsuario { get; set; }

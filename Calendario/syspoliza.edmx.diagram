@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9372770fc8354ce583836c7a6e68d989" Name="Diagram1">
-        <EntityTypeShape EntityType="syspolizaModel.Agenda" Width="1.5" PointX="30.75" PointY="39.25" IsExpanded="true" />
+      <Diagram DiagramId="5190355b270d42eda3d2c6b2682387e8" Name="Diagram1">
+        <EntityTypeShape EntityType="syspolizaModel.AgendaRegistro" Width="1.5" PointX="30.75" PointY="39.125" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.Aseguradoras" Width="1.5" PointX="9" PointY="25.5" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.AutomotorClase" Width="1.5" PointX="1.5" PointY="50.125" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.Automotores" Width="1.5" PointX="0.75" PointY="44" IsExpanded="true" />
@@ -28,7 +28,7 @@
         <EntityTypeShape EntityType="syspolizaModel.GastoFraccionado" Width="1.5" PointX="25.5" PointY="28.75" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.GastoInicial" Width="1.5" PointX="17.25" PointY="43.75" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.GrupoClientes" Width="1.5" PointX="6.75" PointY="46.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="syspolizaModel.HistorialUsuario" Width="1.5" PointX="27.75" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="syspolizaModel.HistorialUsuario" Width="1.5" PointX="27.75" PointY="53.125" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.HistoricoCuotas" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.HistoricoPagos" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.HistoricoPoliza" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
@@ -73,8 +73,9 @@
         <EntityTypeShape EntityType="syspolizaModel.UsuarioDepartamento" Width="1.5" PointX="23.25" PointY="47.75" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.UsuarioPuestoFuncional" Width="1.5" PointX="23.25" PointY="50" IsExpanded="true" />
         <EntityTypeShape EntityType="syspolizaModel.Usuarios" Width="1.5" PointX="25.5" PointY="47.375" IsExpanded="true" />
-        <AssociationConnector Association="syspolizaModel.FK_agendaempresa" ManuallyRouted="false" />
-        <AssociationConnector Association="syspolizaModel.FK_agendausuario" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_agendaregistro_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_agendaregistro_ref" ManuallyRouted="false" />
+        <AssociationConnector Association="syspolizaModel.FK_agendaregistro_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="syspolizaModel.fk_aseguradora_pais" ManuallyRouted="false" />
         <AssociationConnector Association="syspolizaModel.FK_POLIZAASEGURADORAID_ASEGURADORAID" ManuallyRouted="false" />
         <AssociationConnector Association="syspolizaModel.FK_AUTOMOTORCLASEID_CLASEID" ManuallyRouted="false" />

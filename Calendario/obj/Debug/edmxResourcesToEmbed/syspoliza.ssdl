@@ -14,6 +14,7 @@
     <Property Name="usuarioId" Type="int" />
     <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
     <Property Name="empresaId" Type="int" />
+    <Property Name="tipoRegistro" Type="int" />
   </EntityType>
   <EntityType Name="Aseguradoras">
     <Key>

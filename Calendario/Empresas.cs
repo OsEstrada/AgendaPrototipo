@@ -17,7 +17,7 @@ namespace Calendario
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Empresas()
         {
-            this.Agenda = new HashSet<Agenda>();
+            this.AgendaRegistro = new HashSet<AgendaRegistro>();
             this.GrupoClientes = new HashSet<GrupoClientes>();
             this.Personas = new HashSet<Personas>();
             this.Polizas = new HashSet<Polizas>();
@@ -40,7 +40,7 @@ namespace Calendario
         public Nullable<int> tipoContribuyenteId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Agenda> Agenda { get; set; }
+        public virtual ICollection<AgendaRegistro> AgendaRegistro { get; set; }
         public virtual TipoContribuyentes TipoContribuyentes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GrupoClientes> GrupoClientes { get; set; }
