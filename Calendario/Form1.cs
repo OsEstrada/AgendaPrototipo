@@ -16,6 +16,7 @@ namespace Calendario
     {
         private List<FlowLayoutPanel> listDays;
         private List<DateTime> listDates;
+        private List<Label> listLabels;
         private DateTime today = DateTime.Now, dateTemp;
         private TableLayoutPanel Days, DaysOfWeek;
         public Form1()
@@ -105,6 +106,7 @@ namespace Calendario
 
         private void setDay(int start, int totalDays)
         {
+            listLabels.Clear();
             for(int i = start; i < totalDays+start; i++)
             {
                 var label = new Label();
@@ -113,7 +115,24 @@ namespace Calendario
                 label.BackColor = Color.Aqua;
                 label.TextAlign = ContentAlignment.MiddleLeft;
                 label.Dock = DockStyle.Top;
+                label.Width = listDays[i].Width;
+                label.Tag = 1;
+
+                var label2 = new Label();
+                label2.AutoSize = false;
+                label2.Text = "PlaceHolder";
+                label2.BackColor = Color.GreenYellow;
+                label2.TextAlign = ContentAlignment.MiddleLeft;
+                label2.Dock = DockStyle.Top;
+                label2.Width = listDays[i].Width-9;
+                label2.Margin = new Padding(5,3,5,0);
+                label2.Tag = 0;
+
+                listLabels.Add(label);
+                listLabels.Add(label2);
+
                 listDays[i].Controls.Add(label);
+                listDays[i].Controls.Add(label2);
                 listDays[i].Enabled = true;
                 listDates[i] = new DateTime(today.Year, today.Month, i - start + 1);
             }
@@ -124,6 +143,7 @@ namespace Calendario
             panel_month.BringToFront();
             listDays = new List<FlowLayoutPanel>();
             listDates = new List<DateTime>();
+            listLabels = new List<Label>();
             displayCurrentDay();
             setControls(42);
         }
@@ -172,6 +192,14 @@ namespace Calendario
         private void btnReturn_Click(object sender, EventArgs e)
         {
             panel_month.BringToFront();
+        }
+
+        private void tlDays_Resize(object sender, EventArgs e)
+        {
+            foreach(Label label in listLabels)
+            {
+                label.Width = Convert.ToInt32(label.Tag) == 0 ? listDays[0].Width - 10 : listDays[0].Width;
+            }
         }
 
         private void panelScroll_Scroll(object sender, ScrollEventArgs e)

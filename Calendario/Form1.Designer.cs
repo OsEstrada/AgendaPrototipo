@@ -31,7 +31,6 @@
             this.panel_month = new System.Windows.Forms.Panel();
             this.tlDays = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label33 = new System.Windows.Forms.Label();
             this.tlDaysOfWeek = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -48,6 +47,10 @@
             this.label21 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.panel_day = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReturn = new FontAwesome.Sharp.IconButton();
+            this.MCal1 = new System.Windows.Forms.MonthCalendar();
+            this.lblFechaCompleta = new System.Windows.Forms.Label();
             this.panelScroll = new Calendario.PanelBuffered();
             this.tlHours = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -75,20 +78,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnReturn = new FontAwesome.Sharp.IconButton();
-            this.MCal1 = new System.Windows.Forms.MonthCalendar();
-            this.lblFechaCompleta = new System.Windows.Forms.Label();
             this.panel_month.SuspendLayout();
             this.tlDays.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
             this.tlDaysOfWeek.SuspendLayout();
             this.barra_titulo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel_day.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panelScroll.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_month
@@ -127,25 +125,17 @@
             this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
             this.tlDays.Size = new System.Drawing.Size(1355, 729);
             this.tlDays.TabIndex = 6;
+            this.tlDays.Resize += new System.EventHandler(this.tlDays_Resize);
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Controls.Add(this.label33);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 2);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(189, 117);
             this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // label33
-            // 
-            this.label33.Location = new System.Drawing.Point(3, 0);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(185, 23);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "label33";
             // 
             // tlDaysOfWeek
             // 
@@ -374,6 +364,59 @@
             this.panel_day.Size = new System.Drawing.Size(1355, 832);
             this.panel_day.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btnReturn);
+            this.panel1.Controls.Add(this.MCal1);
+            this.panel1.Controls.Add(this.lblFechaCompleta);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(372, 832);
+            this.panel1.TabIndex = 5;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnReturn.CausesValidation = false;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
+            this.btnReturn.IconColor = System.Drawing.Color.Black;
+            this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReturn.Location = new System.Drawing.Point(12, 29);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(74, 58);
+            this.btnReturn.TabIndex = 2;
+            this.btnReturn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReturn.UseMnemonic = false;
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // MCal1
+            // 
+            this.MCal1.Location = new System.Drawing.Point(46, 303);
+            this.MCal1.Name = "MCal1";
+            this.MCal1.ShowToday = false;
+            this.MCal1.ShowTodayCircle = false;
+            this.MCal1.TabIndex = 1;
+            this.MCal1.TitleBackColor = System.Drawing.SystemColors.Highlight;
+            this.MCal1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.MCal1_DateSelected);
+            // 
+            // lblFechaCompleta
+            // 
+            this.lblFechaCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFechaCompleta.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFechaCompleta.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblFechaCompleta.Location = new System.Drawing.Point(0, 225);
+            this.lblFechaCompleta.Name = "lblFechaCompleta";
+            this.lblFechaCompleta.Size = new System.Drawing.Size(370, 32);
+            this.lblFechaCompleta.TabIndex = 0;
+            this.lblFechaCompleta.Text = "Dia,Mes, Año";
+            this.lblFechaCompleta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panelScroll
             // 
             this.panelScroll.AutoScroll = true;
@@ -446,7 +489,7 @@
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlHours.Size = new System.Drawing.Size(807, 1580);
+            this.tlHours.Size = new System.Drawing.Size(345, 1580);
             this.tlHours.TabIndex = 11;
             // 
             // tableLayoutPanel1
@@ -822,59 +865,6 @@
             this.label8.Text = "0:00-1:00";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.btnReturn);
-            this.panel1.Controls.Add(this.MCal1);
-            this.panel1.Controls.Add(this.lblFechaCompleta);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(372, 832);
-            this.panel1.TabIndex = 5;
-            // 
-            // btnReturn
-            // 
-            this.btnReturn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnReturn.CausesValidation = false;
-            this.btnReturn.FlatAppearance.BorderSize = 0;
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.IconChar = FontAwesome.Sharp.IconChar.ArrowLeft;
-            this.btnReturn.IconColor = System.Drawing.Color.Black;
-            this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReturn.Location = new System.Drawing.Point(12, 29);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(74, 58);
-            this.btnReturn.TabIndex = 2;
-            this.btnReturn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnReturn.UseMnemonic = false;
-            this.btnReturn.UseVisualStyleBackColor = false;
-            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // MCal1
-            // 
-            this.MCal1.Location = new System.Drawing.Point(46, 303);
-            this.MCal1.Name = "MCal1";
-            this.MCal1.ShowToday = false;
-            this.MCal1.ShowTodayCircle = false;
-            this.MCal1.TabIndex = 1;
-            this.MCal1.TitleBackColor = System.Drawing.SystemColors.Highlight;
-            this.MCal1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.MCal1_DateSelected);
-            // 
-            // lblFechaCompleta
-            // 
-            this.lblFechaCompleta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFechaCompleta.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFechaCompleta.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFechaCompleta.Location = new System.Drawing.Point(0, 225);
-            this.lblFechaCompleta.Name = "lblFechaCompleta";
-            this.lblFechaCompleta.Size = new System.Drawing.Size(370, 32);
-            this.lblFechaCompleta.TabIndex = 0;
-            this.lblFechaCompleta.Text = "Dia,Mes, Año";
-            this.lblFechaCompleta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -891,15 +881,14 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_month.ResumeLayout(false);
             this.tlDays.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.tlDaysOfWeek.ResumeLayout(false);
             this.barra_titulo.ResumeLayout(false);
             this.barra_titulo.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel_day.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panelScroll.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -956,7 +945,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label33;
     }
 }
 
