@@ -78,6 +78,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.panel_month.SuspendLayout();
             this.tlDays.SuspendLayout();
             this.tlDaysOfWeek.SuspendLayout();
@@ -274,13 +275,14 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.iconButton1);
             this.panel2.Controls.Add(this.btnNext);
             this.panel2.Controls.Add(this.btnToday);
             this.panel2.Controls.Add(this.btnPrev);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1107, 0);
+            this.panel2.Location = new System.Drawing.Point(989, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(248, 50);
+            this.panel2.Size = new System.Drawing.Size(366, 50);
             this.panel2.TabIndex = 1;
             // 
             // btnNext
@@ -290,7 +292,7 @@
             this.btnNext.IconChar = FontAwesome.Sharp.IconChar.CaretRight;
             this.btnNext.IconColor = System.Drawing.Color.Black;
             this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNext.Location = new System.Drawing.Point(165, 2);
+            this.btnNext.Location = new System.Drawing.Point(273, 2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(59, 45);
             this.btnNext.TabIndex = 2;
@@ -306,7 +308,7 @@
             this.btnToday.IconColor = System.Drawing.Color.Black;
             this.btnToday.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnToday.IconSize = 35;
-            this.btnToday.Location = new System.Drawing.Point(94, 2);
+            this.btnToday.Location = new System.Drawing.Point(202, 2);
             this.btnToday.Name = "btnToday";
             this.btnToday.Size = new System.Drawing.Size(65, 45);
             this.btnToday.TabIndex = 1;
@@ -323,7 +325,7 @@
             this.btnPrev.IconChar = FontAwesome.Sharp.IconChar.CaretLeft;
             this.btnPrev.IconColor = System.Drawing.Color.Black;
             this.btnPrev.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrev.Location = new System.Drawing.Point(27, 2);
+            this.btnPrev.Location = new System.Drawing.Point(135, 2);
             this.btnPrev.Name = "btnPrev";
             this.btnPrev.Size = new System.Drawing.Size(61, 45);
             this.btnPrev.TabIndex = 0;
@@ -437,7 +439,7 @@
             this.tlHours.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tlHours.ColumnCount = 1;
             this.tlHours.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlHours.Location = new System.Drawing.Point(135, 1);
+            this.tlHours.Location = new System.Drawing.Point(121, 1);
             this.tlHours.Margin = new System.Windows.Forms.Padding(0);
             this.tlHours.Name = "tlHours";
             this.tlHours.RowCount = 48;
@@ -489,7 +491,7 @@
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlHours.Size = new System.Drawing.Size(345, 1580);
+            this.tlHours.Size = new System.Drawing.Size(656, 1580);
             this.tlHours.TabIndex = 11;
             // 
             // tableLayoutPanel1
@@ -550,7 +552,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(134, 1580);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(120, 1580);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // label32
@@ -561,7 +563,7 @@
             this.label32.Location = new System.Drawing.Point(1, 1519);
             this.label32.Margin = new System.Windows.Forms.Padding(0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(132, 65);
+            this.label32.Size = new System.Drawing.Size(118, 65);
             this.label32.TabIndex = 23;
             this.label32.Text = "23:00-24:00";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -574,7 +576,7 @@
             this.label31.Location = new System.Drawing.Point(1, 1453);
             this.label31.Margin = new System.Windows.Forms.Padding(0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(132, 65);
+            this.label31.Size = new System.Drawing.Size(118, 65);
             this.label31.TabIndex = 22;
             this.label31.Text = "22:00-23:00";
             this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -587,7 +589,7 @@
             this.label30.Location = new System.Drawing.Point(1, 1387);
             this.label30.Margin = new System.Windows.Forms.Padding(0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(132, 65);
+            this.label30.Size = new System.Drawing.Size(118, 65);
             this.label30.TabIndex = 21;
             this.label30.Text = "21:00-22:00";
             this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -600,7 +602,7 @@
             this.label29.Location = new System.Drawing.Point(1, 1321);
             this.label29.Margin = new System.Windows.Forms.Padding(0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(132, 65);
+            this.label29.Size = new System.Drawing.Size(118, 65);
             this.label29.TabIndex = 20;
             this.label29.Text = "20:00-21:00";
             this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -613,7 +615,7 @@
             this.label28.Location = new System.Drawing.Point(1, 1255);
             this.label28.Margin = new System.Windows.Forms.Padding(0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(132, 65);
+            this.label28.Size = new System.Drawing.Size(118, 65);
             this.label28.TabIndex = 19;
             this.label28.Text = "19:00-20:00";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -626,7 +628,7 @@
             this.label27.Location = new System.Drawing.Point(1, 1189);
             this.label27.Margin = new System.Windows.Forms.Padding(0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(132, 65);
+            this.label27.Size = new System.Drawing.Size(118, 65);
             this.label27.TabIndex = 18;
             this.label27.Text = "18:00-19:00";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -639,7 +641,7 @@
             this.label26.Location = new System.Drawing.Point(1, 1123);
             this.label26.Margin = new System.Windows.Forms.Padding(0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(132, 65);
+            this.label26.Size = new System.Drawing.Size(118, 65);
             this.label26.TabIndex = 17;
             this.label26.Text = "17:00-18:00";
             this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -652,7 +654,7 @@
             this.label25.Location = new System.Drawing.Point(1, 1057);
             this.label25.Margin = new System.Windows.Forms.Padding(0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(132, 65);
+            this.label25.Size = new System.Drawing.Size(118, 65);
             this.label25.TabIndex = 16;
             this.label25.Text = "16:00-17:00";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -665,7 +667,7 @@
             this.label24.Location = new System.Drawing.Point(1, 991);
             this.label24.Margin = new System.Windows.Forms.Padding(0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(132, 65);
+            this.label24.Size = new System.Drawing.Size(118, 65);
             this.label24.TabIndex = 15;
             this.label24.Text = "15:00-16:00";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -678,7 +680,7 @@
             this.label23.Location = new System.Drawing.Point(1, 925);
             this.label23.Margin = new System.Windows.Forms.Padding(0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(132, 65);
+            this.label23.Size = new System.Drawing.Size(118, 65);
             this.label23.TabIndex = 14;
             this.label23.Text = "14:00-15:00";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -691,7 +693,7 @@
             this.label22.Location = new System.Drawing.Point(1, 859);
             this.label22.Margin = new System.Windows.Forms.Padding(0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(132, 65);
+            this.label22.Size = new System.Drawing.Size(118, 65);
             this.label22.TabIndex = 13;
             this.label22.Text = "13:00-14:00";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -704,7 +706,7 @@
             this.label20.Location = new System.Drawing.Point(1, 793);
             this.label20.Margin = new System.Windows.Forms.Padding(0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(132, 65);
+            this.label20.Size = new System.Drawing.Size(118, 65);
             this.label20.TabIndex = 12;
             this.label20.Text = "12:00-13:00";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -717,7 +719,7 @@
             this.label19.Location = new System.Drawing.Point(1, 727);
             this.label19.Margin = new System.Windows.Forms.Padding(0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(132, 65);
+            this.label19.Size = new System.Drawing.Size(118, 65);
             this.label19.TabIndex = 11;
             this.label19.Text = "11:00-12:00";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -730,7 +732,7 @@
             this.label18.Location = new System.Drawing.Point(1, 661);
             this.label18.Margin = new System.Windows.Forms.Padding(0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(132, 65);
+            this.label18.Size = new System.Drawing.Size(118, 65);
             this.label18.TabIndex = 10;
             this.label18.Text = "10:00-11:00";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -743,7 +745,7 @@
             this.label17.Location = new System.Drawing.Point(1, 595);
             this.label17.Margin = new System.Windows.Forms.Padding(0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(132, 65);
+            this.label17.Size = new System.Drawing.Size(118, 65);
             this.label17.TabIndex = 9;
             this.label17.Text = "9:00-10:00";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -756,7 +758,7 @@
             this.label16.Location = new System.Drawing.Point(1, 529);
             this.label16.Margin = new System.Windows.Forms.Padding(0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(132, 65);
+            this.label16.Size = new System.Drawing.Size(118, 65);
             this.label16.TabIndex = 8;
             this.label16.Text = "8:00-9:00";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -769,7 +771,7 @@
             this.label15.Location = new System.Drawing.Point(1, 463);
             this.label15.Margin = new System.Windows.Forms.Padding(0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(132, 65);
+            this.label15.Size = new System.Drawing.Size(118, 65);
             this.label15.TabIndex = 7;
             this.label15.Text = "7:00-8:00";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -782,7 +784,7 @@
             this.label14.Location = new System.Drawing.Point(1, 397);
             this.label14.Margin = new System.Windows.Forms.Padding(0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(132, 65);
+            this.label14.Size = new System.Drawing.Size(118, 65);
             this.label14.TabIndex = 6;
             this.label14.Text = "6:00-7:00";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -795,7 +797,7 @@
             this.label13.Location = new System.Drawing.Point(1, 331);
             this.label13.Margin = new System.Windows.Forms.Padding(0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(132, 65);
+            this.label13.Size = new System.Drawing.Size(118, 65);
             this.label13.TabIndex = 5;
             this.label13.Text = "5:00-6:00";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -808,7 +810,7 @@
             this.label12.Location = new System.Drawing.Point(1, 265);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(132, 65);
+            this.label12.Size = new System.Drawing.Size(118, 65);
             this.label12.TabIndex = 4;
             this.label12.Text = "4:00-5:00";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -821,7 +823,7 @@
             this.label11.Location = new System.Drawing.Point(1, 199);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(132, 65);
+            this.label11.Size = new System.Drawing.Size(118, 65);
             this.label11.TabIndex = 3;
             this.label11.Text = "3:00-4:00";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -834,7 +836,7 @@
             this.label10.Location = new System.Drawing.Point(1, 133);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 65);
+            this.label10.Size = new System.Drawing.Size(118, 65);
             this.label10.TabIndex = 2;
             this.label10.Text = "2:00-3:00";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -847,7 +849,7 @@
             this.label9.Location = new System.Drawing.Point(1, 67);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(132, 65);
+            this.label9.Size = new System.Drawing.Size(118, 65);
             this.label9.TabIndex = 1;
             this.label9.Text = "1:00-2:00";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -860,10 +862,25 @@
             this.label8.Location = new System.Drawing.Point(1, 1);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(132, 65);
+            this.label8.Size = new System.Drawing.Size(118, 65);
             this.label8.TabIndex = 0;
             this.label8.Text = "0:00-1:00";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 40;
+            this.iconButton1.Location = new System.Drawing.Point(36, 2);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(59, 45);
+            this.iconButton1.TabIndex = 3;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -945,6 +962,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
 

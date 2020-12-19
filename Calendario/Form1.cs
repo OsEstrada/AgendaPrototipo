@@ -14,7 +14,7 @@ namespace Calendario
 {
     public partial class Form1 : Form
     {
-        private List<FlowLayoutPanel> listDays;
+        private List<FlowLayoutCustom> listDays;
         private List<DateTime> listDates;
         private List<Label> listLabels;
         private DateTime today = DateTime.Now, dateTemp;
@@ -74,7 +74,7 @@ namespace Calendario
             tlDays.Controls.Clear();
             for(int i = 0; i<numDays; i++)
             {
-                var flowLayout = new FlowLayoutPanel();
+                var flowLayout = new FlowLayoutCustom();
                 flowLayout.Dock = DockStyle.Fill;
                 flowLayout.BorderStyle = BorderStyle.FixedSingle;
                 flowLayout.Margin = new Padding(2, 2, 2, 2);
@@ -118,21 +118,26 @@ namespace Calendario
                 label.Width = listDays[i].Width;
                 label.Tag = 1;
 
-                var label2 = new Label();
-                label2.AutoSize = false;
-                label2.Text = "PlaceHolder";
-                label2.BackColor = Color.GreenYellow;
-                label2.TextAlign = ContentAlignment.MiddleLeft;
-                label2.Dock = DockStyle.Top;
-                label2.Width = listDays[i].Width-9;
-                label2.Margin = new Padding(5,3,5,0);
-                label2.Tag = 0;
+                //var label2 = new Label();
+                //label2.AutoSize = false;
+                //label2.Text = "PlaceHolder";
+                //label2.BackColor = Color.GreenYellow;
+                //label2.TextAlign = ContentAlignment.MiddleLeft;
+                //label2.Dock = DockStyle.Top;
+                //label2.Width = listDays[i].Width-9;
+                //label2.Margin = new Padding(5,3,5,0);
+                //label2.Tag = 0;
+                //var day = listDays[i];
+                //label2.DoubleClick += (sender, e) =>
+                //{
+                //    day.PerformDoubleClick();
+                //};
 
                 listLabels.Add(label);
-                listLabels.Add(label2);
+                //listLabels.Add(label2);
 
                 listDays[i].Controls.Add(label);
-                listDays[i].Controls.Add(label2);
+                //listDays[i].Controls.Add(label2);
                 listDays[i].Enabled = true;
                 listDates[i] = new DateTime(today.Year, today.Month, i - start + 1);
             }
@@ -141,7 +146,7 @@ namespace Calendario
         private void Form1_Load(object sender, EventArgs e)
         {
             panel_month.BringToFront();
-            listDays = new List<FlowLayoutPanel>();
+            listDays = new List<FlowLayoutCustom>();
             listDates = new List<DateTime>();
             listLabels = new List<Label>();
             displayCurrentDay();
@@ -200,12 +205,6 @@ namespace Calendario
             {
                 label.Width = Convert.ToInt32(label.Tag) == 0 ? listDays[0].Width - 10 : listDays[0].Width;
             }
-        }
-
-        private void panelScroll_Scroll(object sender, ScrollEventArgs e)
-        {
-
-            
         }
 
 
