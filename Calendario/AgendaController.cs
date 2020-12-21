@@ -31,9 +31,18 @@ namespace Calendario
         {
             using (var db = new syspolizaEntities())
             {
-                return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.fechaHoraInicio.Month == mes.Month).ToList();
+                return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.fechaHoraInicio.Year == mes.Year && r.fechaHoraInicio.Month == mes.Month).OrderBy(r=> r.tipoRegistro).ToList();
             }
         }
+
+        public static List<AgendaRegistro> ExtraerRegistrosAgendaDiaria(int idUsuario, DateTime dia)
+        {
+            using (var db = new syspolizaEntities())
+            {
+                return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.fechaHoraInicio.Year == dia.Year && r.fechaHoraInicio.Month == dia.Month && r.fechaHoraInicio.Day == dia.Day).OrderBy(r => r.tipoRegistro).ToList();
+            }
+        }
+
 
     }
 }

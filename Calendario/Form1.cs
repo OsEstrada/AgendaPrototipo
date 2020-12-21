@@ -158,6 +158,7 @@ namespace Calendario
                 var label = new Label();
                 label.Text = listEventsMonth[i].registroTitulo;
                 label.AutoSize = false;
+                label.Font = new Font(label.Font.FontFamily, (float)7.7);
                 label.TextAlign = ContentAlignment.MiddleCenter;
                 label.Width = listDays[0].Width - 9;
                 label.BackColor = listEventsMonth[i].tipoRegistro == 1 ? Color.FromArgb(162, 229, 246) : Color.FromArgb(197, 251, 172);
@@ -217,17 +218,22 @@ namespace Calendario
             this.Controls.Add(barra_titulo);
         }
 
-        private void bringFrontDayView(DateTime date)
-        {
-            MCal1.SetDate(today);
-            lblFechaCompleta.Text = date.ToString("dd, MMMM, yyyy");
-            panel_day.BringToFront();
-            dateTemp = today;
-        }
 
         private void MCal1_DateSelected(object sender, DateRangeEventArgs e)
         {
             dateTemp = MCal1.SelectionStart;
+        }
+
+        private void iconButton1_Click_1(object sender, EventArgs e)
+        {
+            if (today.Month != DateTime.Now.Month)
+                dateTemp = new DateTime(today.Year, today.Month, 1);
+            else
+                dateTemp = today;
+
+            MCal1.SetDate(today);
+            lblFechaCompleta.Text = dateTemp.ToString("dd, MMMM, yyyy");
+            panel_day.BringToFront();
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -239,18 +245,13 @@ namespace Calendario
         {
             foreach(Label label in listLabels)
             {
-                label.Width = Convert.ToInt32(label.Tag) == 0 ? listDays[0].Width - 10 : listDays[0].Width;
+                label.Width = listDays[0].Width;
+            }
+            foreach(Label label in listEventsLabels)
+            {
+                label.Width = listDays[0].Width - 9;
+                //label.Font = new Font(label.Font.FontFamily, label.Font.Size + 1);
             }
         }
-
-
-        private void iconButton1_Click(object sender, EventArgs e)
-        {
-            this.Controls.Remove(Days);
-            this.Controls.Remove(DaysOfWeek);
-
-        }
-
-
     }
 }
