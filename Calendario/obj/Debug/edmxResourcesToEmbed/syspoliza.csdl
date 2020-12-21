@@ -7,7 +7,7 @@
     <Property Name="idRegistro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idUsuario" Type="Int32" />
     <Property Name="idEmpresa" Type="Int32" />
-    <Property Name="fechaHoraInicio" Type="DateTime" Precision="3" />
+    <Property Name="fechaHoraInicio" Type="DateTime" Precision="3" Nullable="false" />
     <Property Name="fechaHoraFinal" Type="DateTime" Precision="3" />
     <Property Name="tipoRegistro" Type="Int32" />
     <Property Name="registroTitulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />

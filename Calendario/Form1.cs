@@ -16,7 +16,8 @@ namespace Calendario
     {
         private List<FlowLayoutCustom> listDays;
         private List<DateTime> listDates;
-        private List<Label> listLabels;
+        private List<Label> listLabels, listEventsLabels;
+        private List<AgendaRegistro> listEventsMonth;
         private DateTime today = DateTime.Now, dateTemp;
         private TableLayoutPanel Days, DaysOfWeek;
         public Form1()
@@ -87,6 +88,8 @@ namespace Calendario
                         today = listDates[index];
                         var modal = new AgregarEventos(today);
                         modal.ShowDialog();
+                        dropCalendarMonthEvents();
+                        setCalendarMonthEvents();
                     }
                 };
                 flowLayout.Enabled = false;
@@ -142,6 +145,36 @@ namespace Calendario
                 listDays[i].Enabled = true;
                 listDates[i] = new DateTime(today.Year, today.Month, i - start + 1);
             }
+            setCalendarMonthEvents();
+        }
+
+        private void setCalendarMonthEvents()
+        {
+            listEventsLabels.Clear();
+            listEventsMonth = AgendaController.ExtraerRegistrosAgendaMensual(AuthController.usuario.usuarioId, today);
+            var totalEvents = listEventsMonth.Count();
+            for (int i = 0; i < totalEvents; i++)
+            {
+                var label = new Label();
+                label.Text = listEventsMonth[i].registroTitulo;
+                label.AutoSize = false;
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                label.Width = listDays[0].Width - 9;
+                label.BackColor = listEventsMonth[i].tipoRegistro == 1 ? Color.FromArgb(162, 229, 246) : Color.FromArgb(197, 251, 172);
+                var index = listDates.FindIndex(d => DateTime.Compare(d, new DateTime(listEventsMonth[i].fechaHoraInicio.Year, listEventsMonth[i].fechaHoraInicio.Month, listEventsMonth[i].fechaHoraInicio.Day)) == 0);
+                listDays[index].Controls.Add(label);
+                listEventsLabels.Add(label);
+            }
+        }
+
+        private void dropCalendarMonthEvents()
+        {
+            var totalEvents = listEventsLabels.Count();
+            for (int i = 0; i < totalEvents; i++)
+            {
+                var index = listDates.FindIndex(d => DateTime.Compare(d, new DateTime(listEventsMonth[i].fechaHoraInicio.Year, listEventsMonth[i].fechaHoraInicio.Month, listEventsMonth[i].fechaHoraInicio.Day)) == 0);
+                listDays[index].Controls.Remove(listEventsLabels[i]);
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -150,6 +183,8 @@ namespace Calendario
             listDays = new List<FlowLayoutCustom>();
             listDates = new List<DateTime>();
             listLabels = new List<Label>();
+            listEventsLabels = new List<Label>();
+            listEventsMonth = new List<AgendaRegistro>();
             displayCurrentDay();
             setControls(42);
         }

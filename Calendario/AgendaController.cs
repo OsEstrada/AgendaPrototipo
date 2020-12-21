@@ -25,5 +25,15 @@ namespace Calendario
                 }
             }
         }
+
+
+        public static List<AgendaRegistro> ExtraerRegistrosAgendaMensual (int idUsuario, DateTime mes)
+        {
+            using (var db = new syspolizaEntities())
+            {
+                return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.fechaHoraInicio.Month == mes.Month).ToList();
+            }
+        }
+
     }
 }

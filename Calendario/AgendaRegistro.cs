@@ -23,7 +23,7 @@ namespace Calendario
         public int idRegistro { get; set; }
         public Nullable<int> idUsuario { get; set; }
         public Nullable<int> idEmpresa { get; set; }
-        public Nullable<System.DateTime> fechaHoraInicio { get; set; }
+        public System.DateTime fechaHoraInicio { get; set; }
         public Nullable<System.DateTime> fechaHoraFinal { get; set; }
         public Nullable<int> tipoRegistro { get; set; }
         public string registroTitulo { get; set; }
