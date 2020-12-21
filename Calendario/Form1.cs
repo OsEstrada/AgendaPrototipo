@@ -24,6 +24,7 @@ namespace Calendario
             InitializeComponent();
             Days = tlDays;
             DaysOfWeek = tlDaysOfWeek;
+            AuthController.usuario = AuthController.getUser();
         }
 
         private string upperFirstLetter(string input)
@@ -84,7 +85,8 @@ namespace Calendario
                     if (index > 0)
                     {
                         today = listDates[index];
-                        bringFrontDayView(listDates[index]);
+                        var modal = new AgregarEventos(today);
+                        modal.ShowDialog();
                     }
                 };
                 flowLayout.Enabled = false;
@@ -112,7 +114,6 @@ namespace Calendario
                 var label = new Label();
                 label.AutoSize = false;
                 label.Text = $"{i - start + 1}";
-                label.BackColor = Color.Aqua;
                 label.TextAlign = ContentAlignment.MiddleLeft;
                 label.Dock = DockStyle.Top;
                 label.Width = listDays[i].Width;

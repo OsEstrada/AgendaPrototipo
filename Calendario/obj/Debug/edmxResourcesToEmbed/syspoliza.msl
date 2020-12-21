@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="syspolizaModelStoreContainer" CdmEntityContainer="syspolizaEntities">
-    <EntitySetMapping Name="Agenda">
-      <EntityTypeMapping TypeName="syspolizaModel.Agenda">
-        <MappingFragment StoreEntitySet="Agenda">
-          <ScalarProperty Name="tipoRegistro" ColumnName="tipoRegistro" />
+    <EntitySetMapping Name="AgendaRegistro">
+      <EntityTypeMapping TypeName="syspolizaModel.AgendaRegistro">
+        <MappingFragment StoreEntitySet="AgendaRegistro">
           <ScalarProperty Name="idRegistro" ColumnName="idRegistro" />
-          <ScalarProperty Name="fecha" ColumnName="fecha" />
-          <ScalarProperty Name="horaInicio" ColumnName="horaInicio" />
-          <ScalarProperty Name="horaFinal" ColumnName="horaFinal" />
-          <ScalarProperty Name="duracion" ColumnName="duracion" />
-          <ScalarProperty Name="titulo" ColumnName="titulo" />
-          <ScalarProperty Name="detalles" ColumnName="detalles" />
-          <ScalarProperty Name="usuarioId" ColumnName="usuarioId" />
-          <ScalarProperty Name="usuarioNombre" ColumnName="usuarioNombre" />
-          <ScalarProperty Name="empresaId" ColumnName="empresaId" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="fechaHoraInicio" ColumnName="fechaHoraInicio" />
+          <ScalarProperty Name="fechaHoraFinal" ColumnName="fechaHoraFinal" />
+          <ScalarProperty Name="tipoRegistro" ColumnName="tipoRegistro" />
+          <ScalarProperty Name="registroTitulo" ColumnName="registroTitulo" />
+          <ScalarProperty Name="registroDetalles" ColumnName="registroDetalles" />
+          <ScalarProperty Name="registroEstado" ColumnName="registroEstado" />
+          <ScalarProperty Name="registroRef" ColumnName="registroRef" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

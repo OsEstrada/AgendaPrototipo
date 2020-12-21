@@ -58,7 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agenda.cs">
+    <Compile Include="AgendaController.cs" />
+    <Compile Include="AgendaRegistro.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>
     <Compile Include="AgregarEventos.cs">
@@ -70,6 +71,7 @@
     <Compile Include="Aseguradoras.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>
+    <Compile Include="AuthController.cs" />
     <Compile Include="AutomotorClase.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>

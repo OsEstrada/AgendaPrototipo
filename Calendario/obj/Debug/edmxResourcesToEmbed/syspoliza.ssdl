@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="syspolizaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Agenda">
+  <EntityType Name="AgendaRegistro">
     <Key>
       <PropertyRef Name="idRegistro" />
     </Key>
     <Property Name="idRegistro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="fecha" Type="date" />
-    <Property Name="horaInicio" Type="varchar" MaxLength="6" />
-    <Property Name="horaFinal" Type="varchar" MaxLength="7" />
-    <Property Name="duracion" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="titulo" Type="varchar" MaxLength="40" />
-    <Property Name="detalles" Type="varchar" MaxLength="300" />
-    <Property Name="usuarioId" Type="int" />
-    <Property Name="usuarioNombre" Type="varchar" MaxLength="100" />
-    <Property Name="empresaId" Type="int" />
+    <Property Name="idUsuario" Type="int" />
+    <Property Name="idEmpresa" Type="int" />
+    <Property Name="fechaHoraInicio" Type="datetime" />
+    <Property Name="fechaHoraFinal" Type="datetime" />
     <Property Name="tipoRegistro" Type="int" />
+    <Property Name="registroTitulo" Type="varchar" MaxLength="50" />
+    <Property Name="registroDetalles" Type="varchar" MaxLength="300" />
+    <Property Name="registroEstado" Type="bit" />
+    <Property Name="registroRef" Type="int" />
   </EntityType>
   <EntityType Name="Aseguradoras">
     <Key>
@@ -901,27 +900,39 @@
     <Property Name="departamentoId" Type="int" />
     <Property Name="empresaNombre" Type="varchar" MaxLength="100" />
   </EntityType>
-  <Association Name="FK_agendaempresa">
+  <Association Name="FK_agendaregistro_Empresa">
     <End Role="Empresas" Type="Self.Empresas" Multiplicity="0..1" />
-    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Empresas">
         <PropertyRef Name="empresaId" />
       </Principal>
-      <Dependent Role="Agenda">
-        <PropertyRef Name="empresaId" />
+      <Dependent Role="AgendaRegistro">
+        <PropertyRef Name="idEmpresa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_agendausuario">
+  <Association Name="FK_agendaregistro_ref">
+    <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="0..1" />
+    <End Role="AgendaRegistro1" Type="Self.AgendaRegistro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AgendaRegistro">
+        <PropertyRef Name="idRegistro" />
+      </Principal>
+      <Dependent Role="AgendaRegistro1">
+        <PropertyRef Name="registroRef" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_agendaregistro_Usuario">
     <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
-    <End Role="Agenda" Type="Self.Agenda" Multiplicity="*" />
+    <End Role="AgendaRegistro" Type="Self.AgendaRegistro" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuarios">
         <PropertyRef Name="usuarioId" />
       </Principal>
-      <Dependent Role="Agenda">
-        <PropertyRef Name="usuarioId" />
+      <Dependent Role="AgendaRegistro">
+        <PropertyRef Name="idUsuario" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -2114,7 +2125,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="syspolizaModelStoreContainer">
-    <EntitySet Name="Agenda" EntityType="Self.Agenda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AgendaRegistro" EntityType="Self.AgendaRegistro" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Aseguradoras" EntityType="Self.Aseguradoras" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AutomotorClase" EntityType="Self.AutomotorClase" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Automotores" EntityType="Self.Automotores" Schema="dbo" store:Type="Tables" />
@@ -2182,13 +2193,17 @@
     <EntitySet Name="UsuarioDepartamento" EntityType="Self.UsuarioDepartamento" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UsuarioPuestoFuncional" EntityType="Self.UsuarioPuestoFuncional" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_agendaempresa" Association="Self.FK_agendaempresa">
+    <AssociationSet Name="FK_agendaregistro_Empresa" Association="Self.FK_agendaregistro_Empresa">
       <End Role="Empresas" EntitySet="Empresas" />
-      <End Role="Agenda" EntitySet="Agenda" />
+      <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
     </AssociationSet>
-    <AssociationSet Name="FK_agendausuario" Association="Self.FK_agendausuario">
+    <AssociationSet Name="FK_agendaregistro_ref" Association="Self.FK_agendaregistro_ref">
+      <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
+      <End Role="AgendaRegistro1" EntitySet="AgendaRegistro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_agendaregistro_Usuario" Association="Self.FK_agendaregistro_Usuario">
       <End Role="Usuarios" EntitySet="Usuarios" />
-      <End Role="Agenda" EntitySet="Agenda" />
+      <End Role="AgendaRegistro" EntitySet="AgendaRegistro" />
     </AssociationSet>
     <AssociationSet Name="fk_aseguradora_pais" Association="Self.fk_aseguradora_pais">
       <End Role="Paises" EntitySet="Paises" />
