@@ -26,6 +26,8 @@ namespace Calendario
             InitializeComponent();
             Days = tlDays;
             DaysOfWeek = tlDaysOfWeek;
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "MMMM/yyyy";
             AuthController.usuario = AuthController.getUser();
         }
 
@@ -104,10 +106,14 @@ namespace Calendario
                 var flowLayout = new FlowLayoutCustom();
                 flowLayout.Dock = DockStyle.Fill;
                 flowLayout.Margin = new Padding(0, 0, 0, 0);
+                flowLayout.Padding = new Padding(0, 0, 0, 0);
+                var index = i;
                 //Event Handler de cada panel de dia
                 flowLayout.DoubleClick += (sender, e) => {
-                    var modal = new AgregarEventos(dateTemp);
+                    var modal = new AgregarEventos(dateTemp, index);
                     modal.ShowDialog();
+                    dropCalendarDailyEvents();
+                    setCalendarDayEvents();
                 };
                 flowLayout.Enabled = true;
                 tlHours.Controls.Add(flowLayout);
@@ -214,6 +220,7 @@ namespace Calendario
                 label.Font = new Font(label.Font.FontFamily, (float)7.7);
                 label.TextAlign = ContentAlignment.MiddleCenter;
                 label.Width = (listHours[0].Width - (8+numByDate))/numByDate;
+                label.Height = listHours[0].Height;
                 label.BackColor = listEvents[i].tipoRegistro == 1 ? Color.FromArgb(162, 229, 246) : Color.FromArgb(197, 251, 172);
                 var index = rowHours.FindIndex(h => h == listEvents[i].fechaHoraInicio.ToString("HH:mm"));
                 listHours[index].Controls.Add(label);
@@ -288,6 +295,9 @@ namespace Calendario
         private void MCal1_DateSelected(object sender, DateRangeEventArgs e)
         {
             dateTemp = MCal1.SelectionStart;
+            lblFechaCompleta.Text = dateTemp.ToString("dd, MMMM, yyyy");
+            dropCalendarDailyEvents();
+            setCalendarDayEvents();
         }
 
         private void iconButton1_Click_1(object sender, EventArgs e)

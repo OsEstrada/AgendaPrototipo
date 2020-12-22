@@ -23,12 +23,14 @@ namespace Calendario
             cmbHoraRecordatorio.SelectedIndex = 0;
             cmbHoraTarea.SelectedIndex = 0;
         }
-        public AgregarEventos(DateTime today, DateTime hour)
+        public AgregarEventos(DateTime today, int hour)
         {
             InitializeComponent();
             pickerRecordatorio.Value = today;
             pickerTarea.Value = today;
             day = today;
+            cmbHoraRecordatorio.SelectedIndex = hour;
+            cmbHoraTarea.SelectedIndex = hour;
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
