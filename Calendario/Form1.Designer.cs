@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             this.panel_month = new System.Windows.Forms.Panel();
+            this.tlDays = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.tlDaysOfWeek = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.barra_titulo = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
@@ -37,6 +47,8 @@
             this.btnPrev = new FontAwesome.Sharp.IconButton();
             this.label21 = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblFechaCompleta = new System.Windows.Forms.Label();
             this.MCal1 = new System.Windows.Forms.MonthCalendar();
@@ -69,28 +81,16 @@
             this.label32 = new System.Windows.Forms.Label();
             this.tlHours = new System.Windows.Forms.TableLayoutPanel();
             this.panel_day = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.tlDays = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.tlDaysOfWeek = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel_month.SuspendLayout();
+            this.tlDays.SuspendLayout();
+            this.tlDaysOfWeek.SuspendLayout();
             this.barra_titulo.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelScroll.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_day.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tlDays.SuspendLayout();
-            this.tlDaysOfWeek.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_month
@@ -105,6 +105,165 @@
             this.panel_month.Name = "panel_month";
             this.panel_month.Size = new System.Drawing.Size(1355, 832);
             this.panel_month.TabIndex = 0;
+            // 
+            // tlDays
+            // 
+            this.tlDays.ColumnCount = 7;
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tlDays.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlDays.Location = new System.Drawing.Point(317, 103);
+            this.tlDays.Margin = new System.Windows.Forms.Padding(1);
+            this.tlDays.Name = "tlDays";
+            this.tlDays.RowCount = 6;
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
+            this.tlDays.Size = new System.Drawing.Size(1038, 729);
+            this.tlDays.TabIndex = 8;
+            this.tlDays.Resize += new System.EventHandler(this.tlDays_Resize);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(144, 117);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // tlDaysOfWeek
+            // 
+            this.tlDaysOfWeek.ColumnCount = 7;
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDaysOfWeek.Controls.Add(this.label7, 6, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label6, 5, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label5, 4, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label4, 3, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label3, 2, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label2, 1, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label1, 0, 0);
+            this.tlDaysOfWeek.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlDaysOfWeek.Location = new System.Drawing.Point(317, 52);
+            this.tlDaysOfWeek.Name = "tlDaysOfWeek";
+            this.tlDaysOfWeek.RowCount = 1;
+            this.tlDaysOfWeek.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlDaysOfWeek.Size = new System.Drawing.Size(1038, 51);
+            this.tlDaysOfWeek.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(890, 2);
+            this.label7.Margin = new System.Windows.Forms.Padding(2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(146, 47);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Sábado";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(742, 2);
+            this.label6.Margin = new System.Windows.Forms.Padding(2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(144, 47);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Viernes";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(594, 2);
+            this.label5.Margin = new System.Windows.Forms.Padding(2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 47);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Jueves";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(446, 2);
+            this.label4.Margin = new System.Windows.Forms.Padding(2);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 47);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Miércoles";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(298, 2);
+            this.label3.Margin = new System.Windows.Forms.Padding(2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(144, 47);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Martes";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(150, 2);
+            this.label2.Margin = new System.Windows.Forms.Padding(2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 47);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Lunes";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(2, 2);
+            this.label1.Margin = new System.Windows.Forms.Padding(2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 47);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Domingo";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // barra_titulo
             // 
@@ -216,6 +375,21 @@
             this.lblDate.Size = new System.Drawing.Size(117, 32);
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Mes, Año";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(15, 105);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.monthCalendar1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 52);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(317, 780);
+            this.panel3.TabIndex = 5;
             // 
             // panel1
             // 
@@ -715,7 +889,7 @@
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlHours.Size = new System.Drawing.Size(800, 1580);
+            this.tlHours.Size = new System.Drawing.Size(802, 1580);
             this.tlHours.TabIndex = 11;
             // 
             // panel_day
@@ -727,180 +901,6 @@
             this.panel_day.Name = "panel_day";
             this.panel_day.Size = new System.Drawing.Size(1355, 832);
             this.panel_day.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.monthCalendar1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel3.Location = new System.Drawing.Point(0, 52);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(317, 780);
-            this.panel3.TabIndex = 5;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Location = new System.Drawing.Point(15, 105);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
-            // 
-            // tlDays
-            // 
-            this.tlDays.ColumnCount = 7;
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDays.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tlDays.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlDays.Location = new System.Drawing.Point(317, 103);
-            this.tlDays.Margin = new System.Windows.Forms.Padding(1);
-            this.tlDays.Name = "tlDays";
-            this.tlDays.RowCount = 6;
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
-            this.tlDays.Size = new System.Drawing.Size(1038, 729);
-            this.tlDays.TabIndex = 8;
-            this.tlDays.Resize += new System.EventHandler(this.tlDays_Resize);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(144, 117);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // tlDaysOfWeek
-            // 
-            this.tlDaysOfWeek.ColumnCount = 7;
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDaysOfWeek.Controls.Add(this.label7, 6, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label6, 5, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label5, 4, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label4, 3, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label3, 2, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label2, 1, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label1, 0, 0);
-            this.tlDaysOfWeek.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlDaysOfWeek.Location = new System.Drawing.Point(317, 52);
-            this.tlDaysOfWeek.Name = "tlDaysOfWeek";
-            this.tlDaysOfWeek.RowCount = 1;
-            this.tlDaysOfWeek.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlDaysOfWeek.Size = new System.Drawing.Size(1038, 51);
-            this.tlDaysOfWeek.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(890, 2);
-            this.label7.Margin = new System.Windows.Forms.Padding(2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(146, 47);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Sábado";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(742, 2);
-            this.label6.Margin = new System.Windows.Forms.Padding(2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(144, 47);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Viernes";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(594, 2);
-            this.label5.Margin = new System.Windows.Forms.Padding(2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 47);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Jueves";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(446, 2);
-            this.label4.Margin = new System.Windows.Forms.Padding(2);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(144, 47);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Miércoles";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(298, 2);
-            this.label3.Margin = new System.Windows.Forms.Padding(2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 47);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Martes";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(150, 2);
-            this.label2.Margin = new System.Windows.Forms.Padding(2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 47);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Lunes";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(2, 2);
-            this.label1.Margin = new System.Windows.Forms.Padding(2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 47);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Domingo";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -916,16 +916,16 @@
             this.Text = "Calendario";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel_month.ResumeLayout(false);
+            this.tlDays.ResumeLayout(false);
+            this.tlDaysOfWeek.ResumeLayout(false);
             this.barra_titulo.ResumeLayout(false);
             this.barra_titulo.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelScroll.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel_day.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.tlDays.ResumeLayout(false);
-            this.tlDaysOfWeek.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

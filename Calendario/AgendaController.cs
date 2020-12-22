@@ -39,7 +39,8 @@ namespace Calendario
         {
             using (var db = new syspolizaEntities())
             {
-                return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.fechaHoraInicio.Year == dia.Year && r.fechaHoraInicio.Month == dia.Month && r.fechaHoraInicio.Day == dia.Day).OrderBy(r => r.tipoRegistro).ToList();
+                return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.fechaHoraInicio.Year == dia.Year && r.fechaHoraInicio.Month == dia.Month && r.fechaHoraInicio.Day == dia.Day)
+                    .OrderBy(r => r.tipoRegistro).ThenBy(r => r.fechaHoraInicio).ToList();
             }
         }
 
