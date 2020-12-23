@@ -186,7 +186,19 @@ namespace Calendario
                 label.Font = new Font(label.Font.FontFamily, (float)7.7);
                 label.TextAlign = ContentAlignment.MiddleCenter;
                 label.Width = listDays[0].Width - 9;
+                var reg = listEvents[i];
                 label.BackColor = listEvents[i].tipoRegistro == 1 ? Color.FromArgb(162, 229, 246) : Color.FromArgb(197, 251, 172);
+                if(listEvents[i].tipoRegistro == 2)
+                {
+                    label.Click += (sender, e) =>
+                    {
+                        var window = new Tarea(reg);
+                        window.ShowDialog();
+                        dropCalendarMonthEvents();
+                        setCalendarMonthEvents();
+                    };
+                }
+
                 var index = listDates.FindIndex(d => DateTime.Compare(d, new DateTime(listEvents[i].fechaHoraInicio.Year, listEvents[i].fechaHoraInicio.Month, listEvents[i].fechaHoraInicio.Day)) == 0);
                 listDays[index].Controls.Add(label);
                 listEventsLabels.Add(label);
@@ -222,6 +234,18 @@ namespace Calendario
                 label.Width = (listHours[0].Width - (8+numByDate))/numByDate;
                 label.Height = listHours[0].Height;
                 label.BackColor = listEvents[i].tipoRegistro == 1 ? Color.FromArgb(162, 229, 246) : Color.FromArgb(197, 251, 172);
+                var reg = listEvents[i];
+                if (listEvents[i].tipoRegistro == 2)
+                {
+                    label.Click += (sender, e) =>
+                    {
+                        var window = new Tarea(reg);
+                        window.ShowDialog();
+                        dropCalendarDailyEvents();
+                        setCalendarDayEvents();
+                    };
+                }
+
                 var index = rowHours.FindIndex(h => h == listEvents[i].fechaHoraInicio.ToString("HH:mm"));
                 listHours[index].Controls.Add(label);
                 listEventsLabels.Add(label);

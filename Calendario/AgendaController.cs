@@ -26,6 +26,22 @@ namespace Calendario
             }
         }
 
+        public static void EliminarRegistro(int idRegistro)
+        {
+            using (var db = new syspolizaEntities())
+            {
+                try
+                {
+                    db.AgendaRegistro.Remove(db.AgendaRegistro.Find(idRegistro));
+                    db.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ERROR");
+                }
+                  
+            }
+        }
 
         public static List<AgendaRegistro> ExtraerRegistrosAgendaMensual (int idUsuario, DateTime mes)
         {

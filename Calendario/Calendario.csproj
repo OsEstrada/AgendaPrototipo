@@ -224,6 +224,12 @@
     <Compile Include="ReclamoSeguimiento.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
     </Compile>
+    <Compile Include="Recordatorio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recordatorio.Designer.cs">
+      <DependentUpon>Recordatorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="syspoliza.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -238,6 +244,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>syspoliza.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Tarea.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tarea.Designer.cs">
+      <DependentUpon>Tarea.cs</DependentUpon>
     </Compile>
     <Compile Include="TipoBeneficiario.cs">
       <DependentUpon>syspoliza.tt</DependentUpon>
@@ -314,6 +326,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Recordatorio.resx">
+      <DependentUpon>Recordatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tarea.resx">
+      <DependentUpon>Tarea.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

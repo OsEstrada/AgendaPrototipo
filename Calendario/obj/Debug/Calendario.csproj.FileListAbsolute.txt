@@ -15,3 +15,5 @@ C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\bin\Debug\EntityFram
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\bin\Debug\EntityFramework.xml
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.AgregarEventos.resources
+C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.Recordatorio.resources
+C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.Tarea.resources
