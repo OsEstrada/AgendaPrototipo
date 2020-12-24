@@ -379,11 +379,11 @@ namespace Calendario
                         var total = label.Parent.Controls.Count - 1;
                         label.Width = (listHours[0].Width - 9) / total;
                     }
-                    else
-                    {
-                        label.Width = listHours[0].Width - 9;
+                    //else
+                    //{
+                    //    label.Width = listHours[0].Width - 9;
 
-                    }
+                    //}
                     //label.Font = new Font(label.Font.FontFamily, label.Font.Size + 1);
                 }
             }
