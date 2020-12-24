@@ -49,5 +49,22 @@ namespace Calendario
         {
            
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            var newReg = new AgendaRegistro();
+            var hour = cmbHoraTarea.Text.Split(':');
+            var date = pickerTarea.Value;
+            newReg.idRegistro = reg.idRegistro;
+            newReg.fechaHoraInicio = new DateTime(date.Year, date.Month, date.Day, Convert.ToInt32(hour[0]), Convert.ToInt32(hour[1]), 0);
+            newReg.idUsuario = AuthController.usuario.usuarioId;
+            newReg.idEmpresa = AuthController.usuario.empresaId;
+            newReg.registroDetalles = String.IsNullOrEmpty(txtDetalles.Text) ? "Sin descripcion" : txtDetalles.Text;
+            newReg.tipoRegistro = reg.tipoRegistro;
+            newReg.registroTitulo = String.IsNullOrEmpty(txtTitulo.Text)? "Sin titulo" :  txtTitulo.Text;
+
+            AgendaController.GuardarRegistroAgenda(newReg);
+            Dispose();
+        }
     }
 }

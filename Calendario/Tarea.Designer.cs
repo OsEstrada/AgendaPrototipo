@@ -49,13 +49,14 @@
             this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
             this.btnGuardar.IconColor = System.Drawing.Color.SteelBlue;
             this.btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnGuardar.Location = new System.Drawing.Point(345, 312);
+            this.btnGuardar.Location = new System.Drawing.Point(364, 312);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(54, 54);
             this.btnGuardar.TabIndex = 15;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnGuardar.UseMnemonic = false;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnEliminar
             // 
@@ -66,7 +67,7 @@
             this.btnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btnEliminar.IconColor = System.Drawing.Color.Chocolate;
             this.btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnEliminar.Location = new System.Drawing.Point(280, 312);
+            this.btnEliminar.Location = new System.Drawing.Point(299, 312);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(59, 54);
             this.btnEliminar.TabIndex = 14;
@@ -127,7 +128,7 @@
             "22:30",
             "23:00",
             "23:30"});
-            this.cmbHoraTarea.Location = new System.Drawing.Point(95, 120);
+            this.cmbHoraTarea.Location = new System.Drawing.Point(117, 120);
             this.cmbHoraTarea.Name = "cmbHoraTarea";
             this.cmbHoraTarea.Size = new System.Drawing.Size(171, 24);
             this.cmbHoraTarea.TabIndex = 13;
@@ -135,7 +136,7 @@
             // txtTitulo
             // 
             this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTitulo.Location = new System.Drawing.Point(95, 38);
+            this.txtTitulo.Location = new System.Drawing.Point(117, 38);
             this.txtTitulo.MaxLength = 40;
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(304, 22);
@@ -173,14 +174,14 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(23, 169);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(63, 17);
+            this.label4.Size = new System.Drawing.Size(84, 17);
             this.label4.TabIndex = 16;
-            this.label4.Text = "Detalles:";
+            this.label4.Text = "descripcion:";
             // 
             // txtDetalles
             // 
             this.txtDetalles.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDetalles.Location = new System.Drawing.Point(95, 167);
+            this.txtDetalles.Location = new System.Drawing.Point(117, 167);
             this.txtDetalles.MaxLength = 400;
             this.txtDetalles.Multiline = true;
             this.txtDetalles.Name = "txtDetalles";
@@ -190,7 +191,7 @@
             // pickerTarea
             // 
             this.pickerTarea.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.pickerTarea.Location = new System.Drawing.Point(95, 79);
+            this.pickerTarea.Location = new System.Drawing.Point(117, 79);
             this.pickerTarea.Name = "pickerTarea";
             this.pickerTarea.Size = new System.Drawing.Size(304, 22);
             this.pickerTarea.TabIndex = 18;
@@ -200,7 +201,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(431, 381);
+            this.ClientSize = new System.Drawing.Size(468, 381);
             this.Controls.Add(this.pickerTarea);
             this.Controls.Add(this.txtDetalles);
             this.Controls.Add(this.label4);

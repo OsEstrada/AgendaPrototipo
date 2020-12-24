@@ -26,8 +26,6 @@ namespace Calendario
             InitializeComponent();
             Days = tlDays;
             DaysOfWeek = tlDaysOfWeek;
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.CustomFormat = "MMMM/yyyy";
             AuthController.usuario = AuthController.getUser();
         }
 
@@ -198,6 +196,16 @@ namespace Calendario
                         setCalendarMonthEvents();
                     };
                 }
+                else if(listEvents[i].tipoRegistro == 1)
+                {
+                    label.Click += (sender, e) =>
+                    {
+                        var window = new Recordatorio(reg);
+                        window.ShowDialog();
+                        dropCalendarMonthEvents();
+                        setCalendarMonthEvents();
+                    };
+                }
 
                 var index = listDates.FindIndex(d => DateTime.Compare(d, new DateTime(listEvents[i].fechaHoraInicio.Year, listEvents[i].fechaHoraInicio.Month, listEvents[i].fechaHoraInicio.Day)) == 0);
                 listDays[index].Controls.Add(label);
@@ -240,6 +248,16 @@ namespace Calendario
                     label.Click += (sender, e) =>
                     {
                         var window = new Tarea(reg);
+                        window.ShowDialog();
+                        dropCalendarDailyEvents();
+                        setCalendarDayEvents();
+                    };
+                }
+                else
+                {
+                    label.Click += (sender, e) =>
+                    {
+                        var window = new Recordatorio(reg);
                         window.ShowDialog();
                         dropCalendarDailyEvents();
                         setCalendarDayEvents();
@@ -308,13 +326,6 @@ namespace Calendario
             setDay(firstDayOfMonth(), totalDays());
         }
 
-        private void iconButton2_Click(object sender, EventArgs e)
-        {
-            this.Controls.Add(Days);
-            this.Controls.Add(DaysOfWeek);
-            this.Controls.Add(barra_titulo);
-        }
-
 
         private void MCal1_DateSelected(object sender, DateRangeEventArgs e)
         {
@@ -350,11 +361,33 @@ namespace Calendario
             {
                 label.Width = listDays[0].Width;
             }
-            foreach(Label label in listEventsLabels)
+            if(panel_month.Parent.Controls.GetChildIndex(panel_month) == 0)
             {
-                label.Width = listDays[0].Width - 9;
-                //label.Font = new Font(label.Font.FontFamily, label.Font.Size + 1);
+                foreach (Label label in listEventsLabels)
+                {
+                    label.Width = listDays[0].Width - 9;
+                    //label.Font = new Font(label.Font.FontFamily, label.Font.Size + 1);
+                }
             }
+            else
+            {
+                foreach (Label label in listEventsLabels)
+                {
+                    MessageBox.Show(label.Parent.Controls.Count.ToString());
+                    if (label.Parent.Controls.Count > 2)
+                    {
+                        var total = label.Parent.Controls.Count - 1;
+                        label.Width = (listHours[0].Width - 9) / total;
+                    }
+                    else
+                    {
+                        label.Width = listHours[0].Width - 9;
+
+                    }
+                    //label.Font = new Font(label.Font.FontFamily, label.Font.Size + 1);
+                }
+            }
+            
         }
     }
 }

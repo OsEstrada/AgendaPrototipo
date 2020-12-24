@@ -31,11 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.txtFecha = new System.Windows.Forms.TextBox();
             this.cmbHoraRecordatorio = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new FontAwesome.Sharp.IconButton();
             this.btnGuardar = new FontAwesome.Sharp.IconButton();
+            this.pickerRecordatorio = new System.Windows.Forms.DateTimePicker();
+            this.txtTituloRecordatorio = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -64,24 +64,6 @@
             this.label3.Size = new System.Drawing.Size(43, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Hora:";
-            // 
-            // txtTitulo
-            // 
-            this.txtTitulo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTitulo.Location = new System.Drawing.Point(121, 54);
-            this.txtTitulo.MaxLength = 40;
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(304, 22);
-            this.txtTitulo.TabIndex = 3;
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFecha.Location = new System.Drawing.Point(121, 95);
-            this.txtFecha.MaxLength = 40;
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(304, 22);
-            this.txtFecha.TabIndex = 4;
             // 
             // cmbHoraRecordatorio
             // 
@@ -156,6 +138,7 @@
             this.btnEliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEliminar.UseMnemonic = false;
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnGuardar
             // 
@@ -173,6 +156,22 @@
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnGuardar.UseMnemonic = false;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // pickerRecordatorio
+            // 
+            this.pickerRecordatorio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.pickerRecordatorio.Location = new System.Drawing.Point(121, 95);
+            this.pickerRecordatorio.Name = "pickerRecordatorio";
+            this.pickerRecordatorio.Size = new System.Drawing.Size(304, 22);
+            this.pickerRecordatorio.TabIndex = 19;
+            // 
+            // txtTituloRecordatorio
+            // 
+            this.txtTituloRecordatorio.Location = new System.Drawing.Point(121, 49);
+            this.txtTituloRecordatorio.Name = "txtTituloRecordatorio";
+            this.txtTituloRecordatorio.Size = new System.Drawing.Size(304, 22);
+            this.txtTituloRecordatorio.TabIndex = 40;
             // 
             // Recordatorio
             // 
@@ -180,11 +179,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(471, 236);
+            this.Controls.Add(this.txtTituloRecordatorio);
+            this.Controls.Add(this.pickerRecordatorio);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.cmbHoraRecordatorio);
-            this.Controls.Add(this.txtFecha);
-            this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -200,10 +199,10 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtTitulo;
-        private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.ComboBox cmbHoraRecordatorio;
         private FontAwesome.Sharp.IconButton btnEliminar;
         private FontAwesome.Sharp.IconButton btnGuardar;
+        private System.Windows.Forms.DateTimePicker pickerRecordatorio;
+        private System.Windows.Forms.TextBox txtTituloRecordatorio;
     }
 }
