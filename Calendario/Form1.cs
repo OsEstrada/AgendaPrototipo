@@ -105,6 +105,7 @@ namespace Calendario
                 flowLayout.Dock = DockStyle.Fill;
                 flowLayout.Margin = new Padding(0, 0, 0, 0);
                 flowLayout.Padding = new Padding(0, 0, 0, 0);
+                flowLayout.WrapContents = false;
                 var index = i;
                 //Event Handler de cada panel de dia
                 flowLayout.DoubleClick += (sender, e) => {
@@ -239,7 +240,7 @@ namespace Calendario
                 label.Margin = new Padding(3,0,0,0);
                 label.Font = new Font(label.Font.FontFamily, (float)7.7);
                 label.TextAlign = ContentAlignment.MiddleCenter;
-                label.Width = (listHours[0].Width - (8+numByDate))/numByDate;
+                label.Width = (numByDate < 4) ? (listHours[0].Width - (6 + numByDate)) / numByDate : (listHours[0].Width - (11 + numByDate)) / numByDate;
                 label.Height = listHours[0].Height;
                 label.BackColor = listEvents[i].tipoRegistro == 1 ? Color.FromArgb(162, 229, 246) : Color.FromArgb(197, 251, 172);
                 var reg = listEvents[i];
@@ -326,6 +327,18 @@ namespace Calendario
             setDay(firstDayOfMonth(), totalDays());
         }
 
+        private void tlHours_Resize(object sender, EventArgs e)
+        {
+            if (panel_day.Parent.Controls.GetChildIndex(panel_day) == 0)
+            {
+                var totalEvents = listEvents.Count();
+                for (int i = 0; i < totalEvents; i++)
+                {
+                    var numByDate = listEvents.Where(ev => ev.fechaHoraInicio.ToString("HH:mm").Equals(listEvents[i].fechaHoraInicio.ToString("HH:mm"))).Count();
+                    listEventsLabels[i].Width = (numByDate < 4) ? (listHours[0].Width - (6 + numByDate)) / numByDate : (listHours[0].Width - (11 + numByDate)) / numByDate;
+                }
+            }
+        }
 
         private void MCal1_DateSelected(object sender, DateRangeEventArgs e)
         {
@@ -366,24 +379,6 @@ namespace Calendario
                 foreach (Label label in listEventsLabels)
                 {
                     label.Width = listDays[0].Width - 9;
-                    //label.Font = new Font(label.Font.FontFamily, label.Font.Size + 1);
-                }
-            }
-            else
-            {
-                foreach (Label label in listEventsLabels)
-                {
-                    MessageBox.Show(label.Parent.Controls.Count.ToString());
-                    if (label.Parent.Controls.Count > 2)
-                    {
-                        var total = label.Parent.Controls.Count - 1;
-                        label.Width = (listHours[0].Width - 9) / total;
-                    }
-                    //else
-                    //{
-                    //    label.Width = listHours[0].Width - 9;
-
-                    //}
                     //label.Font = new Font(label.Font.FontFamily, label.Font.Size + 1);
                 }
             }
