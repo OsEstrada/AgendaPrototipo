@@ -340,6 +340,27 @@ namespace Calendario
             }
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            DateTime temp;
+            if (today.Month != DateTime.Now.Month)
+                temp = new DateTime(today.Year, today.Month, 1);
+            else
+                temp = today;
+            var modal = new AgregarEventos(temp);
+            modal.ShowDialog();
+            dropCalendarMonthEvents();
+            setCalendarMonthEvents();
+        }
+
+        private void btnAgregar2_Click(object sender, EventArgs e)
+        {
+            var modal = new AgregarEventos(dateTemp);
+            modal.ShowDialog();
+            dropCalendarMonthEvents();
+            setCalendarMonthEvents();
+        }
+
         private void MCal1_DateSelected(object sender, DateRangeEventArgs e)
         {
             dateTemp = MCal1.SelectionStart;
