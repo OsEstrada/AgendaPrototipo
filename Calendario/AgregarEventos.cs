@@ -26,6 +26,7 @@ namespace Calendario
         public AgregarEventos(DateTime today, int hour)
         {
             InitializeComponent();
+            this.CenterToScreen();
             pickerRecordatorio.Value = today;
             pickerTarea.Value = today;
             day = today;

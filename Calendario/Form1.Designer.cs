@@ -441,7 +441,7 @@
             // 
             // MCal1
             // 
-            this.MCal1.Location = new System.Drawing.Point(46, 303);
+            this.MCal1.Location = new System.Drawing.Point(46, 262);
             this.MCal1.Name = "MCal1";
             this.MCal1.ShowToday = false;
             this.MCal1.ShowTodayCircle = false;
@@ -455,7 +455,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFechaCompleta.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaCompleta.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFechaCompleta.Location = new System.Drawing.Point(0, 225);
+            this.lblFechaCompleta.Location = new System.Drawing.Point(0, 184);
             this.lblFechaCompleta.Name = "lblFechaCompleta";
             this.lblFechaCompleta.Size = new System.Drawing.Size(370, 32);
             this.lblFechaCompleta.TabIndex = 0;
@@ -544,7 +544,7 @@
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlHours.Size = new System.Drawing.Size(792, 1580);
+            this.tlHours.Size = new System.Drawing.Size(771, 1580);
             this.tlHours.TabIndex = 11;
             this.tlHours.Resize += new System.EventHandler(this.tlHours_Resize);
             // 
