@@ -544,7 +544,7 @@
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tlHours.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tlHours.Size = new System.Drawing.Size(770, 1580);
+            this.tlHours.Size = new System.Drawing.Size(792, 1580);
             this.tlHours.TabIndex = 11;
             this.tlHours.Resize += new System.EventHandler(this.tlHours_Resize);
             // 

@@ -195,6 +195,7 @@ namespace Calendario
                         window.ShowDialog();
                         dropCalendarMonthEvents();
                         setCalendarMonthEvents();
+                        today = DateTime.Now;
                     };
                 }
                 else if(listEvents[i].tipoRegistro == 1)
@@ -205,6 +206,7 @@ namespace Calendario
                         window.ShowDialog();
                         dropCalendarMonthEvents();
                         setCalendarMonthEvents();
+                        today = DateTime.Now;
                     };
                 }
 
@@ -357,8 +359,8 @@ namespace Calendario
         {
             var modal = new AgregarEventos(dateTemp);
             modal.ShowDialog();
-            dropCalendarMonthEvents();
-            setCalendarMonthEvents();
+            dropCalendarDailyEvents();
+            setCalendarDayEvents();
         }
 
         private void MCal1_DateSelected(object sender, DateRangeEventArgs e)
