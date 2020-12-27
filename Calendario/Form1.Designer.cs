@@ -81,6 +81,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.cbRecordatorio = new System.Windows.Forms.CheckBox();
+            this.cbTareas = new System.Windows.Forms.CheckBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.barra_titulo.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tlDaysOfWeek.SuspendLayout();
@@ -394,6 +398,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label34);
+            this.panel1.Controls.Add(this.label33);
+            this.panel1.Controls.Add(this.cbTareas);
+            this.panel1.Controls.Add(this.cbRecordatorio);
             this.panel1.Controls.Add(this.btnAgregar2);
             this.panel1.Controls.Add(this.btnReturn);
             this.panel1.Controls.Add(this.MCal1);
@@ -441,7 +449,7 @@
             // 
             // MCal1
             // 
-            this.MCal1.Location = new System.Drawing.Point(46, 262);
+            this.MCal1.Location = new System.Drawing.Point(46, 243);
             this.MCal1.Name = "MCal1";
             this.MCal1.ShowToday = false;
             this.MCal1.ShowTodayCircle = false;
@@ -921,6 +929,48 @@
             this.label8.Text = "0:00-1:00";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbRecordatorio
+            // 
+            this.cbRecordatorio.AutoSize = true;
+            this.cbRecordatorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbRecordatorio.Location = new System.Drawing.Point(116, 485);
+            this.cbRecordatorio.Name = "cbRecordatorio";
+            this.cbRecordatorio.Size = new System.Drawing.Size(125, 22);
+            this.cbRecordatorio.TabIndex = 6;
+            this.cbRecordatorio.Text = "Recordatorios";
+            this.cbRecordatorio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbRecordatorio.UseVisualStyleBackColor = true;
+            // 
+            // cbTareas
+            // 
+            this.cbTareas.AutoSize = true;
+            this.cbTareas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTareas.Location = new System.Drawing.Point(116, 530);
+            this.cbTareas.Name = "cbTareas";
+            this.cbTareas.Size = new System.Drawing.Size(76, 22);
+            this.cbTareas.TabIndex = 7;
+            this.cbTareas.Text = "Tareas";
+            this.cbTareas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbTareas.UseVisualStyleBackColor = true;
+            // 
+            // label33
+            // 
+            this.label33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(229)))), ((int)(((byte)(246)))));
+            this.label33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label33.Location = new System.Drawing.Point(54, 483);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(50, 22);
+            this.label33.TabIndex = 8;
+            // 
+            // label34
+            // 
+            this.label34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(251)))), ((int)(((byte)(172)))));
+            this.label34.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label34.Location = new System.Drawing.Point(54, 528);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(50, 22);
+            this.label34.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -941,6 +991,7 @@
             this.tlDays.ResumeLayout(false);
             this.panel_month.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel_day.ResumeLayout(false);
             this.panelScroll.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -1002,6 +1053,10 @@
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton btnAgregar;
         private FontAwesome.Sharp.IconButton btnAgregar2;
+        private System.Windows.Forms.CheckBox cbTareas;
+        private System.Windows.Forms.CheckBox cbRecordatorio;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
     }
 }
 
