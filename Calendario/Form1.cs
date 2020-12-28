@@ -86,8 +86,8 @@ namespace Calendario
                     var index = listDays.FindIndex(d => d == flowLayout);
                     if (index > 0)
                     {
-                        today = listDates[index];
-                        var modal = new AgregarEventos(today);
+                        dateTemp = listDates[index];
+                        var modal = new AgregarEventos(dateTemp);
                         modal.ShowDialog();
                         dropCalendarMonthEvents();
                         setCalendarMonthEvents();
@@ -144,27 +144,9 @@ namespace Calendario
                 label.Dock = DockStyle.Top;
                 label.Width = listDays[i].Width;
                 label.Tag = 1;
-
-                //var label2 = new Label();
-                //label2.AutoSize = false;
-                //label2.Text = "PlaceHolder";
-                //label2.BackColor = Color.GreenYellow;
-                //label2.TextAlign = ContentAlignment.MiddleLeft;
-                //label2.Dock = DockStyle.Top;
-                //label2.Width = listDays[i].Width-9;
-                //label2.Margin = new Padding(5,3,5,0);
-                //label2.Tag = 0;
-                //var day = listDays[i];
-                //label2.DoubleClick += (sender, e) =>
-                //{
-                //    day.PerformDoubleClick();
-                //};
-
                 listLabels.Add(label);
-                //listLabels.Add(label2);
 
                 listDays[i].Controls.Add(label);
-                //listDays[i].Controls.Add(label2);
                 listDays[i].Enabled = true;
                 listDates[i] = new DateTime(today.Year, today.Month, i - start + 1);
             }
@@ -175,7 +157,7 @@ namespace Calendario
         {
             listEventsLabels.Clear();
             listEvents.Clear();
-            listEvents = AgendaController.ExtraerRegistrosAgendaMensual(AuthController.usuario.usuarioId, today);
+            listEvents = AgendaController.ExtraerRegistrosAgendaMensual(AuthController.usuario.usuarioId, today, cbRecordatorios1.Checked, cbTareas1.Checked);
             var totalEvents = listEvents.Count();
             for (int i = 0; i < totalEvents; i++)
             {
@@ -184,7 +166,8 @@ namespace Calendario
                 label.AutoSize = false;
                 label.Font = new Font(label.Font.FontFamily, (float)7.7);
                 label.TextAlign = ContentAlignment.MiddleCenter;
-                label.Width = listDays[0].Width - 9;
+                label.Width = listDays[0].Width - 5;
+                label.Margin = new Padding(2,0,0,1);
                 var reg = listEvents[i];
                 label.BackColor = listEvents[i].tipoRegistro == 1 ? Color.FromArgb(162, 229, 246) : Color.FromArgb(197, 251, 172);
                 if(listEvents[i].tipoRegistro == 2)
@@ -195,7 +178,6 @@ namespace Calendario
                         window.ShowDialog();
                         dropCalendarMonthEvents();
                         setCalendarMonthEvents();
-                        today = DateTime.Now;
                     };
                 }
                 else if(listEvents[i].tipoRegistro == 1)
@@ -206,7 +188,6 @@ namespace Calendario
                         window.ShowDialog();
                         dropCalendarMonthEvents();
                         setCalendarMonthEvents();
-                        today = DateTime.Now;
                     };
                 }
 
@@ -378,6 +359,12 @@ namespace Calendario
             setCalendarDayEvents();
         }
 
+        private void cbRecordatorios1_CheckedChanged(object sender, EventArgs e)
+        {
+            dropCalendarMonthEvents();
+            setCalendarMonthEvents();
+        }
+
         private void MCal1_DateSelected(object sender, DateRangeEventArgs e)
         {
             dateTemp = MCal1.SelectionStart;
@@ -416,7 +403,7 @@ namespace Calendario
             {
                 foreach (Label label in listEventsLabels)
                 {
-                    label.Width = listDays[0].Width - 9;
+                    label.Width = listDays[0].Width - 5;
                     //label.Font = new Font(label.Font.FontFamily, label.Font.Size + 1);
                 }
             }

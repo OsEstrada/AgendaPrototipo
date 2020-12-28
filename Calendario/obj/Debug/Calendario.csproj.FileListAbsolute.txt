@@ -6,7 +6,6 @@ C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\bin\Debug\EntityFram
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\bin\Debug\FontAwesome.Sharp.dll
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\bin\Debug\EntityFramework.xml
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.csprojAssemblyReference.cache
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.AgregarEventos.resources
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.Form1.resources
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.Properties.Resources.resources
@@ -17,3 +16,4 @@ C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.csproj.CopyComplete
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.exe
 C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.pdb
+C:\Users\Oscar Alejandro\source\repos\Calendario\Calendario\obj\Debug\Calendario.csprojAssemblyReference.cache

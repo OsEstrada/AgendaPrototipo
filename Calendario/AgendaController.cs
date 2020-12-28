@@ -43,11 +43,27 @@ namespace Calendario
             }
         }
 
-        public static List<AgendaRegistro> ExtraerRegistrosAgendaMensual (int idUsuario, DateTime mes)
+        public static List<AgendaRegistro> ExtraerRegistrosAgendaMensual (int idUsuario, DateTime mes, bool recordatorio, bool tarea)
         {
             using (var db = new syspolizaEntities())
             {
-                return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.fechaHoraInicio.Year == mes.Year && r.fechaHoraInicio.Month == mes.Month).OrderBy(r=> r.tipoRegistro).ToList();
+             
+                if(recordatorio && !tarea)
+                {
+                    return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.tipoRegistro == 1 && r.fechaHoraInicio.Year == mes.Year && r.fechaHoraInicio.Month == mes.Month).OrderBy(r => r.tipoRegistro).ToList();
+
+                }
+                else if (tarea && !recordatorio)
+                {
+                    return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.tipoRegistro == 2 && r.fechaHoraInicio.Year == mes.Year && r.fechaHoraInicio.Month == mes.Month).OrderBy(r => r.tipoRegistro).ToList();
+
+                }
+                else
+                {
+                    return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.fechaHoraInicio.Year == mes.Year && r.fechaHoraInicio.Month == mes.Month).OrderBy(r => r.tipoRegistro).ToList();
+
+                }
+
             }
         }
 
@@ -59,6 +75,7 @@ namespace Calendario
                 {
                     return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.tipoRegistro == 1 && r.fechaHoraInicio.Year == dia.Year && r.fechaHoraInicio.Month == dia.Month && r.fechaHoraInicio.Day == dia.Day)
                     .OrderBy(r => r.tipoRegistro).ThenBy(r => r.fechaHoraInicio).ToList();
+
                 }else if(tarea && !recordatorio)
                 {
                     return db.AgendaRegistro.Where(r => r.idUsuario == idUsuario && r.tipoRegistro == 2 && r.fechaHoraInicio.Year == dia.Year && r.fechaHoraInicio.Month == dia.Month && r.fechaHoraInicio.Day == dia.Day)
