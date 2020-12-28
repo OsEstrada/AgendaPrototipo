@@ -940,6 +940,7 @@
             this.cbRecordatorio.Text = "Recordatorios";
             this.cbRecordatorio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cbRecordatorio.UseVisualStyleBackColor = true;
+            this.cbRecordatorio.CheckedChanged += new System.EventHandler(this.cbRecordatorio_CheckedChanged);
             // 
             // cbTareas
             // 
@@ -952,6 +953,7 @@
             this.cbTareas.Text = "Tareas";
             this.cbTareas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cbTareas.UseVisualStyleBackColor = true;
+            this.cbTareas.CheckedChanged += new System.EventHandler(this.cbRecordatorio_CheckedChanged);
             // 
             // label33
             // 

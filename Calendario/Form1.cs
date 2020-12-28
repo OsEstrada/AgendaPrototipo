@@ -231,7 +231,7 @@ namespace Calendario
         {
             listEventsLabels.Clear();
             listEvents.Clear();
-            listEvents = AgendaController.ExtraerRegistrosAgendaDiaria(AuthController.usuario.usuarioId, dateTemp);
+            listEvents = AgendaController.ExtraerRegistrosAgendaDiaria(AuthController.usuario.usuarioId, dateTemp, cbRecordatorio.Checked, cbTareas.Checked);
             var totalEvents = listEvents.Count();
             for (int i = 0; i < totalEvents; i++)
             {
@@ -359,6 +359,12 @@ namespace Calendario
         {
             var modal = new AgregarEventos(dateTemp);
             modal.ShowDialog();
+            dropCalendarDailyEvents();
+            setCalendarDayEvents();
+        }
+
+        private void cbRecordatorio_CheckedChanged(object sender, EventArgs e)
+        {
             dropCalendarDailyEvents();
             setCalendarDayEvents();
         }
