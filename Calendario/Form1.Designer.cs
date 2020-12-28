@@ -28,26 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.barra_titulo = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnAgregar = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.btnNext = new FontAwesome.Sharp.IconButton();
-            this.btnToday = new FontAwesome.Sharp.IconButton();
-            this.btnPrev = new FontAwesome.Sharp.IconButton();
-            this.label21 = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.tlDaysOfWeek = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tlDays = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel_month = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblFechaCompleta = new System.Windows.Forms.Label();
             this.MCal1 = new System.Windows.Forms.MonthCalendar();
@@ -86,315 +66,37 @@
             this.label32 = new System.Windows.Forms.Label();
             this.tlHours = new System.Windows.Forms.TableLayoutPanel();
             this.panel_day = new System.Windows.Forms.Panel();
-            this.barra_titulo.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tlDaysOfWeek.SuspendLayout();
-            this.tlDays.SuspendLayout();
-            this.panel_month.SuspendLayout();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnPrev = new FontAwesome.Sharp.IconButton();
+            this.btnToday = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.btnNext = new FontAwesome.Sharp.IconButton();
+            this.btnAgregar = new FontAwesome.Sharp.IconButton();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.tlDaysOfWeek = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tlDays = new System.Windows.Forms.TableLayoutPanel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel_month = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panelScroll.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_day.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.tlDaysOfWeek.SuspendLayout();
+            this.tlDays.SuspendLayout();
+            this.panel_month.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // barra_titulo
-            // 
-            this.barra_titulo.BackColor = System.Drawing.Color.White;
-            this.barra_titulo.Controls.Add(this.panel2);
-            this.barra_titulo.Controls.Add(this.label21);
-            this.barra_titulo.Controls.Add(this.lblDate);
-            this.barra_titulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barra_titulo.Location = new System.Drawing.Point(0, 0);
-            this.barra_titulo.Name = "barra_titulo";
-            this.barra_titulo.Size = new System.Drawing.Size(1355, 52);
-            this.barra_titulo.TabIndex = 4;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnAgregar);
-            this.panel2.Controls.Add(this.iconButton1);
-            this.panel2.Controls.Add(this.btnNext);
-            this.panel2.Controls.Add(this.btnToday);
-            this.panel2.Controls.Add(this.btnPrev);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(837, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(518, 50);
-            this.panel2.TabIndex = 1;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.btnAgregar.IconColor = System.Drawing.Color.OrangeRed;
-            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnAgregar.IconSize = 40;
-            this.btnAgregar.Location = new System.Drawing.Point(82, 3);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(59, 45);
-            this.btnAgregar.TabIndex = 4;
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 40;
-            this.iconButton1.Location = new System.Drawing.Point(208, 2);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(59, 45);
-            this.iconButton1.TabIndex = 3;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
-            // 
-            // btnNext
-            // 
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.CaretRight;
-            this.btnNext.IconColor = System.Drawing.Color.Black;
-            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnNext.Location = new System.Drawing.Point(419, 2);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(59, 45);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnNext.UseVisualStyleBackColor = false;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnToday
-            // 
-            this.btnToday.FlatAppearance.BorderSize = 0;
-            this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnToday.IconChar = FontAwesome.Sharp.IconChar.RedoAlt;
-            this.btnToday.IconColor = System.Drawing.Color.Black;
-            this.btnToday.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnToday.IconSize = 35;
-            this.btnToday.Location = new System.Drawing.Point(348, 2);
-            this.btnToday.Name = "btnToday";
-            this.btnToday.Size = new System.Drawing.Size(65, 45);
-            this.btnToday.TabIndex = 1;
-            this.btnToday.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnToday.UseVisualStyleBackColor = false;
-            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.BackColor = System.Drawing.Color.White;
-            this.btnPrev.FlatAppearance.BorderSize = 0;
-            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrev.IconChar = FontAwesome.Sharp.IconChar.CaretLeft;
-            this.btnPrev.IconColor = System.Drawing.Color.Black;
-            this.btnPrev.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPrev.Location = new System.Drawing.Point(281, 2);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(61, 45);
-            this.btnPrev.TabIndex = 0;
-            this.btnPrev.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnPrev.UseVisualStyleBackColor = false;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label21.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label21.Location = new System.Drawing.Point(0, 50);
-            this.label21.MaximumSize = new System.Drawing.Size(2, 2);
-            this.label21.MinimumSize = new System.Drawing.Size(1900, 2);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(1900, 2);
-            this.label21.TabIndex = 0;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblDate.Location = new System.Drawing.Point(30, 9);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(117, 32);
-            this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "Mes, Año";
-            // 
-            // tlDaysOfWeek
-            // 
-            this.tlDaysOfWeek.ColumnCount = 7;
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDaysOfWeek.Controls.Add(this.label7, 6, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label6, 5, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label5, 4, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label4, 3, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label3, 2, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label2, 1, 0);
-            this.tlDaysOfWeek.Controls.Add(this.label1, 0, 0);
-            this.tlDaysOfWeek.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tlDaysOfWeek.Location = new System.Drawing.Point(0, 52);
-            this.tlDaysOfWeek.Name = "tlDaysOfWeek";
-            this.tlDaysOfWeek.RowCount = 1;
-            this.tlDaysOfWeek.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlDaysOfWeek.Size = new System.Drawing.Size(1355, 51);
-            this.tlDaysOfWeek.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(1160, 2);
-            this.label7.Margin = new System.Windows.Forms.Padding(2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(193, 47);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Sábado";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(967, 2);
-            this.label6.Margin = new System.Windows.Forms.Padding(2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(189, 47);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Viernes";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(774, 2);
-            this.label5.Margin = new System.Windows.Forms.Padding(2);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(189, 47);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Jueves";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(581, 2);
-            this.label4.Margin = new System.Windows.Forms.Padding(2);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(189, 47);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Miércoles";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(388, 2);
-            this.label3.Margin = new System.Windows.Forms.Padding(2);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 47);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Martes";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(195, 2);
-            this.label2.Margin = new System.Windows.Forms.Padding(2);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 47);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Lunes";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(2, 2);
-            this.label1.Margin = new System.Windows.Forms.Padding(2);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 47);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Domingo";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tlDays
-            // 
-            this.tlDays.ColumnCount = 7;
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
-            this.tlDays.Controls.Add(this.flowLayoutPanel1, 0, 0);
-            this.tlDays.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlDays.Location = new System.Drawing.Point(0, 103);
-            this.tlDays.Margin = new System.Windows.Forms.Padding(1);
-            this.tlDays.Name = "tlDays";
-            this.tlDays.RowCount = 6;
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
-            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
-            this.tlDays.Size = new System.Drawing.Size(1355, 729);
-            this.tlDays.TabIndex = 8;
-            this.tlDays.Resize += new System.EventHandler(this.tlDays_Resize);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 2);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(189, 117);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // panel_month
-            // 
-            this.panel_month.Controls.Add(this.tlDays);
-            this.panel_month.Controls.Add(this.tlDaysOfWeek);
-            this.panel_month.Controls.Add(this.barra_titulo);
-            this.panel_month.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_month.Location = new System.Drawing.Point(0, 0);
-            this.panel_month.Margin = new System.Windows.Forms.Padding(0);
-            this.panel_month.Name = "panel_month";
-            this.panel_month.Size = new System.Drawing.Size(1355, 832);
-            this.panel_month.TabIndex = 0;
             // 
             // panel1
             // 
@@ -520,7 +222,7 @@
             // 
             this.iconButton2.FlatAppearance.BorderSize = 0;
             this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Redo;
             this.iconButton2.IconColor = System.Drawing.Color.Black;
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 40;
@@ -991,55 +693,356 @@
             this.panel_day.Size = new System.Drawing.Size(1355, 832);
             this.panel_day.TabIndex = 1;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label35);
+            this.panel3.Controls.Add(this.label36);
+            this.panel3.Controls.Add(this.checkBox1);
+            this.panel3.Controls.Add(this.checkBox2);
+            this.panel3.Controls.Add(this.btnAgregar);
+            this.panel3.Controls.Add(this.btnNext);
+            this.panel3.Controls.Add(this.lblDate);
+            this.panel3.Controls.Add(this.iconButton1);
+            this.panel3.Controls.Add(this.btnToday);
+            this.panel3.Controls.Add(this.btnPrev);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(271, 832);
+            this.panel3.TabIndex = 5;
+            // 
+            // btnPrev
+            // 
+            this.btnPrev.BackColor = System.Drawing.Color.White;
+            this.btnPrev.FlatAppearance.BorderSize = 0;
+            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrev.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrev.IconChar = FontAwesome.Sharp.IconChar.CaretLeft;
+            this.btnPrev.IconColor = System.Drawing.Color.Black;
+            this.btnPrev.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrev.Location = new System.Drawing.Point(27, 199);
+            this.btnPrev.Name = "btnPrev";
+            this.btnPrev.Size = new System.Drawing.Size(61, 45);
+            this.btnPrev.TabIndex = 3;
+            this.btnPrev.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPrev.UseVisualStyleBackColor = false;
+            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
+            // 
+            // btnToday
+            // 
+            this.btnToday.FlatAppearance.BorderSize = 0;
+            this.btnToday.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnToday.IconChar = FontAwesome.Sharp.IconChar.RedoAlt;
+            this.btnToday.IconColor = System.Drawing.Color.Black;
+            this.btnToday.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnToday.IconSize = 35;
+            this.btnToday.Location = new System.Drawing.Point(104, 199);
+            this.btnToday.Name = "btnToday";
+            this.btnToday.Size = new System.Drawing.Size(65, 45);
+            this.btnToday.TabIndex = 4;
+            this.btnToday.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnToday.UseVisualStyleBackColor = false;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.CalendarDay;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 40;
+            this.iconButton1.Location = new System.Drawing.Point(12, 56);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(59, 45);
+            this.iconButton1.TabIndex = 3;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click_1);
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDate.Location = new System.Drawing.Point(75, 148);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(117, 32);
+            this.lblDate.TabIndex = 0;
+            this.lblDate.Text = "Mes, Año";
+            // 
+            // btnNext
+            // 
+            this.btnNext.FlatAppearance.BorderSize = 0;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.IconChar = FontAwesome.Sharp.IconChar.CaretRight;
+            this.btnNext.IconColor = System.Drawing.Color.Black;
+            this.btnNext.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnNext.Location = new System.Drawing.Point(187, 199);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(59, 45);
+            this.btnNext.TabIndex = 5;
+            this.btnNext.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnNext.UseVisualStyleBackColor = false;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.btnAgregar.IconColor = System.Drawing.Color.OrangeRed;
+            this.btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAgregar.IconSize = 40;
+            this.btnAgregar.Location = new System.Drawing.Point(203, 56);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(59, 45);
+            this.btnAgregar.TabIndex = 4;
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox2.Location = new System.Drawing.Point(108, 328);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(125, 22);
+            this.checkBox2.TabIndex = 10;
+            this.checkBox2.Text = "Recordatorios";
+            this.checkBox2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(108, 373);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(76, 22);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "Tareas";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label36
+            // 
+            this.label36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(229)))), ((int)(((byte)(246)))));
+            this.label36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label36.Location = new System.Drawing.Point(46, 326);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(50, 22);
+            this.label36.TabIndex = 12;
+            // 
+            // label35
+            // 
+            this.label35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(251)))), ((int)(((byte)(172)))));
+            this.label35.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label35.Location = new System.Drawing.Point(46, 371);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(50, 22);
+            this.label35.TabIndex = 13;
+            // 
+            // tlDaysOfWeek
+            // 
+            this.tlDaysOfWeek.ColumnCount = 7;
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDaysOfWeek.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDaysOfWeek.Controls.Add(this.label7, 6, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label6, 5, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label5, 4, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label4, 3, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label3, 2, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label2, 1, 0);
+            this.tlDaysOfWeek.Controls.Add(this.label1, 0, 0);
+            this.tlDaysOfWeek.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlDaysOfWeek.Location = new System.Drawing.Point(271, 0);
+            this.tlDaysOfWeek.Name = "tlDaysOfWeek";
+            this.tlDaysOfWeek.RowCount = 1;
+            this.tlDaysOfWeek.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlDaysOfWeek.Size = new System.Drawing.Size(1084, 51);
+            this.tlDaysOfWeek.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(2, 2);
+            this.label1.Margin = new System.Windows.Forms.Padding(2);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 47);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Domingo";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(156, 2);
+            this.label2.Margin = new System.Windows.Forms.Padding(2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 47);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Lunes";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(310, 2);
+            this.label3.Margin = new System.Windows.Forms.Padding(2);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 47);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Martes";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(464, 2);
+            this.label4.Margin = new System.Windows.Forms.Padding(2);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 47);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Miércoles";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(618, 2);
+            this.label5.Margin = new System.Windows.Forms.Padding(2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(150, 47);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Jueves";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(772, 2);
+            this.label6.Margin = new System.Windows.Forms.Padding(2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(150, 47);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Viernes";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(75)))), ((int)(((byte)(110)))));
+            this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(926, 2);
+            this.label7.Margin = new System.Windows.Forms.Padding(2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(156, 47);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Sábado";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tlDays
+            // 
+            this.tlDays.ColumnCount = 7;
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.29F));
+            this.tlDays.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tlDays.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tlDays.Location = new System.Drawing.Point(271, 51);
+            this.tlDays.Margin = new System.Windows.Forms.Padding(1);
+            this.tlDays.Name = "tlDays";
+            this.tlDays.RowCount = 6;
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.67F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
+            this.tlDays.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66F));
+            this.tlDays.Size = new System.Drawing.Size(1084, 781);
+            this.tlDays.TabIndex = 11;
+            this.tlDays.Resize += new System.EventHandler(this.tlDays_Resize);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(2, 2);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(150, 126);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // panel_month
+            // 
+            this.panel_month.Controls.Add(this.tlDays);
+            this.panel_month.Controls.Add(this.tlDaysOfWeek);
+            this.panel_month.Controls.Add(this.panel3);
+            this.panel_month.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_month.Location = new System.Drawing.Point(0, 0);
+            this.panel_month.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_month.Name = "panel_month";
+            this.panel_month.Size = new System.Drawing.Size(1355, 832);
+            this.panel_month.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1355, 835);
-            this.Controls.Add(this.panel_day);
             this.Controls.Add(this.panel_month);
+            this.Controls.Add(this.panel_day);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
             this.Text = "Calendario";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.barra_titulo.ResumeLayout(false);
-            this.barra_titulo.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.tlDaysOfWeek.ResumeLayout(false);
-            this.tlDays.ResumeLayout(false);
-            this.panel_month.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelScroll.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel_day.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.tlDaysOfWeek.ResumeLayout(false);
+            this.tlDays.ResumeLayout(false);
+            this.panel_month.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel barra_titulo;
-        private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton btnNext;
-        private FontAwesome.Sharp.IconButton btnToday;
-        private FontAwesome.Sharp.IconButton btnPrev;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.TableLayoutPanel tlDaysOfWeek;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TableLayoutPanel tlDays;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel panel_month;
-        private FontAwesome.Sharp.IconButton btnAgregar;
         private System.Windows.Forms.Panel panel1;
         private FontAwesome.Sharp.IconButton iconButton2;
         private System.Windows.Forms.Label label34;
@@ -1078,6 +1081,28 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel_day;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private FontAwesome.Sharp.IconButton btnAgregar;
+        private FontAwesome.Sharp.IconButton btnNext;
+        private System.Windows.Forms.Label lblDate;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnToday;
+        private FontAwesome.Sharp.IconButton btnPrev;
+        private System.Windows.Forms.TableLayoutPanel tlDaysOfWeek;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tlDays;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel_month;
     }
 }
 
