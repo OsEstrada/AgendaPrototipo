@@ -369,6 +369,15 @@ namespace Calendario
             setCalendarDayEvents();
         }
 
+        private void iconButton2_Click(object sender, EventArgs e)
+        {
+            dateTemp = DateTime.Now;
+            lblFechaCompleta.Text = dateTemp.ToString("dd, MMMM, yyyy");
+            MCal1.SetDate(dateTemp);
+            dropCalendarDailyEvents();
+            setCalendarDayEvents();
+        }
+
         private void MCal1_DateSelected(object sender, DateRangeEventArgs e)
         {
             dateTemp = MCal1.SelectionStart;
